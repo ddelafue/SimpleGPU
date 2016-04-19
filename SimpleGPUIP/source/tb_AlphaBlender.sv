@@ -33,7 +33,24 @@ module tb_AlphaBlender
 	wire[7:0] tb_write_b;
 
 	//Connections
-	AlphaBlender U1 (.clk(tb_clk), .reset(tb_reset), .pixel_number(tb_pixel_number), .pixel_ready(tb_pixel_ready), .r(tb_r), .g(tb_g), .b(tb_b), .a(tb_a), .read_r(tb_read_r), .read_g(tb_read_g), .read_b(tb_read_b), .frame_ready(tb_frame_ready), .o_frame_ready(tb_o_frame_ready), .read(tb_read), .write(tb_write), .write_r(tb_write_r), .write_g(tb_write_g), .write_b(tb_write_b));
+	AlphaBlender #(2) U1 (.clk(tb_clk),
+			 .reset(tb_reset),
+			 .pixel_number(tb_pixel_number),
+			 .pixel_ready(tb_pixel_ready),
+			 .r(tb_r),
+			 .g(tb_g),
+			 .b(tb_b),
+			 .a(tb_a),
+			 .read_r(tb_read_r),
+			 .read_g(tb_read_g),
+			 .read_b(tb_read_b),
+			 .frame_ready(tb_frame_ready),
+			 .o_frame_ready(tb_o_frame_ready),
+			 .read(tb_read),
+			 .write(tb_write),
+			 .write_r(tb_write_r),
+			 .write_g(tb_write_g),
+			 .write_b(tb_write_b));
 
 	//Clock signal
 	always
@@ -43,6 +60,7 @@ module tb_AlphaBlender
 
 	initial
 	begin
+		//Initializations
 		tb_clk = 1'b0;
 		tb_reset = 1'b0;
 		tb_read_r = 8'b00000001;
@@ -54,12 +72,14 @@ module tb_AlphaBlender
 		tb_a = 8'b00010001;
 		tb_pixel_number = 1b'0;
 		tb_pixel_ready = 1'b0;
+
 		#2;
 		tb_pixel_ready = 1'b1;
 		#4;
 		tb_pixel_ready = 1'b0;
 		#4
-		if(tb_write_r == 8'b00001001)
+		// Checking for values
+		assert(tb_write_r == 8'b00001001)
 		begin
 			$display("Correct Value: Red")
 		end
@@ -67,7 +87,7 @@ module tb_AlphaBlender
 		begin
 			$display("Error: Incorrect Value: Red")
 		end
-		if(tb_write_g == 8'b00000110)
+		assert(tb_write_g == 8'b00000110)
 		begin
 			$display("Correct Value: Green")
 		end
@@ -75,7 +95,7 @@ module tb_AlphaBlender
 		begin
 			$display("Error: Incorrect Value: Green")
 		end
-		if(tb_write_b == 8'b00001111)
+		assert(tb_write_b == 8'b00001111)
 		begin
 			$display("Correct Value: Blue")
 		end
@@ -83,6 +103,18 @@ module tb_AlphaBlender
 		begin
 			$display("Error: Incorrect Value: Green")
 		end
+
+		#4
+		tb_read_r = 8'b11111111;
+		tb_read_g = 8'b10101010;
+		tb_read_b = 8'b00000000;
+		tb_r = 8'b00000000;
+		tb_g = 8'b00000000;
+		tb_b = 8'b00000000;
+		tb_a = 8'b00000000;
+		tb_pixel_ready = 1'b1;
+		#4
+		tb_pixel_ready = 1'b0;
 	end
 
 endmodule 
