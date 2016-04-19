@@ -45,7 +45,7 @@ COMPONENT_FILES += ../demo_slave_only/fpga_divide.v ../demo_slave_only/fpga_mult
 # Specify the name of the top level file (do not include the source folder in the name)
 # NOTE: YOU WILL NEED TO SET THIS VARIABLE'S VALUE WHEN WORKING WITH HEIRARCHICAL DESIGNS
 # AND THE AUTOMATED GRADING SYSTEM
-TOP_LEVEL_FILE	:= usb_receiver.sv
+TOP_LEVEL_FILE	:= AlphaBlender.sv
 
 # Specify the filename of the test bench you want to use (without the 'source/')
 TEST_BENCH	:= tb_$(TOP_LEVEL_FILE)
