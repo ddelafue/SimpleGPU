@@ -113,7 +113,13 @@ module tb_AlphaBlender
 		tb_b = 8'b00000000;
 		tb_a = 8'b00000000;
 		tb_pixel_ready = 1'b1;
-		#4
+		#4;
+		tb_pixel_ready = 1'b0;
+		#4;
+		#4;
+		tb_a = 8'b11111111;
+		tb_pixel_ready = 1'b1;
+		#4;
 		tb_pixel_ready = 1'b0;
 	end
 
