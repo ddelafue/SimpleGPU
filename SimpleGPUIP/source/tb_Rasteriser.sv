@@ -14,10 +14,40 @@ module tb_Rasteriser
 	// DUT Signals
 	reg tb_clk;
 	reg tb_reset;
+	reg tb_opcode_received;
+	reg tb_data_ready;
+	reg tb_triangle_done;
+	reg[15:0] tb_x1;
+	reg[15:0] tb_y1;
+	reg[15:0] tb_x2;
+	reg[15:0] tb_y2;
+	reg[15:0] tb_x3;
+	reg[15:0] tb_y3;
+	wire tb_clear;
+	wire tb_count_up;
+	wire tb_next_triangle;
+	wire tb_load_texture;
+	wire tb_get_rgba;
+	wire tb_get_pixel;
 
 	//Connections
 	Rasteriser U1 (.clk(tb_clk),
-			.reset(tb_reset));
+			.reset(tb_reset)
+			.opcode_received(tb_opcode_received)
+			.data_ready(tb_data_ready)
+			.triangle_done(tb_triangle_done)
+			.x1(tb_x1)
+			.y1(tb_y1)
+			.x2(tb_x2)
+			.y2(tb_y2)
+			.x3(tb_x3)
+			.y3(tb_y3)
+			.clear(tb_clear)
+			.count_up(tb_count_up)
+			.next_triangle(tb_next_triangle)
+			.load_texture(tb_load_texture)
+			.get_rgba(tb_get_rgba)
+			.get_pixel(tb_get_pixel));
 
 	//Clock Signal
 	always
