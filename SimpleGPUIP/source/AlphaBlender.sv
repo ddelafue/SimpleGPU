@@ -46,9 +46,9 @@ wire [7:0] addg;
 wire [7:0] addb;
 wire [7:0] blankremainder;
 
-reg [CLKWAIT - 1:0] wait;
+reg [CLKWAIT - 1:0] wtime;
 
-assign write = wait[CLKWAIT - 1];
+assign write = wtime[CLKWAIT - 1];
 
 always_ff @ (negedge reset, posedge clk)
 begin
@@ -56,15 +56,15 @@ begin
 	begin
 		for (int i = 0; i < CLKWAIT; i = i + 1)
 		begin
-			wait <= 1'b0;
+			wtime <= 1'b0;
 		end
 	end
 	else
 	begin
-		wait[0] <= pixel_ready;
+		wtime[0] <= pixel_ready;
 		for (int i = 1; i < CLKWAIT; i = i + 1)
 		begin
-			wait[i] <= wait[i - 1];
+			wtime[i] <= wtime[i - 1];
 		end
 	end
 end
@@ -74,8 +74,8 @@ end
 
 
 
-assign read = pixel_ready
-assign o_frame_ready = frame_ready 
+assign read = pixel_ready;
+assign o_frame_ready = frame_ready; 
 fpga_sub redsub1 (.dataa(max), .datab(a), .result(subr));
 fpga_sub greensub1 (.dataa(max), .datab(a), .result(subg));
 fpga_sub bluesub1 (.dataa(max), .datab(a), .result(subb));
@@ -88,7 +88,7 @@ fpga_mult bluemul2 (.dataa(b), .datab(a), .result(mul2b));
 fpga_add redadd (.dataa(mul1r), .datab(mul2r), .result(addr));
 fpga_add greenadd (.dataa(mul1g), .datab(mul2g), .result(addg));
 fpga_add blueadd (.dataa(mul1b), .datab(mul2b), .result(addb));
-fpga_divide reddiv (.denom(max), .numer(addr), .quotient(write_r), .remain(blankremainder);
+fpga_divide reddiv (.denom(max), .numer(addr), .quotient(write_r), .remain(blankremainder));
 fpga_divide greendiv (.denom(max), .numer(addg), .quotient(write_g), .remain(blankremainder));
 fpga_divide bluediv (.denom(max), .numer(addb), .quotient(write_b), .remain(blankremainder));
 
