@@ -7,6 +7,9 @@
 // Description: Alpha Blender Module
 
 module AlphaBlender
+#(
+	parameter CLKWAIT = 2
+)
 (
 	input wire [18:0] pixel_number,
 	input wire pixel_ready,
@@ -41,9 +44,62 @@ wire [7:0] mul2b;
 wire [7:0] addr;
 wire [7:0] addg;
 wire [7:0] addb;
+wire [7:0] blankremainder;
+int i = 0
 
 
-subr = fpga_sub red1 (.dataa(max), .datab(
+always_ff @ (negedge reset, posedge clk)
+begin
+	if(i < CLKWAIT)
+	begin
+		i = i + 1
+	end
+
+	else
+	begin
+		write <= pixel_ready
+		i = 0
+end
+
+	
+
+
+
+
+assign read = pixel_ready
+assign 
+fpga_sub redsub1 (.dataa(max), .datab(a), .result(subr));
+fpga_sub greensub1 (.dataa(max), .datab(a), .result(subg));
+fpga_sub bluesub1 (.dataa(max), .datab(a), .result(subb));
+fpga_mult redmul1 (.dataa(read_r), .datab(subr), .result(mul1r));
+fpga_mult greenmul1 (.dataa(read_g), .datab(subg), .result(mul1g));
+fpga_mult bluemul1 (.dataa(read_b), .datab(subb), .result(mul1b));
+fpga_mult redmul2 (.dataa(r), .datab(a), .result(mul2r));
+fpga_mult greenmul2 (.dataa(g), .datab(a), .result(mul2g));
+fpga_mult bluemul2 (.dataa(b), .datab(a), .result(mul2b));
+fpga_add redadd (.dataa(mul1r), .datab(mul2r), .result(addr));
+fpga_add greenadd (.dataa(mul1g), .datab(mul2g), .result(addg));
+fpga_add blueadd (.dataa(mul1b), .datab(mul2b), .result(addb));
+fpga_divide reddiv (.denom(max), .numer(addr), .quotient(write_r), .remain(blankremainder);
+fpga_divide greendiv (.denom(max), .numer(addg), .quotient(write_g), .remain(blankremainder));
+fpga_divide bluediv (.denom(max), .numer(addb), .quotient(write_b), .remain(blankremainder));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 endmodule
