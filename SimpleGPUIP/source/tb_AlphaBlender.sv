@@ -41,4 +41,48 @@ module tb_AlphaBlender
 		#2 tb_clk = !tb_clk;
 	end
 
+	initial
+	begin
+		tb_clk = 1'b0;
+		tb_reset = 1'b0;
+		tb_read_r = 8'b00000001;
+		tb_read_g = 8'b00000010;
+		tb_read_b = 8'b00000011;
+		tb_r = 8'b10000000;
+		tb_g = 8'b01000000;
+		tb_b = 8'b11000000;
+		tb_a = 8'b00010001;
+		tb_pixel_number = 1b'0;
+		tb_pixel_ready = 1'b0;
+		#2;
+		tb_pixel_ready = 1'b1;
+		#4;
+		tb_pixel_ready = 1'b0;
+		#4
+		if(tb_write_r == 8'b00001001)
+		begin
+			$display("Correct Value: Red")
+		end
+		else
+		begin
+			$display("Error: Incorrect Value: Red")
+		end
+		if(tb_write_g == 8'b00000110)
+		begin
+			$display("Correct Value: Green")
+		end
+		else
+		begin
+			$display("Error: Incorrect Value: Green")
+		end
+		if(tb_write_b == 8'b00001111)
+		begin
+			$display("Correct Value: Blue")
+		end
+		else
+		begin
+			$display("Error: Incorrect Value: Green")
+		end
+	end
+
 endmodule 
