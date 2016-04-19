@@ -25,6 +25,7 @@ module Rasteriser
 	output reg load_texture,
 	output reg get_rgba,
 	output reg get_pixel,
+	output reg get_line,
 	output reg [18:0] pixel_number
 );
 
