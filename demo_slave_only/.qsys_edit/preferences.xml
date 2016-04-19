@@ -9,7 +9,7 @@
   </columns>
  </systemtable>
  <library
-   expandedCategories="Library/Basic Functions/On Chip Memory,Library/Basic Functions,Library,Project" />
+   expandedCategories="Project,Library,Library/Basic Functions,Library/Basic Functions/Bridges and Adaptors" />
  <window width="1920" height="1150" x="0" y="25" />
  <generation path="" simulation="VERILOG" />
 </preferences>

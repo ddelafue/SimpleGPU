@@ -554,3 +554,7 @@ set_global_assignment -name SYSTEMVERILOG_FILE user_logic.sv
 set_global_assignment -name QIP_FILE ahb_slave_with_pcie/synthesis/ahb_slave_with_pcie.qip
 set_global_assignment -name SYSTEMVERILOG_FILE master_example.sv
 set_global_assignment -name SDC_FILE master_example.sdc
+set_global_assignment -name QIP_FILE fpga_divide.qip
+set_global_assignment -name QIP_FILE fpga_mult.qip
+set_global_assignment -name QIP_FILE fpga_add.qip
+set_global_assignment -name QIP_FILE fpga_sub.qip

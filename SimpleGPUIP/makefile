@@ -40,6 +40,7 @@ TB_HELPER_FILES	:=
 COMPONENT_FILES	:= $(EDGE_FILE) $(EOP_FILE) $(DECODE_FILE) $(RX_FIFO_FILE)
 COMPONENT_FILES += shift_register.sv rcu.sv timer.sv sync_high.sv sync_low.sv
 COMPONENT_FILES += flex_counter.sv flex_stp_sr.sv
+COMPONENT_FILES += ../demo_slave_only/fpga_divide.v ../demo_slave_only/fpga_mult.v ../demo_slave_only/fpga_add.v ../demo_slave_only/fpga_sub.v
 
 # Specify the name of the top level file (do not include the source folder in the name)
 # NOTE: YOU WILL NEED TO SET THIS VARIABLE'S VALUE WHEN WORKING WITH HEIRARCHICAL DESIGNS
