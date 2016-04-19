@@ -109,6 +109,12 @@ module tb_AlphaBlender
 		tb_read_g = 8'b10101010;
 		tb_read_b = 8'b00000000;
 		tb_r = 8'b00000000;
+		tb_g = 8'b00000000;
+		tb_b = 8'b00000000;
+		tb_a = 8'b00000000;
+		tb_pixel_ready = 1'b1;
+		#4
+		tb_pixel_ready = 1'b0;
 	end
 
 endmodule 
