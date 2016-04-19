@@ -14,6 +14,8 @@ module AlphaBlender
 	input wire [7:0] g,
 	input wire [7:0] b,
 	input wire [7:0] read_r,
+	input wire clk,
+	input wire reset,
 	input wire [7:0] read_g,
 	input wire [7:0] read_b,
 	input wire frame_ready,
@@ -25,6 +27,22 @@ module AlphaBlender
 	output wire [7:0] write_b
 );
 
-	
+wire [7:0] max = 8'b11111111;
+wire [7:0] subr;
+wire [7:0] subg;
+wire [7:0] subb;
+wire [7:0] mul1r;
+wire [7:0] mul2r;
+wire [7:0] mul1g;
+wire [7:0] mul2g;
+wire [7:0] mul1b;
+wire [7:0] mul2b;
+wire [7:0] addr;
+wire [7:0] addg;
+wire [7:0] addb;
+
+
+subr = fpga_sub red1 (.dataa(max), .datab(
+
 
 endmodule
