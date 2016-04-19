@@ -13,6 +13,7 @@ module AlphaBlender
 	input wire [7:0] r,
 	input wire [7:0] g,
 	input wire [7:0] b,
+	input wire [7:0] a,
 	input wire [7:0] read_r,
 	input wire clk,
 	input wire reset,
