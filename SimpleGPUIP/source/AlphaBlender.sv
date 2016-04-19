@@ -25,7 +25,7 @@ module AlphaBlender
 	input wire frame_ready,
 	output wire o_frame_ready,
 	output wire read,
-	output reg write,
+	output wire write,
 	output wire [7:0] write_r,
 	output wire [7:0] write_g,
 	output wire [7:0] write_b
@@ -45,20 +45,28 @@ wire [7:0] addr;
 wire [7:0] addg;
 wire [7:0] addb;
 wire [7:0] blankremainder;
-int i = 0
 
+reg [CLKWAIT - 1:0] wait;
+
+assign write = wait[CLKWAIT - 1];
 
 always_ff @ (negedge reset, posedge clk)
 begin
-	if(i < CLKWAIT)
+	if(reset == 1'b0)
 	begin
-		i = i + 1
+		for (int i = 0; i < CLKWAIT; i = i + 1)
+		begin
+			wait <= 1'b0;
+		end
 	end
-
 	else
 	begin
-		write <= pixel_ready
-		i = 0
+		wait[0] <= pixel_ready;
+		for (int i = 1; i < CLKWAIT; i = i + 1)
+		begin
+			wait[i] <= wait[i - 1];
+		end
+	end
 end
 
 	
@@ -67,7 +75,7 @@ end
 
 
 assign read = pixel_ready
-assign 
+assign o_frame_ready = frame_ready 
 fpga_sub redsub1 (.dataa(max), .datab(a), .result(subr));
 fpga_sub greensub1 (.dataa(max), .datab(a), .result(subg));
 fpga_sub bluesub1 (.dataa(max), .datab(a), .result(subb));
