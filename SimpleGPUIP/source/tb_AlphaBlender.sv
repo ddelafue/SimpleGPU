@@ -70,41 +70,41 @@ module tb_AlphaBlender
 		tb_g = 8'b01000000;
 		tb_b = 8'b11000000;
 		tb_a = 8'b00010001;
-		tb_pixel_number = 1b'0;
+		tb_pixel_number = 1'b0;
 		tb_pixel_ready = 1'b0;
 
 		#2;
 		tb_pixel_ready = 1'b1;
 		#4;
 		tb_pixel_ready = 1'b0;
-		#4
+		#4;
 		// Checking for values
 		assert(tb_write_r == 8'b00001001)
 		begin
-			$display("Correct Value: Red")
+			$display("Correct Value: Red");
 		end
 		else
 		begin
-			$display("Error: Incorrect Value: Red")
+			$display("Error: Incorrect Value: Red");
 		end
 		assert(tb_write_g == 8'b00000110)
 		begin
-			$display("Correct Value: Green")
+			$display("Correct Value: Green");
 		end
 		else
 		begin
-			$display("Error: Incorrect Value: Green")
+			$display("Error: Incorrect Value: Green");
 		end
 		assert(tb_write_b == 8'b00001111)
 		begin
-			$display("Correct Value: Blue")
+			$display("Correct Value: Blue");
 		end
 		else
 		begin
-			$display("Error: Incorrect Value: Green")
+			$display("Error: Incorrect Value: Green");
 		end
 
-		#4
+		#4;
 		tb_read_r = 8'b11111111;
 		tb_read_g = 8'b10101010;
 		tb_read_b = 8'b00000000;

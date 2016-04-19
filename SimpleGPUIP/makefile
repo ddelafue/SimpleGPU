@@ -38,9 +38,9 @@ TB_HELPER_FILES	:=
 # The contents of these variables must either be plain text (no functions or variable references)
 # or references to the Phase 1 submodule code file variables
 COMPONENT_FILES	:= $(EDGE_FILE) $(EOP_FILE) $(DECODE_FILE) $(RX_FIFO_FILE)
-COMPONENT_FILES += shift_register.sv rcu.sv timer.sv sync_high.sv sync_low.sv
-COMPONENT_FILES += flex_counter.sv flex_stp_sr.sv
-COMPONENT_FILES += ../demo_slave_only/fpga_divide.v ../demo_slave_only/fpga_mult.v ../demo_slave_only/fpga_add.v ../demo_slave_only/fpga_sub.v
+#COMPONENT_FILES += shift_register.sv rcu.sv timer.sv sync_high.sv sync_low.sv
+#COMPONENT_FILES += flex_counter.sv flex_stp_sr.sv
+COMPONENT_FILES += fpga_divide.v fpga_mult.v fpga_add.v fpga_sub.v
 
 # Specify the name of the top level file (do not include the source folder in the name)
 # NOTE: YOU WILL NEED TO SET THIS VARIABLE'S VALUE WHEN WORKING WITH HEIRARCHICAL DESIGNS
@@ -311,7 +311,7 @@ MOD_NAME := $(basename $(MAIN_FILE))
 # clock signal name for sequential/clocked designs.
 # Also have to specify to run with the c shell to force it to use the course config (.cshrc) and call course scripts 
 mapped/$(TOP_MODULE).v: SHELL := /usr/local/bin/tcsh
-$(addsuffix .v, $(addprefix mapped/, $(TOP_MODULE))): mapped/%.v : source/%.sv $(addprefix source/,$(COMPONENT_FILES))
+$(addsuffix .v, $(addprefix mapped/, $(TOP_MODULE))): mapped/%.v : source/%.sv $(addprefix ../demo_slave_only/,$(COMPONENT_FILES))
 	@echo "Synthesizing design: $@\n"
 	@$(MAKE) --no-print-directory syn_mapped MAIN_FILE='$(notdir $<)' DEP_SUB_FILES='$(COMPONENT_FILES)' CLOCK_NAME='$(CLOCK_NAME)' CLOCK_PERIOD='$(CLOCK_PERIOD)' > $(notdir $(basename $@)).log
 	@echo "Synthesis run attempt for $@ complete"
