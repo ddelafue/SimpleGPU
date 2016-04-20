@@ -1,0 +1,103 @@
+html,body {
+    height: 100%;
+}
+body { 
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-image: -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+   	color-stop(0, rgb(136,209,241)),
+   	color-stop(1, rgb(0,73,135)));
+    );
+}
+hr {
+    border-top: 1px solid #ccc;
+}
+.title {
+   font-family: "Gill Sans", "Gill Sans MT", "Liberation Sans", Arial, sans-serif; 
+   font-size:16pt; 
+   font-weight:bold; 
+   color:rgb(255,255,255);
+}
+.mru-list { 
+    list-style-image: url(../img/afcq_new_prj_wiz.png);
+    list-style-position: inside;
+	color:rgb(255,255,255);
+}
+.project-name {  
+   font-weight: bold; 
+}
+.recent-project { 
+    font-size: 8pt; 
+}
+.action {
+    cursor: pointer;
+    font-size: 10pt; 
+    vertical-align: middle;
+}
+.action:hover {
+	background: #004987;
+    /* background: #C8DAE3; */
+}
+.center {
+    text-align: center;
+}
+.sscq-bg {
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    background-image: url('../img/sscq_bg.png');
+}
+.white-box {
+    background-color: white;
+}
+.light-blue-box {
+    background-color: #004987;
+    padding-bottom: 0px;
+}
+.well-min-height {
+    min-height: 250px;
+}
+.thumbnail-height {
+    min-height: 50px;
+}
+a.thumbnail:hover {
+    border-color: #0088cc;
+    text-decoration: none;
+    background-color: #F2FBFF;
+    -webkit-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+     -moz-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+          box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+}
+.blank-height {
+    height: 5px;
+}
+.checkbox-font {
+    font-family: "Liberation Sans", Arial, sans-serif;
+    font-size: 10pt;
+}
+/* Wrapper for page content to push down footer */
+#wrap {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    /* Negative indent footer by it's height */
+    margin: 0 auto -110px;
+}
+
+/* Set the fixed height of the footer here */
+#push,
+#footer {
+    height: 110px;
+}
+
+/* Lastly, apply responsive CSS fixes as necessary */
+@media (max-width: 767px) {
+    #footer {
+        margin-left: -20px;
+        margin-right: -20px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}

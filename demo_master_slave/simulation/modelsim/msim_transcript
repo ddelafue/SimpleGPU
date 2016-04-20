@@ -1,0 +1,46 @@
+# do master_example_run_msim_gate_verilog.do
+# if {[file exists gate_work]} {
+# 	vdel -lib gate_work -all
+# }
+# vlib gate_work
+# vmap work gate_work
+# Model Technology ModelSim ALTERA vmap 10.4b Lib Mapping Utility 2015.05 May 27 2015
+# vmap -modelsim_quiet work gate_work 
+# Copying C:/altera_lite/15.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied C:/altera_lite/15.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vlog -vlog01compat -work work +incdir+. {master_example_7_1200mv_85c_slow.vo}
+# Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+# Start time: 16:52:42 on Dec 10,2015
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+." master_example_7_1200mv_85c_slow.vo 
+# -- Compiling module master_example
+# 
+# Top level modules:
+# 	master_example
+# End time: 16:52:48 on Dec 10,2015, Elapsed time: 0:00:06
+# Errors: 0, Warnings: 0
+# 
+# vlog -sv -work work +incdir+C:/Users/lucas/Documents/FPGA/de2i150/demo_master_slave/Custom\ Files {C:/Users/lucas/Documents/FPGA/de2i150/demo_master_slave/Custom Files/tb_icb.sv}
+# Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+# Start time: 16:52:48 on Dec 10,2015
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/lucas/Documents/FPGA/de2i150/demo_master_slave/Custom Files" C:/Users/lucas/Documents/FPGA/de2i150/demo_master_slave/Custom Files/tb_icb.sv 
+# -- Compiling module tb_icb
+# 
+# Top level modules:
+# 	tb_icb
+# End time: 16:52:49 on Dec 10,2015, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps +transport_int_delays +transport_path_delays -L altera_mf_ver -L altera_ver -L lpm_ver -L sgate_ver -L cycloneiv_hssi_ver -L cycloneiv_pcie_hip_ver -L cycloneiv_ver -L gate_work -L work -voptargs="+acc"  icb
+# vsim -t 1ps "+transport_int_delays" "+transport_path_delays" -L altera_mf_ver -L altera_ver -L lpm_ver -L sgate_ver -L cycloneiv_hssi_ver -L cycloneiv_pcie_hip_ver -L cycloneiv_ver -L gate_work -L work -voptargs=""+acc"" icb 
+# Start time: 16:52:50 on Dec 10,2015
+# ** Error: (vsim-3170) Could not find 'C:/Users/lucas/Documents/FPGA/de2i150/demo_master_slave/simulation/modelsim/gate_work.icb'.
+# 
+# Error loading design
+# Error: Error loading design
+#        Pausing macro execution
+# MACRO ./master_example_run_msim_gate_verilog.do PAUSED at line 12
+# End time: 16:53:04 on Dec 10,2015, Elapsed time: 0:00:14
+# Errors: 1, Warnings: 0

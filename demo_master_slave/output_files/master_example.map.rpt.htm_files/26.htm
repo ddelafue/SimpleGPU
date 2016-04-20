@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<HTML><HEAD>
+<TITLE>State Machine - |master_example|amm_master_qsys_with_pcie:amm_master_inst|amm_master_qsys_with_pcie_pcie_ip:pcie_ip|altpcie_hip_pipen1b_qsys:pcie_internal_hip|altpciexpav_stif_app:avalon_stream_hip_qsys.avalon_bridge|altpciexpav_stif_control_register:cntrl_reg|altpciexpav_stif_cr_avalon:i_avalon|avalon_state_reg</TITLE>
+
+<link rel="stylesheet" type="text/css" href="css/reset.css">
+<link rel="stylesheet" type="text/css" href="css/base.css">
+<link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="css/jquery.layout-latest.css">
+<link rel="stylesheet" type="text/css" href="css/override.css">
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/jquery.layout-latest.js"></script>
+
+
+</HEAD>
+
+<BODY>
+<TABLE>
+<thead><TR  bgcolor="#BFBFBF">
+<TH>Name</TH>
+<TH>avalon_state_reg.CRA_PIPE</TH>
+<TH>avalon_state_reg.CRA_READ_ACK</TH>
+<TH>avalon_state_reg.CRA_READ_WAIT</TH>
+<TH>avalon_state_reg.CRA_READ_FIRST</TH>
+<TH>avalon_state_reg.CRA_WRITE_ACK</TH>
+<TH>avalon_state_reg.CRA_IDLE</TH>
+</TR>
+</thead><tbody><TR >
+<TD >avalon_state_reg.CRA_IDLE</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >avalon_state_reg.CRA_WRITE_ACK</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >1</TD>
+<TD >1</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >avalon_state_reg.CRA_READ_FIRST</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >1</TD>
+<TD >0</TD>
+<TD >1</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >avalon_state_reg.CRA_READ_WAIT</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >1</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >1</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >avalon_state_reg.CRA_READ_ACK</TD>
+<TD >0</TD>
+<TD >1</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >1</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >avalon_state_reg.CRA_PIPE</TD>
+<TD >1</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >1</TD>
+</TR>
+</tbody></TABLE>
+
+<noscript>JavaScript must be enabled to view the report.</noscript>
+</BODY>
+</HTML>

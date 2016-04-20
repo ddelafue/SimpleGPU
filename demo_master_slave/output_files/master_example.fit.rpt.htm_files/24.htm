@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<HTML><HEAD>
+<TITLE>PLL Usage</TITLE>
+
+<link rel="stylesheet" type="text/css" href="css/reset.css">
+<link rel="stylesheet" type="text/css" href="css/base.css">
+<link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="css/jquery.layout-latest.css">
+<link rel="stylesheet" type="text/css" href="css/override.css">
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/jquery.layout-latest.js"></script>
+
+
+</HEAD>
+
+<BODY>
+<TABLE>
+<thead><TR  bgcolor="#BFBFBF">
+<TH>Name</TH>
+<TH>Output Clock</TH>
+<TH>Mult</TH>
+<TH>Div</TH>
+<TH>Output Frequency</TH>
+<TH>Phase Shift</TH>
+<TH>Phase Shift Step</TH>
+<TH>Duty Cycle</TH>
+<TH>Counter</TH>
+<TH>Counter Value</TH>
+<TH>High / Low</TH>
+<TH>Cascade Input</TH>
+<TH>Initial</TH>
+<TH>VCO Tap</TH>
+<TH>SDC Pin Name</TH>
+</TR>
+</thead><tbody><TR >
+<TD >amm_master_qsys_with_pcie:amm_master_inst|amm_master_qsys_with_pcie_altpll_qsys:altpll_qsys|amm_master_qsys_with_pcie_altpll_qsys_altpll_02o2:sd1|wire_pll7_clk[1]</TD>
+<TD >clock1</TD>
+<TD >1</TD>
+<TD >1</TD>
+<TD >50.0 MHz</TD>
+<TD >0 (0 ps)</TD>
+<TD >2.81 (156 ps)</TD>
+<TD >50/50</TD>
+<TD >C0</TD>
+<TD >16</TD>
+<TD >8/8 Even</TD>
+<TD >--</TD>
+<TD >1</TD>
+<TD >0</TD>
+<TD >amm_master_inst|altpll_qsys|sd1|pll7|clk[1]</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >amm_master_qsys_with_pcie:amm_master_inst|amm_master_qsys_with_pcie_altpll_qsys:altpll_qsys|amm_master_qsys_with_pcie_altpll_qsys_altpll_02o2:sd1|wire_pll7_clk[2]</TD>
+<TD >clock2</TD>
+<TD >1</TD>
+<TD >2</TD>
+<TD >25.0 MHz</TD>
+<TD >0 (0 ps)</TD>
+<TD >1.41 (156 ps)</TD>
+<TD >50/50</TD>
+<TD >C1</TD>
+<TD >32</TD>
+<TD >16/16 Even</TD>
+<TD >--</TD>
+<TD >1</TD>
+<TD >0</TD>
+<TD >amm_master_inst|altpll_qsys|sd1|pll7|clk[2]</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >amm_master_qsys_with_pcie:amm_master_inst|amm_master_qsys_with_pcie_pcie_ip:pcie_ip|amm_master_qsys_with_pcie_pcie_ip_altgx_internal:altgx_internal|amm_master_qsys_with_pcie_pcie_ip_altgx_internal_alt_c3gxb_6ni8:amm_master_qsys_with_pcie_pcie_ip_altgx_internal_alt_c3gxb_6ni8_component|altpll:pll0|altpll_nn81:auto_generated|clk[0]</TD>
+<TD >clock0</TD>
+<TD >25</TD>
+<TD >2</TD>
+<TD >1250.0 MHz</TD>
+<TD >0 (0 ps)</TD>
+<TD >45.00 (100 ps)</TD>
+<TD >50/50</TD>
+<TD >C1</TD>
+<TD >Bypass</TD>
+<TD >--</TD>
+<TD >--</TD>
+<TD >1</TD>
+<TD >0</TD>
+<TD >amm_master_inst|pcie_ip|altgx_internal|amm_master_qsys_with_pcie_pcie_ip_altgx_internal_alt_c3gxb_6ni8_component|pll0|auto_generated|pll1|clk[0]</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >amm_master_qsys_with_pcie:amm_master_inst|amm_master_qsys_with_pcie_pcie_ip:pcie_ip|amm_master_qsys_with_pcie_pcie_ip_altgx_internal:altgx_internal|amm_master_qsys_with_pcie_pcie_ip_altgx_internal_alt_c3gxb_6ni8:amm_master_qsys_with_pcie_pcie_ip_altgx_internal_alt_c3gxb_6ni8_component|altpll:pll0|altpll_nn81:auto_generated|clk[1]</TD>
+<TD >clock1</TD>
+<TD >5</TD>
+<TD >2</TD>
+<TD >250.0 MHz</TD>
+<TD >0 (0 ps)</TD>
+<TD >9.00 (100 ps)</TD>
+<TD >50/50</TD>
+<TD >C3</TD>
+<TD >5</TD>
+<TD >3/2 Odd</TD>
+<TD >--</TD>
+<TD >1</TD>
+<TD >0</TD>
+<TD >amm_master_inst|pcie_ip|altgx_internal|amm_master_qsys_with_pcie_pcie_ip_altgx_internal_alt_c3gxb_6ni8_component|pll0|auto_generated|pll1|clk[1]</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >amm_master_qsys_with_pcie:amm_master_inst|amm_master_qsys_with_pcie_pcie_ip:pcie_ip|amm_master_qsys_with_pcie_pcie_ip_altgx_internal:altgx_internal|amm_master_qsys_with_pcie_pcie_ip_altgx_internal_alt_c3gxb_6ni8:amm_master_qsys_with_pcie_pcie_ip_altgx_internal_alt_c3gxb_6ni8_component|altpll:pll0|altpll_nn81:auto_generated|clk[2]</TD>
+<TD >clock2</TD>
+<TD >5</TD>
+<TD >2</TD>
+<TD >250.0 MHz</TD>
+<TD >0 (0 ps)</TD>
+<TD >9.00 (100 ps)</TD>
+<TD >20/80</TD>
+<TD >C2</TD>
+<TD >5</TD>
+<TD >1/4 Even</TD>
+<TD >--</TD>
+<TD >1</TD>
+<TD >0</TD>
+<TD >amm_master_inst|pcie_ip|altgx_internal|amm_master_qsys_with_pcie_pcie_ip_altgx_internal_alt_c3gxb_6ni8_component|pll0|auto_generated|pll1|clk[2]</TD>
+</TR>
+</tbody></TABLE>
+
+<noscript>JavaScript must be enabled to view the report.</noscript>
+</BODY>
+</HTML>
