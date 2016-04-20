@@ -26,6 +26,8 @@ module tb_OutputController.sv
 	wire[31:0] tb_M9_wdata;
 	wire tb_M9_read;
 	wire tb_M9_write;
-	wire	
+	wire tb_M9_Address;
+	wire tb_SD_write;
+	//WRONG SIGNALS
 
 endmodule
