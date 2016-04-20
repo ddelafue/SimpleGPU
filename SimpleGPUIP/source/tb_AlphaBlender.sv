@@ -118,10 +118,62 @@ module tb_AlphaBlender
 		tb_pixel_ready = 1'b0;
 		#4;
 		#4;
+		
+		assert(tb_write_r == tb_read_r)
+		begin
+			$display("Correct: Red Opacity");
+		end
+		else
+		begin
+			$display("Error: Incorrect Red Opacity");
+		end
+		assert(tb_write_g == tb_read_g)
+		begin
+			$display("Correct: Green Opacity");
+		end
+		else
+		begin
+			$display("Error: Incorrect Green Opacity");
+		end
+		assert(tb_write_b == tb_read_b)
+		begin
+			$display("Correct: Blue Opacity");
+		end
+		else
+		begin
+			$display("Error: Incorrect Blue Opacity");
+		end
+		
 		tb_a = 8'b11111111;
 		tb_pixel_ready = 1'b1;
 		#4;
 		tb_pixel_ready = 1'b0;
+		#8;
+
+		assert(tb_write_r == tb_r)
+		begin
+			$display("Correct: Red Nopacity");
+		end
+		else
+		begin
+			$display("Error: Incorrect Red Nopacity");
+		end
+		assert(tb_write_g == tb_g)
+		begin
+			$display("Correct: Green Nopacity");
+		end
+		else
+		begin
+			$display("Error: Incorrect Green Nopacity");
+		end
+		assert(tb_write_b == tb_b)
+		begin
+			$display("Correct: Blue Nopacity");
+		end
+		else
+		begin
+			$display("Error: Incorrect Blue Nopacity");
+		end
 	end
 
 endmodule 
