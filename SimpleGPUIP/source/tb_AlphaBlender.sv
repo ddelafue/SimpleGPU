@@ -73,7 +73,8 @@ module tb_AlphaBlender
 		tb_pixel_number = 1'b0;
 		tb_pixel_ready = 1'b0;
 
-		#2;
+		#4;
+		tb_reset = 1'b1;
 		tb_pixel_ready = 1'b1;
 		#4;
 		tb_pixel_ready = 1'b0;

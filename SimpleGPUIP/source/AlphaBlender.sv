@@ -35,11 +35,11 @@ wire [7:0] max = 8'b11111111;
 wire [7:0] subr;
 wire [7:0] subg;
 wire [7:0] subb;
-wire [7:0] mul1r;
+reg [15:0] mul1r;
 wire [7:0] mul2r;
-wire [7:0] mul1g;
+reg [15:0] mul1g;
 wire [7:0] mul2g;
-wire [7:0] mul1b;
+reg [15:0] mul1b;
 wire [7:0] mul2b;
 wire [7:0] addr;
 wire [7:0] addg;
@@ -79,9 +79,12 @@ assign o_frame_ready = frame_ready;
 
 always_comb
 begin
-	write_r = (read_r*(max - a) + r*a)/max;
-	write_g = (read_g*(max - a) + g*a)/max;
-	write_b = (read_b*(max - a) + b*a)/max;
+	mul1r = read_r*(max - a) + r*a;
+	write_r = mul1r/max;
+	mul1g = read_g*(max - a) + g*a;
+	write_g = mul1g/max;
+	mul1b = read_b*(max - a) + b*a;
+	write_b = mul1b/max;
 end
 
 
