@@ -26,9 +26,9 @@ module AlphaBlender
 	output wire o_frame_ready,
 	output wire read,
 	output wire write,
-	output wire [7:0] write_r,
-	output wire [7:0] write_g,
-	output wire [7:0] write_b
+	output reg [7:0] write_r,
+	output reg [7:0] write_g,
+	output reg [7:0] write_b
 );
 
 wire [7:0] max = 8'b11111111;
@@ -79,9 +79,9 @@ assign o_frame_ready = frame_ready;
 
 always_comb
 begin
-	write_r = (read_r*(max - a) + r*a)/max
-	write_g = (read_g*(max - a) + g*a)/max
-	write_b = (read_b*(max - a) + b*a)/max
+	write_r = (read_r*(max - a) + r*a)/max;
+	write_g = (read_g*(max - a) + g*a)/max;
+	write_b = (read_b*(max - a) + b*a)/max;
 end
 
 
