@@ -65,29 +65,20 @@ begin
 	end
 	else
 	begin
+		if (calculate == 1'b1)
+		begin
+			x_o = x1;
+			y_o = y1;
+		end
 		if (get_pixel == 1'b1)
 		begin
 			if (delta_y > delta_x)
 			begin
-				if(calculate == 1'b1)
-				begin
-					y_o <= trans_y - 1;
-				end
-				else
-				begin
-					y_o <= y_o - 1;
-				end
+				y_o <= y_o - 1;
 			end
 			else
 			begin
-				if(calculate == 1'b1)
-				begin
-					x_o <= trans_x - 1;
-				end
-				else
-				begin
-					x_o <= x_o - 1;
-				end
+				x_o <= x_o - 1;
 			end
 		end
 	end
