@@ -1,12 +1,12 @@
 // $Id: $
-// File name:   fifo_RAM.sv
+// File name:   InputDecoder_fifo_RAM.sv
 // Created:     4/21/2016
 // Author:      Jordan Huffaker
 // Lab Section: 337-08
 // Version:     1.0  Initial Design Entry
 // Description: An abstracted version of RAM as a FIFO.
 
-module fifo_RAM
+module InputDecoder_fifo_RAM
 (
 	input wire clk,
 	input wire reset,
@@ -46,7 +46,7 @@ module fifo_RAM
 		else
 			empty = 1'b1;
 		
-		if (fifo_counter == 3'd400)
+		if (fifo_counter == 9'd400)
 			full = 1'b1;
 		else
 			full = 1'b0;
