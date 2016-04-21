@@ -7,7 +7,7 @@
 // Description: This is how the Output Controller reads and writes to the M9K
 //
 
-module RAM
+module OutputControllerRAM
 (
 	    output reg [23:0] q,
 		input [23:0] data,

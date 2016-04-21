@@ -7,7 +7,7 @@
 // Description: This is how the Input Decoder reads and writes to the M9K
 //
 
-module RAM
+module InputDecoderRAM
 (
 	    output reg [31:0] q,
 		input [31:0] data,
