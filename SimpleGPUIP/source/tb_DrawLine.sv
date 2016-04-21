@@ -46,8 +46,16 @@ module tb_DrawLine
 		tb_x2 = 16'd50;
 		tb_y1 = 16'd90;
 		tb_y2 = 16'd100;
-		$display("entered initialization");
+		
 		#4;
+		tb_reset = 1'b1;
+		#4;
+		tb_reset = 1'b0;
+		tb_x1 = 16'd90;
+		tb_x2 = 16'd100;
+		tb_y1 = 16'd100;
+		tb_y2 = 16'd50;
+		#4
 		tb_reset = 1'b1;
 	end
 

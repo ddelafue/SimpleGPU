@@ -48,7 +48,7 @@ begin
 		max = delta_x;
 	end
 	pixels_in_group = max / (min + 1);
-	pixels_missing = max - (min + 1) * pixels_in_group + 1;
+	pixels_missing = max - (min) * pixels_in_group;
 	a = max / (pixels_missing + 1);
 end	
 
