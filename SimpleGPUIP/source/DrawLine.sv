@@ -8,6 +8,9 @@
 
 module DrawLine
 (
+	input wire clk,
+	input wire reset,
+	input wire calculate,
 	input wire [15:0] x1,
 	input wire [15:0] y1,
 	input wire [15:0] x2,
@@ -24,32 +27,102 @@ reg[15:0] max;
 reg[15:0] pixels_in_group;
 reg[15:0] pixels_missing;
 reg[15:0] a;
+wire [15:0] c1_out; // Dummy wire NOT USED AT THE MOMENT
+wire clear;
+wire roll;
+reg[15:0] trans_x;
+reg[15:0] trans_y;
 
-always_comb
+/*
+	module flex_counter
+	#(
+		parameter NUM_CNT_BITS = 4
+	)
+	(
+		input wire clk,
+		input wire n_rst,
+		input wire clear,
+		input wire count_enable,
+		input wire [(NUM_CNT_BITS-1):0] rollover_val,
+		output reg [(NUM_CNT_BITS-1):0] count_out,
+		output reg rollover_flag
+	);
+*/
+
+flex_counter #(16) c1 (.clk(clk),
+			.n_rst(reset),
+			.clear(clear),
+			.count_enable(get_pixel),
+			.rollover_val(min),
+			.count_out(c1_out),
+			.rollover_flag(roll));
+
+always_ff @ (posedge clk, negedge reset)
 begin
-	delta_x = x2 - x1;
-	delta_y = y2 - y1;
-	if (delta_x[15] ==  1'b1)
+	if (reset == 1'b0)
 	begin
-		delta_x = delta_x * -1;
-	end
-	if (delta_y[15] == 1'b1)
-	begin
-		delta_y = delta_y * -1;
-	end
-	if (delta_y > delta_x)
-	begin
-		min = delta_x;
-		max = delta_y;
+		
 	end
 	else
 	begin
-		min = delta_y;
-		max = delta_x;
+		if (get_pixel == 1'b1)
+		begin
+			if (delta_y > delta_x)
+			begin
+				if(calculate == 1'b1)
+				begin
+					y_o <= trans_y - 1;
+				end
+				else
+				begin
+					y_o <= y_o - 1;
+				end
+			end
+			else
+			begin
+				if(calculate == 1'b1)
+				begin
+					x_o <= trans_x - 1;
+				end
+				else
+				begin
+					x_o <= x_o - 1;
+				end
+			end
+		end
 	end
-	pixels_in_group = max / (min + 1);
-	pixels_missing = max - (min) * pixels_in_group;
-	a = max / (pixels_missing + 1);
+end
+
+always_comb
+begin
+	if (calculate == 1'b1)
+	begin
+		delta_x = x2 - x1;
+		delta_y = y2 - y1;
+		if (delta_x[15] ==  1'b1)
+		begin
+			delta_x = delta_x * -1;
+		end
+		if (delta_y[15] == 1'b1)
+		begin
+			delta_y = delta_y * -1;
+		end
+		if (delta_y > delta_x)
+		begin
+			min = delta_x;
+			max = delta_y;
+		end
+		else
+		begin
+			min = delta_y;
+			max = delta_x;
+		end
+		pixels_in_group = max / (min + 1);
+		pixels_missing = max - (min) * pixels_in_group;
+		a = max / (pixels_missing + 1);
+		trans_x = x1;
+		trans_y = y1;
+	end
 end	
 
 endmodule

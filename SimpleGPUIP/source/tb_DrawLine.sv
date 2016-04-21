@@ -14,6 +14,7 @@ module tb_DrawLine
 	// DUT Signals
 	reg tb_clk;
 	reg tb_reset;
+	reg tb_calculate;
 	reg[15:0] tb_x1;
 	reg[15:0] tb_y1;
 	reg[15:0] tb_x2;
@@ -23,7 +24,10 @@ module tb_DrawLine
 	wire[15:0] tb_y_o;
 
 	//Connections
-	DrawLine U1 (.x1(tb_x1),
+	DrawLine U1 (.clk(tb_clk),
+			.reset(tb_reset),
+			.calculate(tb_calculate),
+			.x1(tb_x1),
 			.y1(tb_y1),
 			.x2(tb_x2),
 			.y2(tb_y2),
@@ -41,15 +45,18 @@ module tb_DrawLine
 	begin
 		//Initializations
 		tb_clk = 1'b0;
-		tb_reset = 1'b0;
+		tb_reset = 1'b1;
 		tb_x1 = 16'd100;
 		tb_x2 = 16'd50;
 		tb_y1 = 16'd90;
 		tb_y2 = 16'd100;
-		
+		tb_calculate = 1'b1;
 		#4;
 		tb_reset = 1'b1;
+		tb_calculate = 1'b0;
+		tb_get_pixel = 1'b1;
 		#4;
+		tb_get_pixel = 1'b0;
 		tb_reset = 1'b0;
 		tb_x1 = 16'd90;
 		tb_x2 = 16'd100;
