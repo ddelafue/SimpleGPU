@@ -9,7 +9,7 @@
 
 module TextureControllerRom
 	output reg [31:0] q,
-	input wire [6:0] read_address,
+	input wire [16:0] read_address,
 	input clk
 );
 
@@ -20,7 +20,7 @@ module TextureControllerRom
 	end
 */
 
-	reg [32:0] mem [3427839:0];
+	reg [31:0] mem [107119:0];
 
 	always @ (posedge clk) begin
 		q <= mem[read_address];
