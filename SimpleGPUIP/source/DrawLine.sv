@@ -13,8 +13,14 @@ module DrawLine
 	input wire [15:0] x2,
 	input wire [15:0] y2,
 	input wire get_pixel,
-	output wire [15:0] x_o,
-	output wire [15:0] y_o
+	output reg [15:0] x_o,
+	output reg [15:0] y_o
 );
+
+always_comb
+begin
+	x_o = x2 - x1;
+	y_o = y2 - y1;
+end	
 
 endmodule
