@@ -20,7 +20,12 @@ module OutputController
 	input wire [7:0] Pixel_Number,
 
 	//Data from the M9
-	input wire [31:0] M9_rdata,
+	input wire [23:0] M9_rdata,
+	output wire [23:0] M9_wdata,
+	output wire [6:0] read_address, write_address,
+	output wire we,
+
+
 
 	//output back to Alpha Blender
 	output wire [7:0] read_r,
