@@ -38,33 +38,6 @@ module custom_master_slave #(
         input logic  master_waitrequest
 		  
 );
-//test inputs
-//reg  [35:0]corner_d;
-//reg [9:0]maxiter_d;
-//reg [8:0]res_d;
-//reg temp_write;
-//reg [31:0]temp_addr;
-//reg [23:0]data;
-//reg temp_wen;
-//
-//mandelbrot b_mandelbrot
-//(
-//	.clk(clk), 
-//	.n_rst(reset_n), 
-//	.buswait(master_waitrequest), 
-//	.corner_d({csr_registers[0][17:0], csr_registers[1][17:0]}), 
-//	.maxiter_d(csr_registers[3][9:0]), 
-//	.res_d(csr_registers[2][8:0]),
-//	//.corner_d(36'b000110011010000000000110011010000000),
-//	//.maxiter_d(10'b0000100000),
-//	//.res_d(9'b000010000),
-//	.mode(csr_registers[4][0]),
-//	.write(slave_write),
-//	.addr(master_address), 
-//	.rgb_data(master_writedata),
-//	.wenable(master_write)
-//);
-
 
 
 parameter START_BYTE = 32'hF00BF00B;
@@ -79,11 +52,10 @@ logic [NUMREGS-1:0] reg_index, nextRegIndex;
 logic [NUMREGS-1:0][REGWIDTH-1:0] read_data_registers;  //Store SDRAM read data for display
 logic new_data_flag;
 
-typedef enum {IDLE, WRITE, WRITE_WAIT, READ_REQ, READ_WAIT, READ_ACK, READ_DATA} state_t;
+typedef enum {IDLE, WRITE} state_t;
 state_t state, nextState;
 
 assign display_data = csr_registers[slave_address];
-//assign display_data={csr_registers[0][7:0],csr_registers[1][7:0],csr_registers[2][7:0],csr_registers[3][7:0]};
 
 // Slave side 
 always_ff @ ( posedge clk ) begin 
@@ -107,31 +79,14 @@ always_ff @ ( posedge clk ) begin
   	 end
 end
 
-
-
-
-
-
-
-// Master Side 
-
-
+// Master Side
 always_ff @ ( posedge clk ) begin 
 	if (!reset_n) begin 
 		address <= SDRAM_ADDR;
-		reg_index <= 0;
 		state <= WRITE;
-		wr_data <= 0 ;
-		read_data <= 32'hFEEDFEED; 
-		read_data_registers <= '0;
 	end else begin 
 		state <= nextState;
 		address <= nextAddress;
-		reg_index <= nextRegIndex;
-		wr_data <= nextData;
-		read_data <= nextRead_data;
-		if(new_data_flag)
-			read_data_registers[reg_index] <= nextRead_data;
 	end
 end
 
@@ -142,77 +97,33 @@ always_comb begin
 	nextState = state;
 	nextAddress = address;
 	master_write = 1'b0;
-	master_read = 1'b0;
 	master_writedata = '0;
 	master_address = address;
-	//nextRegIndex = reg_index;
-	//nextData = wr_data;
-	//nextRead_data = master_readdata;
-	//new_data_flag = 0;
 	case( state ) 
-//		IDLE : begin 
-//			if ( csr_registers[0] == START_BYTE && reg_index < NUMREGS) begin 
-//				nextState = WRITE;
-//				//nextData = wr_data;
-//			end else if ( csr_registers[0] == STOP_BYTE && address >= SDRAM_ADDR) begin 
-//				nextState = READ_REQ; 				
-//			end
-//		end 
 		WRITE: begin
 			master_write = 1;
 			master_address =  address;
-			master_writedata = 32'h00FF0000;
+			master_writedata = 32'h00FF0000; //(Blue = 32'h00FF0000, Green = 32'h0000FF00, Red = 32'h000000FF)
 			if (!master_waitrequest) begin 
-				//nextRegIndex = reg_index + 1;
 				nextAddress = address + 4;
-				if(nextAddress == 32'h08096000)
+				if(nextAddress == 32'h08CD2000)
 				begin
-					nextState = WRITE;
+					nextState = IDLE;
 				end
 				else
 				begin
 					nextState = WRITE;
-				end		
-					
+				end			
 			end
-			
 		end 
-//		READ_REQ : begin 
-//			if (!master_waitrequest) begin
-//				nextState = READ_DATA;
-//				nextAddress = address - 4 ;	
-//				nextRegIndex = reg_index - 1;
-//			end
-//		end
-//		READ_DATA : begin
-//			if ( master_readdatavalid) begin
-//				nextRead_data = master_readdata;
-//				nextState = IDLE;
-//				new_data_flag =1;
-//			end
-//		end
+		
+		IDLE : 
+		begin
+			nextState = IDLE;
+		end
+		
 	endcase
 end
-
-//Output Logic 
-
-//always_comb begin 
-//	master_write = 1'b0;
-//	master_read = 1'b0;
-//	master_writedata = 32'h0;
-//	master_address = 32'hbad1bad1;
-//	case(state) 
-//		WRITE : begin 
-//			master_write = 1;
-//			master_address =  address;
-//			master_writedata = csr_registers[reg_index];
-//		end 
-//		READ_REQ : begin 
-//			master_address = address;
-//			master_read = 1;	
-//		end
-//	endcase
-//end
 
 endmodule
 

@@ -1,14 +1,14 @@
-Fitter Status : Successful - Wed Apr 13 13:43:38 2016
+Fitter Status : Successful - Sun Apr 17 21:53:02 2016
 Quartus Prime Version : 15.1.0 Build 185 10/21/2015 SJ Lite Edition
 Revision Name : master_example
 Top-level Entity Name : master_example
 Family : Cyclone IV GX
 Device : EP4CGX150DF31C7
 Timing Models : Final
-Total logic elements : 11,562 / 149,760 ( 8 % )
-    Total combinational functions : 8,848 / 149,760 ( 6 % )
-    Dedicated logic registers : 8,217 / 149,760 ( 5 % )
-Total registers : 8335
+Total logic elements : 11,610 / 149,760 ( 8 % )
+    Total combinational functions : 8,877 / 149,760 ( 6 % )
+    Dedicated logic registers : 8,220 / 149,760 ( 5 % )
+Total registers : 8338
 Total pins : 200 / 508 ( 39 % )
 Total virtual pins : 0
 Total memory bits : 163,816 / 6,635,520 ( 2 % )

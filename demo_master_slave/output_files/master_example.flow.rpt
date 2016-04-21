@@ -1,5 +1,5 @@
 Flow report for master_example
-Wed Apr 13 13:45:37 2016
+Sun Apr 17 21:55:04 2016
 Quartus Prime Version 15.1.0 Build 185 10/21/2015 SJ Lite Edition
 
 
@@ -41,17 +41,17 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Wed Apr 13 13:45:37 2016       ;
+; Flow Status                        ; Successful - Sun Apr 17 21:55:04 2016       ;
 ; Quartus Prime Version              ; 15.1.0 Build 185 10/21/2015 SJ Lite Edition ;
 ; Revision Name                      ; master_example                              ;
 ; Top-level Entity Name              ; master_example                              ;
 ; Family                             ; Cyclone IV GX                               ;
 ; Device                             ; EP4CGX150DF31C7                             ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 11,562 / 149,760 ( 8 % )                    ;
-;     Total combinational functions  ; 8,848 / 149,760 ( 6 % )                     ;
-;     Dedicated logic registers      ; 8,217 / 149,760 ( 5 % )                     ;
-; Total registers                    ; 8335                                        ;
+; Total logic elements               ; 11,610 / 149,760 ( 8 % )                    ;
+;     Total combinational functions  ; 8,877 / 149,760 ( 6 % )                     ;
+;     Dedicated logic registers      ; 8,220 / 149,760 ( 5 % )                     ;
+; Total registers                    ; 8338                                        ;
 ; Total pins                         ; 200 / 508 ( 39 % )                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 163,816 / 6,635,520 ( 2 % )                 ;
@@ -69,7 +69,7 @@ agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 04/13/2016 13:38:55 ;
+; Start date & time ; 04/17/2016 21:47:36 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; master_example      ;
 +-------------------+---------------------+
@@ -81,7 +81,7 @@ agreement for further details.
 ; Assignment Name                               ; Value                                                                        ; Default Value ; Entity Name               ; Section Id           ;
 +-----------------------------------------------+------------------------------------------------------------------------------+---------------+---------------------------+----------------------+
 ; AUTO_EXPORT_INCREMENTAL_COMPILATION           ; On                                                                           ; Off           ; --                        ; --                   ;
-; COMPILER_SIGNATURE_ID                         ; 255851147366030.146056913405112                                              ; --            ; --                        ; --                   ;
+; COMPILER_SIGNATURE_ID                         ; 255851147366030.146094405605076                                              ; --            ; --                        ; --                   ;
 ; EDA_DESIGN_INSTANCE_NAME                      ; NA                                                                           ; --            ; --                        ; tb_icb               ;
 ; EDA_INPUT_DATA_FORMAT                         ; Edif                                                                         ; --            ; --                        ; eda_design_synthesis ;
 ; EDA_NATIVELINK_SIMULATION_TEST_BENCH          ; tb_icb                                                                       ; --            ; --                        ; eda_simulation       ;
@@ -117,7 +117,7 @@ agreement for further details.
 ; POWER_PRESET_COOLING_SOLUTION                 ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW                                        ; --            ; --                        ; --                   ;
 ; PROJECT_OUTPUT_DIRECTORY                      ; output_files                                                                 ; --            ; --                        ; --                   ;
 ; SLD_FILE                                      ; amm_master_qsys_with_pcie/synthesis/amm_master_qsys_with_pcie.debuginfo      ; --            ; --                        ; --                   ;
-; SLD_INFO                                      ; QSYS_NAME amm_master_qsys_with_pcie HAS_SOPCINFO 1 GENERATION_ID 1460569016  ; --            ; amm_master_qsys_with_pcie ; --                   ;
+; SLD_INFO                                      ; QSYS_NAME amm_master_qsys_with_pcie HAS_SOPCINFO 1 GENERATION_ID 1460943948  ; --            ; amm_master_qsys_with_pcie ; --                   ;
 ; SMART_RECOMPILE                               ; On                                                                           ; Off           ; --                        ; --                   ;
 ; SOPCINFO_FILE                                 ; amm_master_qsys_with_pcie/synthesis/../../amm_master_qsys_with_pcie.sopcinfo ; --            ; --                        ; --                   ;
 ; SYNTHESIS_ONLY_QIP                            ; On                                                                           ; --            ; --                        ; --                   ;
@@ -130,12 +130,12 @@ agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:01:40     ; 1.0                     ; 1229 MB             ; 00:01:54                           ;
-; Fitter                    ; 00:02:46     ; 1.0                     ; 1837 MB             ; 00:03:34                           ;
-; Assembler                 ; 00:00:12     ; 1.0                     ; 871 MB              ; 00:00:10                           ;
-; TimeQuest Timing Analyzer ; 00:00:16     ; 1.1                     ; 1154 MB             ; 00:00:16                           ;
-; EDA Netlist Writer        ; 00:00:59     ; 1.0                     ; 940 MB              ; 00:00:59                           ;
-; Total                     ; 00:05:53     ; --                      ; --                  ; 00:06:53                           ;
+; Analysis & Synthesis      ; 00:01:45     ; 1.0                     ; 1226 MB             ; 00:02:03                           ;
+; Fitter                    ; 00:03:21     ; 1.0                     ; 1840 MB             ; 00:04:28                           ;
+; Assembler                 ; 00:00:10     ; 1.0                     ; 874 MB              ; 00:00:10                           ;
+; TimeQuest Timing Analyzer ; 00:00:16     ; 1.4                     ; 1155 MB             ; 00:00:17                           ;
+; EDA Netlist Writer        ; 00:01:01     ; 1.0                     ; 940 MB              ; 00:01:00                           ;
+; Total                     ; 00:06:33     ; --                      ; --                  ; 00:07:58                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
