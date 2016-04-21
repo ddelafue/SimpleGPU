@@ -1,0 +1,28 @@
+Quartus Prime Archive log --	C:/Users/lucas/Documents/FPGA/de2i150/demo_master_slave/master_example_test.qarlog
+
+Archive:	C:/Users/lucas/Documents/FPGA/de2i150/demo_master_slave/master_example_test.qar
+Date:		Sun Apr 17 21:55:28 2016
+Quartus Prime		15.1.0 Build 185 10/21/2015 SJ Lite Edition
+
+	=========== Files Selected: ===========
+C:/Users/lucas/Documents/FPGA/de2i150/demo_master_slave/db/master_example_tmp_qic_export_0/master_example.cmp.atm
+C:/Users/lucas/Documents/FPGA/de2i150/demo_master_slave/db/master_example_tmp_qic_export_0/master_example.cmp.cfm
+C:/Users/lucas/Documents/FPGA/de2i150/demo_master_slave/db/master_example_tmp_qic_export_0/master_example.cmp.dpi
+C:/Users/lucas/Documents/FPGA/de2i150/demo_master_slave/db/master_example_tmp_qic_export_0/master_example.cmp.hdbx
+C:/Users/lucas/Documents/FPGA/de2i150/demo_master_slave/db/master_example_tmp_qic_export_0/master_example.cmp.logdb
+C:/Users/lucas/Documents/FPGA/de2i150/demo_master_slave/db/master_example_tmp_qic_export_0/master_example.cmp.map.kpt
+C:/Users/lucas/Documents/FPGA/de2i150/demo_master_slave/db/master_example_tmp_qic_export_0/master_example.cmp.qxp_info
+C:/Users/lucas/Documents/FPGA/de2i150/demo_master_slave/db/master_example_tmp_qic_export_0/master_example.cmp.rcf
+C:/Users/lucas/Documents/FPGA/de2i150/demo_master_slave/db/master_example_tmp_qic_export_0/master_example.cmp.scidsc
+C:/Users/lucas/Documents/FPGA/de2i150/demo_master_slave/db/master_example_tmp_qic_export_0/master_example.map.atm
+C:/Users/lucas/Documents/FPGA/de2i150/demo_master_slave/db/master_example_tmp_qic_export_0/master_example.map.dpi
+C:/Users/lucas/Documents/FPGA/de2i150/demo_master_slave/db/master_example_tmp_qic_export_0/master_example.map.hdbx
+C:/Users/lucas/Documents/FPGA/de2i150/demo_master_slave/db/master_example_tmp_qic_export_0/master_example.map.logdb
+C:/Users/lucas/Documents/FPGA/de2i150/demo_master_slave/db/master_example_tmp_qic_export_0/master_example.map.map.kpt
+C:/Users/lucas/Documents/FPGA/de2i150/demo_master_slave/db/master_example_tmp_qic_export_0/master_example.map.qxp_info
+C:/Users/lucas/Documents/FPGA/de2i150/demo_master_slave/db/master_example_tmp_qic_export_0/master_example.map.scidsc
+C:/Users/lucas/Documents/FPGA/de2i150/demo_master_slave/db/master_example_tmp_qic_export_0/qic_export_file_list
+	======= Total: 17 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.

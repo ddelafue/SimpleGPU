@@ -1,0 +1,23 @@
+IP Ports Diff Report for amm_master_qsys_with_pcie
+Sun Dec 06 12:41:35 2015
+Quartus Prime Version 15.1.0 Build 185 10/21/2015 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. IP Information
+
+
+
++----------------------------------------------------------------------------------------+
+; IP Information                                                                         ;
++----------------------+-----------------------------------------------------------------+
+; IP Variation Name    ; amm_master_qsys_with_pcie                                       ;
+; Prior Version        ; ACDS_v13.0sp1                                                   ;
+; New Version          ; ACDS_v15.1                                                      ;
+; New File             ; amm_master_qsys_with_pcie/synthesis/amm_master_qsys_with_pcie.v ;
+; Has Port Differences ; No                                                              ;
++----------------------+-----------------------------------------------------------------+
+
+

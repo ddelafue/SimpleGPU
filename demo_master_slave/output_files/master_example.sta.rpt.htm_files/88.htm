@@ -1,0 +1,4496 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<HTML><HEAD>
+<TITLE>Signal Integrity Metrics (Slow 1200mv 85c Model)</TITLE>
+
+<link rel="stylesheet" type="text/css" href="css/reset.css">
+<link rel="stylesheet" type="text/css" href="css/base.css">
+<link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="css/jquery.layout-latest.css">
+<link rel="stylesheet" type="text/css" href="css/override.css">
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/jquery.layout-latest.js"></script>
+
+
+</HEAD>
+
+<BODY>
+<TABLE>
+<thead><TR  bgcolor="#BFBFBF">
+<TH>Pin</TH>
+<TH>I/O Standard</TH>
+<TH>Board Delay on Rise</TH>
+<TH>Board Delay on Fall</TH>
+<TH>Steady State Voh at FPGA Pin</TH>
+<TH>Steady State Vol at FPGA Pin</TH>
+<TH>Voh Max at FPGA Pin</TH>
+<TH>Vol Min at FPGA Pin</TH>
+<TH>Ringback Voltage on Rise at FPGA Pin</TH>
+<TH>Ringback Voltage on Fall at FPGA Pin</TH>
+<TH>10-90 Rise Time at FPGA Pin</TH>
+<TH>90-10 Fall Time at FPGA Pin</TH>
+<TH>Monotonic Rise at FPGA Pin</TH>
+<TH>Monotonic Fall at FPGA Pin</TH>
+<TH>Steady State Voh at Far-end</TH>
+<TH>Steady State Vol at Far-end</TH>
+<TH>Voh Max at Far-end</TH>
+<TH>Vol Min at Far-end</TH>
+<TH>Ringback Voltage on Rise at Far-end</TH>
+<TH>Ringback Voltage on Fall at Far-end</TH>
+<TH>10-90 Rise Time at Far-end</TH>
+<TH>90-10 Fall Time at Far-end</TH>
+<TH>Monotonic Rise at Far-end</TH>
+<TH>Monotonic Fall at Far-end</TH>
+</TR>
+</thead><tbody><TR  bgcolor="#FFFFFF">
+<TD >LEDG[0]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >4.67e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00942 V</TD>
+<TD >0.116 V</TD>
+<TD >0.033 V</TD>
+<TD >6.66e-10 s</TD>
+<TD >6.27e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >4.67e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00942 V</TD>
+<TD >0.116 V</TD>
+<TD >0.033 V</TD>
+<TD >6.66e-10 s</TD>
+<TD >6.27e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >LEDG[1]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >4.67e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00942 V</TD>
+<TD >0.116 V</TD>
+<TD >0.033 V</TD>
+<TD >6.66e-10 s</TD>
+<TD >6.27e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >4.67e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00942 V</TD>
+<TD >0.116 V</TD>
+<TD >0.033 V</TD>
+<TD >6.66e-10 s</TD>
+<TD >6.27e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >LEDG[2]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >4.67e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00942 V</TD>
+<TD >0.116 V</TD>
+<TD >0.033 V</TD>
+<TD >6.66e-10 s</TD>
+<TD >6.27e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >4.67e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00942 V</TD>
+<TD >0.116 V</TD>
+<TD >0.033 V</TD>
+<TD >6.66e-10 s</TD>
+<TD >6.27e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >LEDG[3]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >4.67e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00942 V</TD>
+<TD >0.116 V</TD>
+<TD >0.033 V</TD>
+<TD >6.66e-10 s</TD>
+<TD >6.27e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >4.67e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00942 V</TD>
+<TD >0.116 V</TD>
+<TD >0.033 V</TD>
+<TD >6.66e-10 s</TD>
+<TD >6.27e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >LEDG[4]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >4.67e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00942 V</TD>
+<TD >0.116 V</TD>
+<TD >0.033 V</TD>
+<TD >6.66e-10 s</TD>
+<TD >6.27e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >4.67e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00942 V</TD>
+<TD >0.116 V</TD>
+<TD >0.033 V</TD>
+<TD >6.66e-10 s</TD>
+<TD >6.27e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >LEDG[5]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >4.67e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00942 V</TD>
+<TD >0.116 V</TD>
+<TD >0.033 V</TD>
+<TD >6.66e-10 s</TD>
+<TD >6.27e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >4.67e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00942 V</TD>
+<TD >0.116 V</TD>
+<TD >0.033 V</TD>
+<TD >6.66e-10 s</TD>
+<TD >6.27e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >LEDG[6]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >4.67e-07 V</TD>
+<TD >2.36 V</TD>
+<TD >-0.00552 V</TD>
+<TD >0.11 V</TD>
+<TD >0.007 V</TD>
+<TD >4.54e-10 s</TD>
+<TD >4.35e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >4.67e-07 V</TD>
+<TD >2.36 V</TD>
+<TD >-0.00552 V</TD>
+<TD >0.11 V</TD>
+<TD >0.007 V</TD>
+<TD >4.54e-10 s</TD>
+<TD >4.35e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >LEDG[7]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >4.67e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00942 V</TD>
+<TD >0.116 V</TD>
+<TD >0.033 V</TD>
+<TD >6.66e-10 s</TD>
+<TD >6.27e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >4.67e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00942 V</TD>
+<TD >0.116 V</TD>
+<TD >0.033 V</TD>
+<TD >6.66e-10 s</TD>
+<TD >6.27e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >LEDG[8]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >4.67e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00942 V</TD>
+<TD >0.116 V</TD>
+<TD >0.033 V</TD>
+<TD >6.66e-10 s</TD>
+<TD >6.27e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >4.67e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00942 V</TD>
+<TD >0.116 V</TD>
+<TD >0.033 V</TD>
+<TD >6.66e-10 s</TD>
+<TD >6.27e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >LEDR[0]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >4.67e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00942 V</TD>
+<TD >0.116 V</TD>
+<TD >0.033 V</TD>
+<TD >6.66e-10 s</TD>
+<TD >6.27e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >4.67e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00942 V</TD>
+<TD >0.116 V</TD>
+<TD >0.033 V</TD>
+<TD >6.66e-10 s</TD>
+<TD >6.27e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >LEDR[1]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >4.67e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00942 V</TD>
+<TD >0.116 V</TD>
+<TD >0.033 V</TD>
+<TD >6.66e-10 s</TD>
+<TD >6.27e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >4.67e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00942 V</TD>
+<TD >0.116 V</TD>
+<TD >0.033 V</TD>
+<TD >6.66e-10 s</TD>
+<TD >6.27e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >LEDR[2]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >4.67e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00942 V</TD>
+<TD >0.116 V</TD>
+<TD >0.033 V</TD>
+<TD >6.66e-10 s</TD>
+<TD >6.27e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >4.67e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00942 V</TD>
+<TD >0.116 V</TD>
+<TD >0.033 V</TD>
+<TD >6.66e-10 s</TD>
+<TD >6.27e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >LEDR[3]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >4.67e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00942 V</TD>
+<TD >0.116 V</TD>
+<TD >0.033 V</TD>
+<TD >6.66e-10 s</TD>
+<TD >6.27e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >4.67e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00942 V</TD>
+<TD >0.116 V</TD>
+<TD >0.033 V</TD>
+<TD >6.66e-10 s</TD>
+<TD >6.27e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >LEDR[4]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >4.67e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00942 V</TD>
+<TD >0.116 V</TD>
+<TD >0.033 V</TD>
+<TD >6.66e-10 s</TD>
+<TD >6.27e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >4.67e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00942 V</TD>
+<TD >0.116 V</TD>
+<TD >0.033 V</TD>
+<TD >6.66e-10 s</TD>
+<TD >6.27e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >LEDR[5]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >4.67e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00942 V</TD>
+<TD >0.116 V</TD>
+<TD >0.033 V</TD>
+<TD >6.66e-10 s</TD>
+<TD >6.27e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >4.67e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00942 V</TD>
+<TD >0.116 V</TD>
+<TD >0.033 V</TD>
+<TD >6.66e-10 s</TD>
+<TD >6.27e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >LEDR[6]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >4.67e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00942 V</TD>
+<TD >0.116 V</TD>
+<TD >0.033 V</TD>
+<TD >6.66e-10 s</TD>
+<TD >6.27e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >4.67e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00942 V</TD>
+<TD >0.116 V</TD>
+<TD >0.033 V</TD>
+<TD >6.66e-10 s</TD>
+<TD >6.27e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >LEDR[7]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >4.67e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00942 V</TD>
+<TD >0.116 V</TD>
+<TD >0.033 V</TD>
+<TD >6.66e-10 s</TD>
+<TD >6.27e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >4.67e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00942 V</TD>
+<TD >0.116 V</TD>
+<TD >0.033 V</TD>
+<TD >6.66e-10 s</TD>
+<TD >6.27e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >LEDR[8]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >4.67e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00942 V</TD>
+<TD >0.116 V</TD>
+<TD >0.033 V</TD>
+<TD >6.66e-10 s</TD>
+<TD >6.27e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >4.67e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00942 V</TD>
+<TD >0.116 V</TD>
+<TD >0.033 V</TD>
+<TD >6.66e-10 s</TD>
+<TD >6.27e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >LEDR[9]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >4.67e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00942 V</TD>
+<TD >0.116 V</TD>
+<TD >0.033 V</TD>
+<TD >6.66e-10 s</TD>
+<TD >6.27e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >4.67e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00942 V</TD>
+<TD >0.116 V</TD>
+<TD >0.033 V</TD>
+<TD >6.66e-10 s</TD>
+<TD >6.27e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >LEDR[10]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >4.67e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00942 V</TD>
+<TD >0.116 V</TD>
+<TD >0.033 V</TD>
+<TD >6.66e-10 s</TD>
+<TD >6.27e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >4.67e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00942 V</TD>
+<TD >0.116 V</TD>
+<TD >0.033 V</TD>
+<TD >6.66e-10 s</TD>
+<TD >6.27e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >LEDR[11]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >4.67e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00942 V</TD>
+<TD >0.116 V</TD>
+<TD >0.033 V</TD>
+<TD >6.66e-10 s</TD>
+<TD >6.27e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >4.67e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00942 V</TD>
+<TD >0.116 V</TD>
+<TD >0.033 V</TD>
+<TD >6.66e-10 s</TD>
+<TD >6.27e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >LEDR[12]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >4.67e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00942 V</TD>
+<TD >0.116 V</TD>
+<TD >0.033 V</TD>
+<TD >6.66e-10 s</TD>
+<TD >6.27e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >4.67e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00942 V</TD>
+<TD >0.116 V</TD>
+<TD >0.033 V</TD>
+<TD >6.66e-10 s</TD>
+<TD >6.27e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >LEDR[13]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >4.67e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00942 V</TD>
+<TD >0.116 V</TD>
+<TD >0.033 V</TD>
+<TD >6.66e-10 s</TD>
+<TD >6.27e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >4.67e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00942 V</TD>
+<TD >0.116 V</TD>
+<TD >0.033 V</TD>
+<TD >6.66e-10 s</TD>
+<TD >6.27e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >LEDR[14]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >4.67e-07 V</TD>
+<TD >2.33 V</TD>
+<TD >-0.00269 V</TD>
+<TD >0.13 V</TD>
+<TD >0.055 V</TD>
+<TD >3.54e-09 s</TD>
+<TD >3.29e-09 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >4.67e-07 V</TD>
+<TD >2.33 V</TD>
+<TD >-0.00269 V</TD>
+<TD >0.13 V</TD>
+<TD >0.055 V</TD>
+<TD >3.54e-09 s</TD>
+<TD >3.29e-09 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >LEDR[15]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >4.67e-07 V</TD>
+<TD >2.33 V</TD>
+<TD >-0.00269 V</TD>
+<TD >0.13 V</TD>
+<TD >0.055 V</TD>
+<TD >3.54e-09 s</TD>
+<TD >3.29e-09 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >4.67e-07 V</TD>
+<TD >2.33 V</TD>
+<TD >-0.00269 V</TD>
+<TD >0.13 V</TD>
+<TD >0.055 V</TD>
+<TD >3.54e-09 s</TD>
+<TD >3.29e-09 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >LEDR[16]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >4.67e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00942 V</TD>
+<TD >0.116 V</TD>
+<TD >0.033 V</TD>
+<TD >6.66e-10 s</TD>
+<TD >6.27e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >4.67e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00942 V</TD>
+<TD >0.116 V</TD>
+<TD >0.033 V</TD>
+<TD >6.66e-10 s</TD>
+<TD >6.27e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >LEDR[17]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >4.67e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00942 V</TD>
+<TD >0.116 V</TD>
+<TD >0.033 V</TD>
+<TD >6.66e-10 s</TD>
+<TD >6.27e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >4.67e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00942 V</TD>
+<TD >0.116 V</TD>
+<TD >0.033 V</TD>
+<TD >6.66e-10 s</TD>
+<TD >6.27e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >DRAM_CLK</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >DRAM_CKE</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >DRAM_ADDR[0]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >DRAM_ADDR[1]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >DRAM_ADDR[2]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >DRAM_ADDR[3]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >DRAM_ADDR[4]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >DRAM_ADDR[5]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >DRAM_ADDR[6]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >DRAM_ADDR[7]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >DRAM_ADDR[8]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >DRAM_ADDR[9]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >DRAM_ADDR[10]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >DRAM_ADDR[11]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.33 V</TD>
+<TD >-0.00265 V</TD>
+<TD >0.133 V</TD>
+<TD >0.056 V</TD>
+<TD >3.55e-09 s</TD>
+<TD >3.31e-09 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.33 V</TD>
+<TD >-0.00265 V</TD>
+<TD >0.133 V</TD>
+<TD >0.056 V</TD>
+<TD >3.55e-09 s</TD>
+<TD >3.31e-09 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >DRAM_BA[0]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >DRAM_BA[1]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >DRAM_CS_N</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >DRAM_CAS_N</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >DRAM_RAS_N</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >DRAM_WE_N</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >DRAM_DQM[0]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >DRAM_DQM[1]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >DRAM_DQM[2]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >DRAM_DQM[3]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >HEX0[0]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >HEX0[1]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >HEX0[2]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.33 V</TD>
+<TD >-0.00265 V</TD>
+<TD >0.133 V</TD>
+<TD >0.056 V</TD>
+<TD >3.55e-09 s</TD>
+<TD >3.31e-09 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.33 V</TD>
+<TD >-0.00265 V</TD>
+<TD >0.133 V</TD>
+<TD >0.056 V</TD>
+<TD >3.55e-09 s</TD>
+<TD >3.31e-09 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >HEX0[3]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >HEX0[4]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >HEX0[5]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >HEX0[6]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >HEX1[0]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >HEX1[1]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.33 V</TD>
+<TD >-0.00265 V</TD>
+<TD >0.133 V</TD>
+<TD >0.056 V</TD>
+<TD >3.55e-09 s</TD>
+<TD >3.31e-09 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.33 V</TD>
+<TD >-0.00265 V</TD>
+<TD >0.133 V</TD>
+<TD >0.056 V</TD>
+<TD >3.55e-09 s</TD>
+<TD >3.31e-09 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >HEX1[2]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >HEX1[3]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >HEX1[4]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >HEX1[5]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >HEX1[6]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >HEX2[0]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >HEX2[1]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >HEX2[2]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >HEX2[3]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >4.67e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00942 V</TD>
+<TD >0.116 V</TD>
+<TD >0.033 V</TD>
+<TD >6.66e-10 s</TD>
+<TD >6.27e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >4.67e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00942 V</TD>
+<TD >0.116 V</TD>
+<TD >0.033 V</TD>
+<TD >6.66e-10 s</TD>
+<TD >6.27e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >HEX2[4]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >HEX2[5]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >HEX2[6]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >HEX3[0]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >HEX3[1]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >HEX3[2]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >HEX3[3]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >HEX3[4]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >HEX3[5]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >HEX3[6]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >HEX4[0]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >HEX4[1]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >HEX4[2]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >HEX4[3]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >HEX4[4]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >HEX4[5]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >HEX4[6]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >HEX5[0]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >HEX5[1]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >HEX5[2]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >HEX5[3]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >HEX5[4]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >HEX5[5]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >HEX5[6]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >HEX6[0]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >HEX6[1]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >HEX6[2]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.33 V</TD>
+<TD >-0.00265 V</TD>
+<TD >0.133 V</TD>
+<TD >0.056 V</TD>
+<TD >3.55e-09 s</TD>
+<TD >3.31e-09 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.33 V</TD>
+<TD >-0.00265 V</TD>
+<TD >0.133 V</TD>
+<TD >0.056 V</TD>
+<TD >3.55e-09 s</TD>
+<TD >3.31e-09 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >HEX6[3]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >HEX6[4]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >HEX6[5]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >HEX6[6]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >HEX7[0]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >HEX7[1]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >HEX7[2]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >HEX7[3]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >HEX7[4]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >HEX7[5]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >HEX7[6]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >PCIE_WAKE_N</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >4.67e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00942 V</TD>
+<TD >0.116 V</TD>
+<TD >0.033 V</TD>
+<TD >6.66e-10 s</TD>
+<TD >6.27e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >4.67e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00942 V</TD>
+<TD >0.116 V</TD>
+<TD >0.033 V</TD>
+<TD >6.66e-10 s</TD>
+<TD >6.27e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >VGA_B[0]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >VGA_B[1]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >VGA_B[2]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >VGA_B[3]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >VGA_B[4]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >VGA_B[5]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >VGA_B[6]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >VGA_B[7]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >VGA_BLANK_N</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >VGA_CLK</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >VGA_G[0]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >VGA_G[1]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >VGA_G[2]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >VGA_G[3]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >VGA_G[4]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >VGA_G[5]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >VGA_G[6]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >VGA_G[7]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >VGA_HS</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >VGA_R[0]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >VGA_R[1]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >VGA_R[2]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >VGA_R[3]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >VGA_R[4]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >VGA_R[5]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >VGA_R[6]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >VGA_R[7]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >VGA_SYNC_N</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >VGA_VS</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >DRAM_DQ[0]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >DRAM_DQ[1]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >DRAM_DQ[2]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >DRAM_DQ[3]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >DRAM_DQ[4]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >DRAM_DQ[5]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >DRAM_DQ[6]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >DRAM_DQ[7]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >DRAM_DQ[8]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >DRAM_DQ[9]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >DRAM_DQ[10]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >DRAM_DQ[11]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >DRAM_DQ[12]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >DRAM_DQ[13]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >DRAM_DQ[14]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >DRAM_DQ[15]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >DRAM_DQ[16]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >DRAM_DQ[17]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.33 V</TD>
+<TD >-0.00265 V</TD>
+<TD >0.133 V</TD>
+<TD >0.056 V</TD>
+<TD >3.55e-09 s</TD>
+<TD >3.31e-09 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.33 V</TD>
+<TD >-0.00265 V</TD>
+<TD >0.133 V</TD>
+<TD >0.056 V</TD>
+<TD >3.55e-09 s</TD>
+<TD >3.31e-09 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >DRAM_DQ[18]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >DRAM_DQ[19]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >DRAM_DQ[20]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >DRAM_DQ[21]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >DRAM_DQ[22]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >DRAM_DQ[23]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >DRAM_DQ[24]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >DRAM_DQ[25]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >DRAM_DQ[26]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >DRAM_DQ[27]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >DRAM_DQ[28]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >DRAM_DQ[29]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >DRAM_DQ[30]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >DRAM_DQ[31]</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >6.92e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00996 V</TD>
+<TD >0.121 V</TD>
+<TD >0.03 V</TD>
+<TD >4.64e-10 s</TD>
+<TD >4.47e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#EDEDED">
+<TD >FAN_CTRL</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >4.67e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00942 V</TD>
+<TD >0.116 V</TD>
+<TD >0.033 V</TD>
+<TD >6.66e-10 s</TD>
+<TD >6.27e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >4.67e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00942 V</TD>
+<TD >0.116 V</TD>
+<TD >0.033 V</TD>
+<TD >6.66e-10 s</TD>
+<TD >6.27e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody><tbody><TR  bgcolor="#FFFFFF">
+<TD >~ALTERA_DCLK~</TD>
+<TD >2.5 V</TD>
+<TD >0 s</TD>
+<TD >0 s</TD>
+<TD >2.32 V</TD>
+<TD >5.55e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00881 V</TD>
+<TD >0.093 V</TD>
+<TD >0.011 V</TD>
+<TD >4.44e-10 s</TD>
+<TD >3.77e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+<TD >2.32 V</TD>
+<TD >5.55e-07 V</TD>
+<TD >2.35 V</TD>
+<TD >-0.00881 V</TD>
+<TD >0.093 V</TD>
+<TD >0.011 V</TD>
+<TD >4.44e-10 s</TD>
+<TD >3.77e-10 s</TD>
+<TD >Yes</TD>
+<TD >Yes</TD>
+</TR>
+</tbody></TABLE>
+
+<noscript>JavaScript must be enabled to view the report.</noscript>
+</BODY>
+</HTML>

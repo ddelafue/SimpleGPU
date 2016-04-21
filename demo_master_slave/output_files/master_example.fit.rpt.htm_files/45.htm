@@ -1,0 +1,364 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<HTML><HEAD>
+<TITLE>I/O Rules Details</TITLE>
+
+<link rel="stylesheet" type="text/css" href="css/reset.css">
+<link rel="stylesheet" type="text/css" href="css/base.css">
+<link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="css/jquery.layout-latest.css">
+<link rel="stylesheet" type="text/css" href="css/override.css">
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/jquery.layout-latest.js"></script>
+
+
+</HEAD>
+
+<BODY>
+<TABLE>
+<thead><TR  bgcolor="#BFBFBF">
+<TH>Status</TH>
+<TH>ID</TH>
+<TH>Category</TH>
+<TH>Rule Description</TH>
+<TH>Severity</TH>
+<TH>Information</TH>
+<TH>Area</TH>
+<TH>Extra Information</TH>
+</TR>
+</thead><tbody><TR >
+<TD >Pass</TD>
+<TD >IO_000001</TD>
+<TD >Capacity Checks</TD>
+<TD >Number of pins in an I/O bank should not exceed the number of locations available.</TD>
+<TD >Critical</TD>
+<TD >0 such failures found.</TD>
+<TD >I/O</TD>
+<TD >&nbsp;</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >Pass</TD>
+<TD >IO_000002</TD>
+<TD >Capacity Checks</TD>
+<TD >Number of clocks in an I/O bank should not exceed the number of clocks available.</TD>
+<TD >Critical</TD>
+<TD >0 such failures found.</TD>
+<TD >I/O</TD>
+<TD >&nbsp;</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >Pass</TD>
+<TD >IO_000003</TD>
+<TD >Capacity Checks</TD>
+<TD >Number of pins in a Vrefgroup should not exceed the number of locations available.</TD>
+<TD >Critical</TD>
+<TD >0 such failures found.</TD>
+<TD >I/O</TD>
+<TD >&nbsp;</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >Inapplicable</TD>
+<TD >IO_000004</TD>
+<TD >Voltage Compatibility Checks</TD>
+<TD >The I/O bank should support the requested VCCIO.</TD>
+<TD >Critical</TD>
+<TD >No IOBANK_VCCIO assignments found.</TD>
+<TD >I/O</TD>
+<TD >&nbsp;</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >Inapplicable</TD>
+<TD >IO_000005</TD>
+<TD >Voltage Compatibility Checks</TD>
+<TD >The I/O bank should not have competing VREF values.</TD>
+<TD >Critical</TD>
+<TD >No VREF I/O Standard assignments found.</TD>
+<TD >I/O</TD>
+<TD >&nbsp;</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >Pass</TD>
+<TD >IO_000006</TD>
+<TD >Voltage Compatibility Checks</TD>
+<TD >The I/O bank should not have competing VCCIO values.</TD>
+<TD >Critical</TD>
+<TD >0 such failures found.</TD>
+<TD >I/O</TD>
+<TD >&nbsp;</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >Pass</TD>
+<TD >IO_000007</TD>
+<TD >Valid Location Checks</TD>
+<TD >Checks for unavailable locations.</TD>
+<TD >Critical</TD>
+<TD >0 such failures found.</TD>
+<TD >I/O</TD>
+<TD >&nbsp;</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >Inapplicable</TD>
+<TD >IO_000008</TD>
+<TD >Valid Location Checks</TD>
+<TD >Checks for reserved locations.</TD>
+<TD >Critical</TD>
+<TD >No reserved LogicLock region found.</TD>
+<TD >I/O</TD>
+<TD >&nbsp;</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >Pass</TD>
+<TD >IO_000009</TD>
+<TD >I/O Properties Checks for One I/O</TD>
+<TD >The location should support the requested I/O standard.</TD>
+<TD >Critical</TD>
+<TD >0 such failures found.</TD>
+<TD >I/O</TD>
+<TD >&nbsp;</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >Pass</TD>
+<TD >IO_000010</TD>
+<TD >I/O Properties Checks for One I/O</TD>
+<TD >The location should support the requested I/O direction.</TD>
+<TD >Critical</TD>
+<TD >0 such failures found.</TD>
+<TD >I/O</TD>
+<TD >&nbsp;</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >Inapplicable</TD>
+<TD >IO_000011</TD>
+<TD >I/O Properties Checks for One I/O</TD>
+<TD >The location should support the requested Current Strength.</TD>
+<TD >Critical</TD>
+<TD >No Current Strength assignments found.</TD>
+<TD >I/O</TD>
+<TD >&nbsp;</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >Pass</TD>
+<TD >IO_000012</TD>
+<TD >I/O Properties Checks for One I/O</TD>
+<TD >The location should support the requested On Chip Termination value.</TD>
+<TD >Critical</TD>
+<TD >0 such failures found.</TD>
+<TD >I/O</TD>
+<TD >&nbsp;</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >Inapplicable</TD>
+<TD >IO_000013</TD>
+<TD >I/O Properties Checks for One I/O</TD>
+<TD >The location should support the requested Bus Hold value.</TD>
+<TD >Critical</TD>
+<TD >No Enable Bus-Hold Circuitry assignments found.</TD>
+<TD >I/O</TD>
+<TD >&nbsp;</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >Inapplicable</TD>
+<TD >IO_000014</TD>
+<TD >I/O Properties Checks for One I/O</TD>
+<TD >The location should support the requested Weak Pull Up value.</TD>
+<TD >Critical</TD>
+<TD >No Weak Pull-Up Resistor assignments found.</TD>
+<TD >I/O</TD>
+<TD >&nbsp;</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >Pass</TD>
+<TD >IO_000015</TD>
+<TD >I/O Properties Checks for One I/O</TD>
+<TD >The location should support the requested PCI Clamp Diode.</TD>
+<TD >Critical</TD>
+<TD >0 such failures found.</TD>
+<TD >I/O</TD>
+<TD >&nbsp;</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >Inapplicable</TD>
+<TD >IO_000018</TD>
+<TD >I/O Properties Checks for One I/O</TD>
+<TD >The I/O standard should support the requested Current Strength.</TD>
+<TD >Critical</TD>
+<TD >No Current Strength assignments found.</TD>
+<TD >I/O</TD>
+<TD >&nbsp;</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >Pass</TD>
+<TD >IO_000019</TD>
+<TD >I/O Properties Checks for One I/O</TD>
+<TD >The I/O standard should support the requested On Chip Termination value.</TD>
+<TD >Critical</TD>
+<TD >0 such failures found.</TD>
+<TD >I/O</TD>
+<TD >&nbsp;</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >Pass</TD>
+<TD >IO_000020</TD>
+<TD >I/O Properties Checks for One I/O</TD>
+<TD >The I/O standard should support the requested PCI Clamp Diode.</TD>
+<TD >Critical</TD>
+<TD >0 such failures found.</TD>
+<TD >I/O</TD>
+<TD >&nbsp;</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >Inapplicable</TD>
+<TD >IO_000021</TD>
+<TD >I/O Properties Checks for One I/O</TD>
+<TD >The I/O standard should support the requested Weak Pull Up value.</TD>
+<TD >Critical</TD>
+<TD >No Weak Pull-Up Resistor assignments found.</TD>
+<TD >I/O</TD>
+<TD >&nbsp;</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >Inapplicable</TD>
+<TD >IO_000022</TD>
+<TD >I/O Properties Checks for One I/O</TD>
+<TD >The I/O standard should support the requested Bus Hold value.</TD>
+<TD >Critical</TD>
+<TD >No Enable Bus-Hold Circuitry assignments found.</TD>
+<TD >I/O</TD>
+<TD >&nbsp;</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >Pass</TD>
+<TD >IO_000023</TD>
+<TD >I/O Properties Checks for One I/O</TD>
+<TD >The I/O standard should support the Open Drain value.</TD>
+<TD >Critical</TD>
+<TD >0 such failures found.</TD>
+<TD >I/O</TD>
+<TD >&nbsp;</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >Pass</TD>
+<TD >IO_000024</TD>
+<TD >I/O Properties Checks for One I/O</TD>
+<TD >The I/O direction should support the On Chip Termination value.</TD>
+<TD >Critical</TD>
+<TD >0 such failures found.</TD>
+<TD >I/O</TD>
+<TD >&nbsp;</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >Inapplicable</TD>
+<TD >IO_000026</TD>
+<TD >I/O Properties Checks for One I/O</TD>
+<TD >On Chip Termination and Current Strength should not be used at the same time.</TD>
+<TD >Critical</TD>
+<TD >No Current Strength assignments found.</TD>
+<TD >I/O</TD>
+<TD >&nbsp;</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >Inapplicable</TD>
+<TD >IO_000027</TD>
+<TD >I/O Properties Checks for One I/O</TD>
+<TD >Weak Pull Up and Bus Hold should not be used at the same time.</TD>
+<TD >Critical</TD>
+<TD >No Enable Bus-Hold Circuitry or Weak Pull-Up Resistor assignments found.</TD>
+<TD >I/O</TD>
+<TD >&nbsp;</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >Inapplicable</TD>
+<TD >IO_000045</TD>
+<TD >I/O Properties Checks for One I/O</TD>
+<TD >The I/O standard should support the requested Slew Rate value.</TD>
+<TD >Critical</TD>
+<TD >No Slew Rate assignments found.</TD>
+<TD >I/O</TD>
+<TD >&nbsp;</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >Inapplicable</TD>
+<TD >IO_000046</TD>
+<TD >I/O Properties Checks for One I/O</TD>
+<TD >The location should support the requested Slew Rate value.</TD>
+<TD >Critical</TD>
+<TD >No Slew Rate assignments found.</TD>
+<TD >I/O</TD>
+<TD >&nbsp;</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >Inapplicable</TD>
+<TD >IO_000047</TD>
+<TD >I/O Properties Checks for One I/O</TD>
+<TD >On Chip Termination and Slew Rate should not be used at the same time.</TD>
+<TD >Critical</TD>
+<TD >No Slew Rate assignments found.</TD>
+<TD >I/O</TD>
+<TD >&nbsp;</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >Pass</TD>
+<TD >IO_000033</TD>
+<TD >Electromigration Checks</TD>
+<TD >Current density for consecutive I/Os should not exceed 240mA for row I/Os and 240mA for column I/Os.</TD>
+<TD >Critical</TD>
+<TD >0 such failures found.</TD>
+<TD >I/O</TD>
+<TD >&nbsp;</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >Pass</TD>
+<TD >IO_000034</TD>
+<TD >SI Related Distance Checks</TD>
+<TD >Single-ended outputs should be 5 LAB row(s) away from a differential I/O.</TD>
+<TD >High</TD>
+<TD >0 such failures found.</TD>
+<TD >I/O</TD>
+<TD >&nbsp;</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >Inapplicable</TD>
+<TD >IO_000042</TD>
+<TD >SI Related SSO Limit Checks</TD>
+<TD >No more than 20 outputs are allowed in a VREF group when VREF is being read from.</TD>
+<TD >High</TD>
+<TD >No VREF I/O Standard assignments found.</TD>
+<TD >I/O</TD>
+<TD >&nbsp;</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >----</TD>
+<TD >----</TD>
+<TD >Disclaimer</TD>
+<TD >LVDS rules are checked but not reported.</TD>
+<TD >None</TD>
+<TD >----</TD>
+<TD >Differential Signaling</TD>
+<TD >&nbsp;</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >----</TD>
+<TD >----</TD>
+<TD >Disclaimer</TD>
+<TD >OCT rules are checked but not reported.</TD>
+<TD >None</TD>
+<TD >----</TD>
+<TD >On Chip Termination</TD>
+<TD >&nbsp;</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >----</TD>
+<TD >----</TD>
+<TD >Disclaimer</TD>
+<TD >Transceiver block related rules are checked but not reported.</TD>
+<TD >None</TD>
+<TD >----</TD>
+<TD >Transceiver Block</TD>
+<TD >&nbsp;</TD>
+</TR>
+</tbody></TABLE>
+
+<noscript>JavaScript must be enabled to view the report.</noscript>
+</BODY>
+</HTML>

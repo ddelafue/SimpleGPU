@@ -1,0 +1,215 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<HTML><HEAD>
+<TITLE>Timing Closure Recommendations</TITLE>
+
+<link rel="stylesheet" type="text/css" href="css/reset.css">
+<link rel="stylesheet" type="text/css" href="css/base.css">
+<link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="css/jquery.layout-latest.css">
+<link rel="stylesheet" type="text/css" href="css/override.css">
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/jquery.layout-latest.js"></script>
+
+
+</HEAD>
+
+<BODY>
+<html><head><link rel='stylesheet' href='bogus:style.css' type='text/css' /><script type='text/javascript' src='qrc:rpwq_sorttable.js'></script>
+<script language="javascript" type="text/javascript">
+function toggle(id, showtext, hidetext) {
+	document.getElementById(id+'-toggle').innerHTML = (document.getElementById(id).style.display == "none") ? hidetext : showtext;
+	document.getElementById(id).style.display = (document.getElementById(id).style.display == "none") ? "" : "none";
+}
+</script>
+
+<style type="text/css">
+
+body { 
+	font-family:      Tahoma, sans-serif
+	font-size:        8pt;
+	background-color: white;
+	margin:           0;
+/*	border:           1px solid #7F9DB9;*/ /* border on page doesn't work right when scrolling...*/
+	padding:          2px;
+}
+
+h1, h2 { 
+	background-color: #316AC5; 
+	color:            white; 
+	padding:          2px;
+}
+
+
+h1, h2 a:link {color:#fff;}
+
+
+h1             { font-size: 10pt; }
+h2, h3, h4, h5 { font-size: 8pt; }
+p, blockquote  { font-size: 8pt; }
+table, td, th  { font-size: 8pt; }
+ul, ol, li     { font-size: 8pt; }
+dl, dt, dd     { font-size: 8pt; }
+
+/* i don't like the space after paragraphs and before lists */
+p { margin: 1em 0 0 0; }
+
+
+/* table formats */
+table {
+	border-collapse: collapse;
+}
+
+td, th {
+	border-collapse: collapse;
+	border:          1px solid #C8C8C8;
+	padding:         1px;
+	padding-left:    2px;
+	padding-right:   2px;
+	margin:          0;
+	vertical-align:  middle;
+	text-align:      left;
+}
+
+th                 { background-color: #EDEDED; } /* tq table grey - for table heading */
+tr:nth-child(2n+0) { background-color: #EDEDED; } /* tq table grey - for even rows */
+tr:nth-child(2n+1) { background-color: #FFFFFF; } /* tq table white - for odd rows */
+
+table#path_table td {
+	vertical-align:top;
+}
+
+.graph { 
+	width: 100px; 
+	border: 1px solid #aaa; 
+	padding: 0px 1px 0px 1px; 
+}
+.graph .bar { 
+	display: block;	
+	position: relative;
+	background: #aaa; 
+	text-align: left;
+	padding-left: 2px;
+	padding-right: 2px;
+	color: #000; 
+	height: 12px; 
+	vertical-align: middle;
+	left:-2px; /* needs to be adjusted in conjunction with .graph styles */
+}
+
+div.bar {
+	height:11px; 
+	background-color:#C00000; 
+	color: white; 
+	text-align: left; 
+	vertical-align: middle;
+}
+
+/* for description lists for summary */
+dl.rec {
+	margin: 1px;
+	padding: 0;
+}
+
+.rec dt {
+	clear: left;
+	float: left;
+	width: 7em;
+	margin: 0;
+	padding: 1px;
+}
+
+.rec dd {
+	margin: 0 0 0 5em;
+	padding: 1px;
+}
+
+dd.path_table_rec {
+	overflow: hidden;
+	whitespace: nowrap;
+	text-overflow: ellipsis;
+}
+
+ul, ol, li {
+	margin: 1px;
+}
+
+/* tooltip experiment for long node names */
+/* use with: <span id="links"><a href="#">short name<span>longer node name</span></a></span> */
+span#tip {position: relative; top: 0; left: 0;}
+span#tip a { text-decoration: none; color: black;}
+span#tip a:hover {}
+
+span#tip a span {display: none;}
+span#tip a:hover span {
+	display: block;
+	position: absolute; top: -2px; left: -2px; 
+	padding: 1px; margin: 0px; z-index: 100;
+	border: 1px solid black;
+	color: black; background: #FFFFDC;
+	text-align: left;
+	z-index: 100;
+}
+
+div#multicolumn {
+	-webkit-column-width: 50em;
+	-webkit-column-gap: 2em;
+}
+
+</style>
+</head><body><h2>Summary
+<a href='#' id='twist-summary-toggle' onclick='toggle("twist-summary", "[show details]", "[hide details]");'>[hide details]</a>
+</h2><div id='twist-summary' style='display:inline;'>
+<p>This design contains failing setup paths with a worst-case slack of -0.929 ns. Run <a href='tcl:taw_report_design_analysis -npaths 20'>Report Timing Closure Recommendations</a> for recommendations on how to close setup timing. For recommendations for any particular path, click the appropriate link in the table below. </p>
+</div><h2> Top Failing Paths
+<a href='#' id='twist-top_failing_paths-toggle' onclick='toggle("twist-top_failing_paths", "[show details]", "[hide details]");'>[hide details]</a>
+</h2><div id='twist-top_failing_paths' style='display:inline;'>
+
+	<table>
+		<tr>
+			<th></th>
+			<th>Slack</th>
+			<th>From</th>
+			<th>To</th>
+			<th>Recommendations</th>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>-0.929</td>
+			<td><span id='tip'><a href='#'>amm_master_qsys_w...in_data_reg[104]<span>amm_master_qsys_with_pcie:amm_master_inst|amm_master_qsys_with_pcie_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:pcie_ip_txs_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|in_data_reg[104]</span></a></span></td>
+			<td><span id='tip'><a href='#'>amm_master_qsys_w...er_remaining[15]<span>amm_master_qsys_with_pcie:amm_master_inst|amm_master_qsys_with_pcie_sgdma:sgdma|amm_master_qsys_with_pcie_sgdma_m_write:the_amm_master_qsys_with_pcie_sgdma_m_write|transfer_remaining[15]</span></a></span></td>
+			<td><a href='tcl:taw_report_design_analysis -from amm_master_qsys_with_pcie:amm_master_inst|amm_master_qsys_with_pcie_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:pcie_ip_txs_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|in_data_reg[104] -to amm_master_qsys_with_pcie:amm_master_inst|amm_master_qsys_with_pcie_sgdma:sgdma|amm_master_qsys_with_pcie_sgdma_m_write:the_amm_master_qsys_with_pcie_sgdma_m_write|transfer_remaining[15] -from_clock amm_master_inst|pcie_ip|pcie_internal_hip|cyclone_iii.cycloneiv_hssi_pcie_hip|coreclkout -to_clock amm_master_inst|pcie_ip|pcie_internal_hip|cyclone_iii.cycloneiv_hssi_pcie_hip|coreclkout -folder_name {Timing Closure Recommendations (amm_master_qsys_with_pcie:amm_master_inst|amm_master_qsys_with_pcie_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:pcie_ip_txs_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|in_data_reg[104] to amm_master_qsys_with_pcie:amm_master_inst|amm_master_qsys_with_pcie_sgdma:sgdma|amm_master_qsys_with_pcie_sgdma_m_write:the_amm_master_qsys_with_pcie_sgdma_m_write|transfer_remaining[15])}'>Report recommendations for this path</a></td>
+		</tr>
+		<tr>
+			<td>2</td>
+			<td>-0.894</td>
+			<td><span id='tip'><a href='#'>amm_master_qsys_w...in_data_reg[104]<span>amm_master_qsys_with_pcie:amm_master_inst|amm_master_qsys_with_pcie_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:pcie_ip_txs_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|in_data_reg[104]</span></a></span></td>
+			<td><span id='tip'><a href='#'>amm_master_qsys_w...er_remaining[15]<span>amm_master_qsys_with_pcie:amm_master_inst|amm_master_qsys_with_pcie_sgdma:sgdma|amm_master_qsys_with_pcie_sgdma_m_write:the_amm_master_qsys_with_pcie_sgdma_m_write|transfer_remaining[15]</span></a></span></td>
+			<td><a href='tcl:taw_report_design_analysis -from amm_master_qsys_with_pcie:amm_master_inst|amm_master_qsys_with_pcie_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:pcie_ip_txs_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|in_data_reg[104] -to amm_master_qsys_with_pcie:amm_master_inst|amm_master_qsys_with_pcie_sgdma:sgdma|amm_master_qsys_with_pcie_sgdma_m_write:the_amm_master_qsys_with_pcie_sgdma_m_write|transfer_remaining[15] -from_clock amm_master_inst|pcie_ip|pcie_internal_hip|cyclone_iii.cycloneiv_hssi_pcie_hip|coreclkout -to_clock amm_master_inst|pcie_ip|pcie_internal_hip|cyclone_iii.cycloneiv_hssi_pcie_hip|coreclkout -folder_name {Timing Closure Recommendations (amm_master_qsys_with_pcie:amm_master_inst|amm_master_qsys_with_pcie_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:pcie_ip_txs_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|in_data_reg[104] to amm_master_qsys_with_pcie:amm_master_inst|amm_master_qsys_with_pcie_sgdma:sgdma|amm_master_qsys_with_pcie_sgdma_m_write:the_amm_master_qsys_with_pcie_sgdma_m_write|transfer_remaining[15])}'>Report recommendations for this path</a></td>
+		</tr>
+		<tr>
+			<td>3</td>
+			<td>-0.822</td>
+			<td><span id='tip'><a href='#'>amm_master_qsys_w...in_data_reg[104]<span>amm_master_qsys_with_pcie:amm_master_inst|amm_master_qsys_with_pcie_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:pcie_ip_txs_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|in_data_reg[104]</span></a></span></td>
+			<td><span id='tip'><a href='#'>amm_master_qsys_w...er_remaining[15]<span>amm_master_qsys_with_pcie:amm_master_inst|amm_master_qsys_with_pcie_sgdma:sgdma|amm_master_qsys_with_pcie_sgdma_m_write:the_amm_master_qsys_with_pcie_sgdma_m_write|transfer_remaining[15]</span></a></span></td>
+			<td><a href='tcl:taw_report_design_analysis -from amm_master_qsys_with_pcie:amm_master_inst|amm_master_qsys_with_pcie_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:pcie_ip_txs_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|in_data_reg[104] -to amm_master_qsys_with_pcie:amm_master_inst|amm_master_qsys_with_pcie_sgdma:sgdma|amm_master_qsys_with_pcie_sgdma_m_write:the_amm_master_qsys_with_pcie_sgdma_m_write|transfer_remaining[15] -from_clock amm_master_inst|pcie_ip|pcie_internal_hip|cyclone_iii.cycloneiv_hssi_pcie_hip|coreclkout -to_clock amm_master_inst|pcie_ip|pcie_internal_hip|cyclone_iii.cycloneiv_hssi_pcie_hip|coreclkout -folder_name {Timing Closure Recommendations (amm_master_qsys_with_pcie:amm_master_inst|amm_master_qsys_with_pcie_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:pcie_ip_txs_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|in_data_reg[104] to amm_master_qsys_with_pcie:amm_master_inst|amm_master_qsys_with_pcie_sgdma:sgdma|amm_master_qsys_with_pcie_sgdma_m_write:the_amm_master_qsys_with_pcie_sgdma_m_write|transfer_remaining[15])}'>Report recommendations for this path</a></td>
+		</tr>
+		<tr>
+			<td>4</td>
+			<td>-0.818</td>
+			<td><span id='tip'><a href='#'>amm_master_qsys_w...in_byteen_reg[1]<span>amm_master_qsys_with_pcie:amm_master_inst|amm_master_qsys_with_pcie_mm_interconnect_2:mm_interconnect_2|altera_merlin_burst_adapter:sgdma_csr_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|in_byteen_reg[1]</span></a></span></td>
+			<td><span id='tip'><a href='#'>amm_master_qsys_w...:FIFOram|q_b[56]<span>amm_master_qsys_with_pcie:amm_master_inst|amm_master_qsys_with_pcie_pcie_ip:pcie_ip|altpcie_hip_pipen1b_qsys:pcie_internal_hip|altpciexpav_stif_app:avalon_stream_hip_qsys.avalon_bridge|altpciexpav_stif_rx:rx|altpciexpav_stif_rx_cntrl:rx_pcie_cntrl|scfifo:rx_input_fifo|scfifo_9j31:auto_generated|a_dpfifo_gp31:dpfifo|altsyncram_heh1:FIFOram|q_b[56]</span></a></span></td>
+			<td><a href='tcl:taw_report_design_analysis -from amm_master_qsys_with_pcie:amm_master_inst|amm_master_qsys_with_pcie_mm_interconnect_2:mm_interconnect_2|altera_merlin_burst_adapter:sgdma_csr_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|in_byteen_reg[1] -to amm_master_qsys_with_pcie:amm_master_inst|amm_master_qsys_with_pcie_pcie_ip:pcie_ip|altpcie_hip_pipen1b_qsys:pcie_internal_hip|altpciexpav_stif_app:avalon_stream_hip_qsys.avalon_bridge|altpciexpav_stif_rx:rx|altpciexpav_stif_rx_cntrl:rx_pcie_cntrl|scfifo:rx_input_fifo|scfifo_9j31:auto_generated|a_dpfifo_gp31:dpfifo|altsyncram_heh1:FIFOram|q_b[56] -from_clock amm_master_inst|pcie_ip|pcie_internal_hip|cyclone_iii.cycloneiv_hssi_pcie_hip|coreclkout -to_clock amm_master_inst|pcie_ip|pcie_internal_hip|cyclone_iii.cycloneiv_hssi_pcie_hip|coreclkout -folder_name {Timing Closure Recommendations (amm_master_qsys_with_pcie:amm_master_inst|amm_master_qsys_with_pcie_mm_interconnect_2:mm_interconnect_2|altera_merlin_burst_adapter:sgdma_csr_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|in_byteen_reg[1] to amm_master_qsys_with_pcie:amm_master_inst|amm_master_qsys_with_pcie_pcie_ip:pcie_ip|altpcie_hip_pipen1b_qsys:pcie_internal_hip|altpciexpav_stif_app:avalon_stream_hip_qsys.avalon_bridge|altpciexpav_stif_rx:rx|altpciexpav_stif_rx_cntrl:rx_pcie_cntrl|scfifo:rx_input_fifo|scfifo_9j31:auto_generated|a_dpfifo_gp31:dpfifo|altsyncram_heh1:FIFOram|q_b[56])}'>Report recommendations for this path</a></td>
+		</tr>
+		<tr>
+			<td>5</td>
+			<td>-0.818</td>
+			<td><span id='tip'><a href='#'>amm_master_qsys_w...in_byteen_reg[1]<span>amm_master_qsys_with_pcie:amm_master_inst|amm_master_qsys_with_pcie_mm_interconnect_2:mm_interconnect_2|altera_merlin_burst_adapter:sgdma_csr_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|in_byteen_reg[1]</span></a></span></td>
+			<td><span id='tip'><a href='#'>amm_master_qsys_w...:FIFOram|q_b[57]<span>amm_master_qsys_with_pcie:amm_master_inst|amm_master_qsys_with_pcie_pcie_ip:pcie_ip|altpcie_hip_pipen1b_qsys:pcie_internal_hip|altpciexpav_stif_app:avalon_stream_hip_qsys.avalon_bridge|altpciexpav_stif_rx:rx|altpciexpav_stif_rx_cntrl:rx_pcie_cntrl|scfifo:rx_input_fifo|scfifo_9j31:auto_generated|a_dpfifo_gp31:dpfifo|altsyncram_heh1:FIFOram|q_b[57]</span></a></span></td>
+			<td><a href='tcl:taw_report_design_analysis -from amm_master_qsys_with_pcie:amm_master_inst|amm_master_qsys_with_pcie_mm_interconnect_2:mm_interconnect_2|altera_merlin_burst_adapter:sgdma_csr_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|in_byteen_reg[1] -to amm_master_qsys_with_pcie:amm_master_inst|amm_master_qsys_with_pcie_pcie_ip:pcie_ip|altpcie_hip_pipen1b_qsys:pcie_internal_hip|altpciexpav_stif_app:avalon_stream_hip_qsys.avalon_bridge|altpciexpav_stif_rx:rx|altpciexpav_stif_rx_cntrl:rx_pcie_cntrl|scfifo:rx_input_fifo|scfifo_9j31:auto_generated|a_dpfifo_gp31:dpfifo|altsyncram_heh1:FIFOram|q_b[57] -from_clock amm_master_inst|pcie_ip|pcie_internal_hip|cyclone_iii.cycloneiv_hssi_pcie_hip|coreclkout -to_clock amm_master_inst|pcie_ip|pcie_internal_hip|cyclone_iii.cycloneiv_hssi_pcie_hip|coreclkout -folder_name {Timing Closure Recommendations (amm_master_qsys_with_pcie:amm_master_inst|amm_master_qsys_with_pcie_mm_interconnect_2:mm_interconnect_2|altera_merlin_burst_adapter:sgdma_csr_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|in_byteen_reg[1] to amm_master_qsys_with_pcie:amm_master_inst|amm_master_qsys_with_pcie_pcie_ip:pcie_ip|altpcie_hip_pipen1b_qsys:pcie_internal_hip|altpciexpav_stif_app:avalon_stream_hip_qsys.avalon_bridge|altpciexpav_stif_rx:rx|altpciexpav_stif_rx_cntrl:rx_pcie_cntrl|scfifo:rx_input_fifo|scfifo_9j31:auto_generated|a_dpfifo_gp31:dpfifo|altsyncram_heh1:FIFOram|q_b[57])}'>Report recommendations for this path</a></td>
+		</tr></table>
+</div></body></html>
+<noscript>JavaScript must be enabled to view the report.</noscript>
+</BODY>
+</HTML>

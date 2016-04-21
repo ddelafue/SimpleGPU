@@ -1,0 +1,263 @@
+Info: Starting: Create block symbol file (.bsf)
+Info: qsys-generate C:\Users\lucas\Documents\FPGA\de2i150\demo_master_slave\amm_master_qsys_with_pcie.qsys --block-symbol-file --output-directory=C:\Users\lucas\Documents\FPGA\de2i150\demo_master_slave\amm_master_qsys_with_pcie --family="Cyclone IV GX" --part=EP4CGX150DF31C7
+Progress: Loading demo_master_slave/amm_master_qsys_with_pcie.qsys
+Progress: Reading input file
+Progress: Adding altpll_qsys [altpll 15.1]
+Progress: Parameterizing module altpll_qsys
+Progress: Adding clk_50 [clock_source 15.1]
+Progress: Parameterizing module clk_50
+Progress: Adding custom_module [custom_module 1.0]
+Progress: Parameterizing module custom_module
+Progress: Adding pcie_ip [altera_pcie_hard_ip 15.1]
+Progress: Parameterizing module pcie_ip
+Progress: Adding sdram [altera_avalon_new_sdram_controller 15.1]
+Progress: Parameterizing module sdram
+Progress: Adding sgdma [altera_avalon_sgdma 15.1]
+Progress: Parameterizing module sgdma
+Progress: Adding video_dual_clock_buffer_0 [altera_up_avalon_video_dual_clock_buffer 15.1]
+Progress: Parameterizing module video_dual_clock_buffer_0
+Progress: Adding video_pixel_buffer_dma_0 [altera_up_avalon_video_pixel_buffer_dma 15.1]
+Progress: Parameterizing module video_pixel_buffer_dma_0
+Progress: Adding video_rgb_resampler_0 [altera_up_avalon_video_rgb_resampler 15.1]
+Progress: Parameterizing module video_rgb_resampler_0
+Progress: Adding video_vga_controller_0 [altera_up_avalon_video_vga_controller 15.1]
+Progress: Parameterizing module video_vga_controller_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Warning: amm_master_qsys_with_pcie.amm_master_qsys_with_pcie: Module dependency loop involving: "pcie_ip" (altera_pcie_hard_ip 15.1)
+Info: amm_master_qsys_with_pcie.pcie_ip:  Rx Master BAR 1_0 mapped to 7 -bit Avalon-MM address
+Info: amm_master_qsys_with_pcie.pcie_ip:  Rx Master BAR 2 mapped to 15 -bit Avalon-MM address
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_ip: Module dependency loop involving: "pcie_internal_hip" (altera_pcie_internal_hard_ip_qsys 15.1)
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_ip: Module dependency loop involving: "avalon_clk" (altera_clock_bridge 15.1), "pcie_internal_hip" (altera_pcie_internal_hard_ip_qsys 15.1)
+Info: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip:  Txs Address width is 31
+Info: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip: Application clock frequency is 125 Mhz 
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip.app_msi_ack: Interface has no signals
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip.app_msi_num: Interface has no signals
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip.app_msi_req: Interface has no signals
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip.test_out_export: Interface has no signals
+Info: amm_master_qsys_with_pcie.pcie_ip.altgx_internal: Family: Cyclone IV GX
+Info: amm_master_qsys_with_pcie.pcie_ip.altgx_internal: Lanes: 1
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip: pcie_internal_hip.pcie_core_clk cannot be both connected and exported
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip: pcie_internal_hip.app_msi_ack must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip: pcie_internal_hip.rc_rx_analogreset must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip: pcie_internal_hip.rc_rx_digitalreset must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip: pcie_internal_hip.app_msi_num must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip: pcie_internal_hip.app_msi_req must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip: pcie_internal_hip.msi_interface_export must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip: pcie_internal_hip.tx_deemph_0 must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip: pcie_internal_hip.tx_margin_0 must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip: pcie_internal_hip.test_out_export must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.pipe_interface_internal: pipe_interface_internal.pll_powerdown_pcs must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.pipe_interface_internal: pipe_interface_internal.rateswitch_pcs must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.pipe_interface_internal: pipe_interface_internal.rateswitchbaseclock_pcs must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.refclk_conduit: refclk_conduit.conduit_out_2 must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.refclk_conduit: refclk_conduit.conduit_out_3 must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.refclk_conduit: refclk_conduit.conduit_out_4 must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.refclk_conduit: refclk_conduit.conduit_out_5 must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.refclk_conduit: refclk_conduit.conduit_out_6 must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.refclk_conduit: refclk_conduit.conduit_out_7 must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.refclk_conduit: refclk_conduit.conduit_out_8 must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.refclk_conduit: refclk_conduit.conduit_out_9 must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.reset_controller_internal: reset_controller_internal.reset_n_out cannot be both connected and exported
+Info: amm_master_qsys_with_pcie.video_rgb_resampler_0: RGB Resampling: 8 (bits) x 3 (planes) -> 10 (bits) x 3 (planes)
+Info: amm_master_qsys_with_pcie.video_vga_controller_0: Video Output Stream: Format: 640 x 480 with Color: 10 (bits) x 3 (planes) converted to 8 (bits) per color plane
+Warning: amm_master_qsys_with_pcie.altpll_qsys: altpll_qsys.c3_conduit must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.altpll_qsys: altpll_qsys.areset_conduit must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.altpll_qsys: altpll_qsys.locked_conduit must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.altpll_qsys: altpll_qsys.phasedone_conduit must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip: Interrupt sender pcie_ip.cra_irq is not connected to an interrupt receiver
+Warning: amm_master_qsys_with_pcie.video_pixel_buffer_dma_0: video_pixel_buffer_dma_0.avalon_control_slave must be connected to an Avalon-MM master
+Info: qsys-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: qsys-generate C:\Users\lucas\Documents\FPGA\de2i150\demo_master_slave\amm_master_qsys_with_pcie.qsys --synthesis=VERILOG --output-directory=C:\Users\lucas\Documents\FPGA\de2i150\demo_master_slave\amm_master_qsys_with_pcie\synthesis --family="Cyclone IV GX" --part=EP4CGX150DF31C7
+Progress: Loading demo_master_slave/amm_master_qsys_with_pcie.qsys
+Progress: Reading input file
+Progress: Adding altpll_qsys [altpll 15.1]
+Progress: Parameterizing module altpll_qsys
+Progress: Adding clk_50 [clock_source 15.1]
+Progress: Parameterizing module clk_50
+Progress: Adding custom_module [custom_module 1.0]
+Progress: Parameterizing module custom_module
+Progress: Adding pcie_ip [altera_pcie_hard_ip 15.1]
+Progress: Parameterizing module pcie_ip
+Progress: Adding sdram [altera_avalon_new_sdram_controller 15.1]
+Progress: Parameterizing module sdram
+Progress: Adding sgdma [altera_avalon_sgdma 15.1]
+Progress: Parameterizing module sgdma
+Progress: Adding video_dual_clock_buffer_0 [altera_up_avalon_video_dual_clock_buffer 15.1]
+Progress: Parameterizing module video_dual_clock_buffer_0
+Progress: Adding video_pixel_buffer_dma_0 [altera_up_avalon_video_pixel_buffer_dma 15.1]
+Progress: Parameterizing module video_pixel_buffer_dma_0
+Progress: Adding video_rgb_resampler_0 [altera_up_avalon_video_rgb_resampler 15.1]
+Progress: Parameterizing module video_rgb_resampler_0
+Progress: Adding video_vga_controller_0 [altera_up_avalon_video_vga_controller 15.1]
+Progress: Parameterizing module video_vga_controller_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Warning: amm_master_qsys_with_pcie.amm_master_qsys_with_pcie: Module dependency loop involving: "pcie_ip" (altera_pcie_hard_ip 15.1)
+Info: amm_master_qsys_with_pcie.pcie_ip:  Rx Master BAR 1_0 mapped to 7 -bit Avalon-MM address
+Info: amm_master_qsys_with_pcie.pcie_ip:  Rx Master BAR 2 mapped to 15 -bit Avalon-MM address
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_ip: Module dependency loop involving: "pcie_internal_hip" (altera_pcie_internal_hard_ip_qsys 15.1)
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_ip: Module dependency loop involving: "avalon_clk" (altera_clock_bridge 15.1), "pcie_internal_hip" (altera_pcie_internal_hard_ip_qsys 15.1)
+Info: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip:  Txs Address width is 31
+Info: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip: Application clock frequency is 125 Mhz 
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip.app_msi_ack: Interface has no signals
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip.app_msi_num: Interface has no signals
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip.app_msi_req: Interface has no signals
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip.test_out_export: Interface has no signals
+Info: amm_master_qsys_with_pcie.pcie_ip.altgx_internal: Family: Cyclone IV GX
+Info: amm_master_qsys_with_pcie.pcie_ip.altgx_internal: Lanes: 1
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip: pcie_internal_hip.pcie_core_clk cannot be both connected and exported
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip: pcie_internal_hip.app_msi_ack must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip: pcie_internal_hip.rc_rx_analogreset must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip: pcie_internal_hip.rc_rx_digitalreset must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip: pcie_internal_hip.app_msi_num must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip: pcie_internal_hip.app_msi_req must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip: pcie_internal_hip.msi_interface_export must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip: pcie_internal_hip.tx_deemph_0 must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip: pcie_internal_hip.tx_margin_0 must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip: pcie_internal_hip.test_out_export must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.pipe_interface_internal: pipe_interface_internal.pll_powerdown_pcs must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.pipe_interface_internal: pipe_interface_internal.rateswitch_pcs must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.pipe_interface_internal: pipe_interface_internal.rateswitchbaseclock_pcs must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.refclk_conduit: refclk_conduit.conduit_out_2 must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.refclk_conduit: refclk_conduit.conduit_out_3 must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.refclk_conduit: refclk_conduit.conduit_out_4 must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.refclk_conduit: refclk_conduit.conduit_out_5 must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.refclk_conduit: refclk_conduit.conduit_out_6 must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.refclk_conduit: refclk_conduit.conduit_out_7 must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.refclk_conduit: refclk_conduit.conduit_out_8 must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.refclk_conduit: refclk_conduit.conduit_out_9 must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.reset_controller_internal: reset_controller_internal.reset_n_out cannot be both connected and exported
+Info: amm_master_qsys_with_pcie.video_rgb_resampler_0: RGB Resampling: 8 (bits) x 3 (planes) -> 10 (bits) x 3 (planes)
+Info: amm_master_qsys_with_pcie.video_vga_controller_0: Video Output Stream: Format: 640 x 480 with Color: 10 (bits) x 3 (planes) converted to 8 (bits) per color plane
+Warning: amm_master_qsys_with_pcie.altpll_qsys: altpll_qsys.c3_conduit must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.altpll_qsys: altpll_qsys.areset_conduit must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.altpll_qsys: altpll_qsys.locked_conduit must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.altpll_qsys: altpll_qsys.phasedone_conduit must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip: Interrupt sender pcie_ip.cra_irq is not connected to an interrupt receiver
+Warning: amm_master_qsys_with_pcie.video_pixel_buffer_dma_0: video_pixel_buffer_dma_0.avalon_control_slave must be connected to an Avalon-MM master
+Info: amm_master_qsys_with_pcie: Generating amm_master_qsys_with_pcie "amm_master_qsys_with_pcie" for QUARTUS_SYNTH
+Info: Inserting clock-crossing logic between cmd_demux.src0 and cmd_mux.sink0
+Info: Inserting clock-crossing logic between cmd_demux_001.src1 and cmd_mux_002.sink0
+Info: Inserting clock-crossing logic between rsp_demux.src0 and rsp_mux.sink0
+Info: Inserting clock-crossing logic between rsp_demux_002.src0 and rsp_mux_001.sink1
+Info: Inserting clock-crossing logic between sgdma_m_read_to_sdram_s1_cmd_width_adapter.src and cmd_mux.sink2
+Info: Inserting clock-crossing logic between sgdma_m_write_to_sdram_s1_cmd_width_adapter.src and cmd_mux.sink3
+Info: Inserting clock-crossing logic between sdram_s1_to_sgdma_m_read_rsp_width_adapter.src and rsp_mux_002.sink0
+Info: Inserting clock-crossing logic between sdram_s1_to_sgdma_m_write_rsp_width_adapter.src and rsp_mux_003.sink0
+Info: Interconnect is inserted between master pcie_ip.bar1_0 and slave custom_module.avalon_slave because the master has address signal 32 bit wide, but the slave is 5 bit wide.
+Info: Interconnect is inserted between master pcie_ip.bar1_0 and slave custom_module.avalon_slave because the master has waitrequest signal 1 bit wide, but the slave is 0 bit wide.
+Info: Interconnect is inserted between master pcie_ip.bar1_0 and slave custom_module.avalon_slave because the master has readdatavalid signal 1 bit wide, but the slave is 0 bit wide.
+Info: Interconnect is inserted between master pcie_ip.bar1_0 and slave custom_module.avalon_slave because the master has readdata signal 64 bit wide, but the slave is 32 bit wide.
+Info: Interconnect is inserted between master pcie_ip.bar1_0 and slave custom_module.avalon_slave because the master has writedata signal 64 bit wide, but the slave is 32 bit wide.
+Info: Interconnect is inserted between master pcie_ip.bar1_0 and slave custom_module.avalon_slave because the master has burstcount signal 7 bit wide, but the slave is 0 bit wide.
+Info: Interconnect is inserted between master pcie_ip.bar1_0 and slave custom_module.avalon_slave because the master has byteenable signal 8 bit wide, but the slave is 0 bit wide.
+Info: Interconnect is inserted between master pcie_ip.bar1_0 and slave custom_module.avalon_slave because they have different clock source.
+Info: Inserting clock-crossing logic between cmd_demux.src0 and cmd_mux.sink0
+Info: Inserting clock-crossing logic between rsp_demux.src0 and rsp_mux.sink0
+Info: altpll_qsys: "amm_master_qsys_with_pcie" instantiated altpll "altpll_qsys"
+Info: custom_module: "amm_master_qsys_with_pcie" instantiated custom_module "custom_module"
+Info: pcie_ip: "amm_master_qsys_with_pcie" instantiated altera_pcie_hard_ip "pcie_ip"
+Info: sdram: Starting RTL generation for module 'amm_master_qsys_with_pcie_sdram'
+Info: sdram:   Generation command is [exec C:/altera_lite/15.1/quartus/bin64/perl/bin/perl.exe -I C:/altera_lite/15.1/quartus/bin64/perl/lib -I C:/altera_lite/15.1/quartus/sopc_builder/bin/europa -I C:/altera_lite/15.1/quartus/sopc_builder/bin/perl_lib -I C:/altera_lite/15.1/quartus/sopc_builder/bin -I C:/altera_lite/15.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera_lite/15.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller -- C:/altera_lite/15.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller/generate_rtl.pl --name=amm_master_qsys_with_pcie_sdram --dir=C:/Users/lucas/AppData/Local/Temp/alt6909_7866874560381587255.dir/0122_sdram_gen/ --quartus_dir=C:/altera_lite/15.1/quartus --verilog --config=C:/Users/lucas/AppData/Local/Temp/alt6909_7866874560381587255.dir/0122_sdram_gen//amm_master_qsys_with_pcie_sdram_component_configuration.pl  --do_build_sim=0  ]
+Info: sdram: Done RTL generation for module 'amm_master_qsys_with_pcie_sdram'
+Info: sdram: "amm_master_qsys_with_pcie" instantiated altera_avalon_new_sdram_controller "sdram"
+Info: sgdma: Starting RTL generation for module 'amm_master_qsys_with_pcie_sgdma'
+Info: sgdma:   Generation command is [exec C:/altera_lite/15.1/quartus/bin64/perl/bin/perl.exe -I C:/altera_lite/15.1/quartus/bin64/perl/lib -I C:/altera_lite/15.1/quartus/sopc_builder/bin/europa -I C:/altera_lite/15.1/quartus/sopc_builder/bin/perl_lib -I C:/altera_lite/15.1/quartus/sopc_builder/bin -I C:/altera_lite/15.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera_lite/15.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_sgdma -- C:/altera_lite/15.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_sgdma/generate_rtl.pl --name=amm_master_qsys_with_pcie_sgdma --dir=C:/Users/lucas/AppData/Local/Temp/alt6909_7866874560381587255.dir/0123_sgdma_gen/ --quartus_dir=C:/altera_lite/15.1/quartus --verilog --config=C:/Users/lucas/AppData/Local/Temp/alt6909_7866874560381587255.dir/0123_sgdma_gen//amm_master_qsys_with_pcie_sgdma_component_configuration.pl  --do_build_sim=0  ]
+Info: sgdma: Done RTL generation for module 'amm_master_qsys_with_pcie_sgdma'
+Info: sgdma: "amm_master_qsys_with_pcie" instantiated altera_avalon_sgdma "sgdma"
+Info: video_dual_clock_buffer_0: Starting Generation of the Dual Clock Buffer
+Info: video_dual_clock_buffer_0: "amm_master_qsys_with_pcie" instantiated altera_up_avalon_video_dual_clock_buffer "video_dual_clock_buffer_0"
+Info: video_pixel_buffer_dma_0: Starting Generation of VGA Pixel Buffer
+Info: video_pixel_buffer_dma_0: "amm_master_qsys_with_pcie" instantiated altera_up_avalon_video_pixel_buffer_dma "video_pixel_buffer_dma_0"
+Info: video_rgb_resampler_0: Starting Generation of Video RGB Resampler
+Info: video_rgb_resampler_0: "amm_master_qsys_with_pcie" instantiated altera_up_avalon_video_rgb_resampler "video_rgb_resampler_0"
+Info: video_vga_controller_0: Starting Generation of VGA Controller
+Info: video_vga_controller_0: "amm_master_qsys_with_pcie" instantiated altera_up_avalon_video_vga_controller "video_vga_controller_0"
+Info: avalon_st_adapter: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_001: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_002: Inserting error_adapter: error_adapter_0
+Info: mm_interconnect_0: "amm_master_qsys_with_pcie" instantiated altera_mm_interconnect "mm_interconnect_0"
+Info: avalon_st_adapter: Inserting error_adapter: error_adapter_0
+Info: mm_interconnect_1: "amm_master_qsys_with_pcie" instantiated altera_mm_interconnect "mm_interconnect_1"
+Info: avalon_st_adapter: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_001: Inserting error_adapter: error_adapter_0
+Info: mm_interconnect_2: "amm_master_qsys_with_pcie" instantiated altera_mm_interconnect "mm_interconnect_2"
+Info: irq_mapper: "amm_master_qsys_with_pcie" instantiated altera_irq_mapper "irq_mapper"
+Info: rst_controller: "amm_master_qsys_with_pcie" instantiated altera_reset_controller "rst_controller"
+Info: pcie_internal_hip: "pcie_ip" instantiated altera_pcie_internal_hard_ip_qsys "pcie_internal_hip"
+Info: altgx_internal: Family: Cyclone IV GX
+Info: altgx_internal: Subprotocol: Gen 1-x1
+Info: altgx_internal: qmegawiz -silent module=alt_c3gxb LOCKDOWN_EXCL=PCIE IP_MODE=PCIE_HIP_8 gxb_analog_power=AUTO tx_analog_power=AUTO elec_idle_infer_enable=false tx_allow_polarity_inversion=false rx_cdrctrl_enable=true hip_tx_clkout rx_elecidleinfersel fixedclk enable_0ppm=false pll_powerdown intended_device_family=cycloneiv starting_channel_number=84   deviceFamily="Cyclone IV GX"  wiz_subprotocol="Gen 1-x1"  OPTIONAL_FILES=NONE amm_master_qsys_with_pcie_pcie_ip_altgx_internal.v
+Info: altgx_internal: "pcie_ip" instantiated altera_pcie_internal_altgx "altgx_internal"
+Info: reset_controller_internal: "pcie_ip" instantiated altera_pcie_internal_reset_controller_qsys "reset_controller_internal"
+Info: pipe_interface_internal: "pcie_ip" instantiated altera_pcie_internal_pipe_interface_qsys "pipe_interface_internal"
+Info: custom_module_avalon_master_translator: "mm_interconnect_0" instantiated altera_merlin_master_translator "custom_module_avalon_master_translator"
+Info: sdram_s1_translator: "mm_interconnect_0" instantiated altera_merlin_slave_translator "sdram_s1_translator"
+Info: custom_module_avalon_master_agent: "mm_interconnect_0" instantiated altera_merlin_master_agent "custom_module_avalon_master_agent"
+Info: sdram_s1_agent: "mm_interconnect_0" instantiated altera_merlin_slave_agent "sdram_s1_agent"
+Info: sdram_s1_agent_rsp_fifo: "mm_interconnect_0" instantiated altera_avalon_sc_fifo "sdram_s1_agent_rsp_fifo"
+Info: router: "mm_interconnect_0" instantiated altera_merlin_router "router"
+Info: router_001: "mm_interconnect_0" instantiated altera_merlin_router "router_001"
+Info: router_002: "mm_interconnect_0" instantiated altera_merlin_router "router_002"
+Info: router_004: "mm_interconnect_0" instantiated altera_merlin_router "router_004"
+Info: router_006: "mm_interconnect_0" instantiated altera_merlin_router "router_006"
+Info: router_007: "mm_interconnect_0" instantiated altera_merlin_router "router_007"
+Info: router_008: "mm_interconnect_0" instantiated altera_merlin_router "router_008"
+Info: video_pixel_buffer_dma_0_avalon_pixel_dma_master_limiter: "mm_interconnect_0" instantiated altera_merlin_traffic_limiter "video_pixel_buffer_dma_0_avalon_pixel_dma_master_limiter"
+Info: Reusing file C:/Users/lucas/Documents/FPGA/de2i150/demo_master_slave/amm_master_qsys_with_pcie/synthesis/submodules/altera_avalon_sc_fifo.v
+Info: sdram_s1_burst_adapter: "mm_interconnect_0" instantiated altera_merlin_burst_adapter "sdram_s1_burst_adapter"
+Info: Reusing file C:/Users/lucas/Documents/FPGA/de2i150/demo_master_slave/amm_master_qsys_with_pcie/synthesis/submodules/altera_avalon_st_pipeline_base.v
+Info: cmd_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux"
+Info: cmd_demux_001: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux_001"
+Info: cmd_demux_002: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux_002"
+Info: cmd_demux_003: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux_003"
+Info: cmd_demux_004: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux_004"
+Info: cmd_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux"
+Info: cmd_mux_001: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux_001"
+Info: Reusing file C:/Users/lucas/Documents/FPGA/de2i150/demo_master_slave/amm_master_qsys_with_pcie/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: cmd_mux_002: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux_002"
+Info: Reusing file C:/Users/lucas/Documents/FPGA/de2i150/demo_master_slave/amm_master_qsys_with_pcie/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: rsp_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux"
+Info: rsp_demux_001: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux_001"
+Info: rsp_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux"
+Info: Reusing file C:/Users/lucas/Documents/FPGA/de2i150/demo_master_slave/amm_master_qsys_with_pcie/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: rsp_mux_001: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux_001"
+Info: Reusing file C:/Users/lucas/Documents/FPGA/de2i150/demo_master_slave/amm_master_qsys_with_pcie/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: rsp_mux_002: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux_002"
+Info: Reusing file C:/Users/lucas/Documents/FPGA/de2i150/demo_master_slave/amm_master_qsys_with_pcie/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: sgdma_m_read_to_sdram_s1_cmd_width_adapter: "mm_interconnect_0" instantiated altera_merlin_width_adapter "sgdma_m_read_to_sdram_s1_cmd_width_adapter"
+Info: Reusing file C:/Users/lucas/Documents/FPGA/de2i150/demo_master_slave/amm_master_qsys_with_pcie/synthesis/submodules/altera_merlin_address_alignment.sv
+Info: Reusing file C:/Users/lucas/Documents/FPGA/de2i150/demo_master_slave/amm_master_qsys_with_pcie/synthesis/submodules/altera_merlin_burst_uncompressor.sv
+Info: crosser: "mm_interconnect_0" instantiated altera_avalon_st_handshake_clock_crosser "crosser"
+Info: Reusing file C:/Users/lucas/Documents/FPGA/de2i150/demo_master_slave/amm_master_qsys_with_pcie/synthesis/submodules/altera_avalon_st_pipeline_base.v
+Info: avalon_st_adapter: "mm_interconnect_0" instantiated altera_avalon_st_adapter "avalon_st_adapter"
+Info: avalon_st_adapter_001: "mm_interconnect_0" instantiated altera_avalon_st_adapter "avalon_st_adapter_001"
+Info: router: "mm_interconnect_1" instantiated altera_merlin_router "router"
+Info: router_001: "mm_interconnect_1" instantiated altera_merlin_router "router_001"
+Info: cmd_demux: "mm_interconnect_1" instantiated altera_merlin_demultiplexer "cmd_demux"
+Info: cmd_mux: "mm_interconnect_1" instantiated altera_merlin_multiplexer "cmd_mux"
+Info: Reusing file C:/Users/lucas/Documents/FPGA/de2i150/demo_master_slave/amm_master_qsys_with_pcie/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: rsp_demux: "mm_interconnect_1" instantiated altera_merlin_demultiplexer "rsp_demux"
+Info: rsp_mux: "mm_interconnect_1" instantiated altera_merlin_multiplexer "rsp_mux"
+Info: Reusing file C:/Users/lucas/Documents/FPGA/de2i150/demo_master_slave/amm_master_qsys_with_pcie/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: router: "mm_interconnect_2" instantiated altera_merlin_router "router"
+Info: router_001: "mm_interconnect_2" instantiated altera_merlin_router "router_001"
+Info: cmd_demux: "mm_interconnect_2" instantiated altera_merlin_demultiplexer "cmd_demux"
+Info: cmd_mux: "mm_interconnect_2" instantiated altera_merlin_multiplexer "cmd_mux"
+Info: Reusing file C:/Users/lucas/Documents/FPGA/de2i150/demo_master_slave/amm_master_qsys_with_pcie/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: rsp_demux: "mm_interconnect_2" instantiated altera_merlin_demultiplexer "rsp_demux"
+Info: rsp_mux: "mm_interconnect_2" instantiated altera_merlin_multiplexer "rsp_mux"
+Info: Reusing file C:/Users/lucas/Documents/FPGA/de2i150/demo_master_slave/amm_master_qsys_with_pcie/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: error_adapter_0: "avalon_st_adapter" instantiated error_adapter "error_adapter_0"
+Info: error_adapter_0: "avalon_st_adapter_001" instantiated error_adapter "error_adapter_0"
+Info: amm_master_qsys_with_pcie: Done "amm_master_qsys_with_pcie" with 64 modules, 107 files
+Info: qsys-generate succeeded.
+Info: Finished: Create HDL design files for synthesis

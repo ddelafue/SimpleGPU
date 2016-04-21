@@ -1,0 +1,192 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<HTML><HEAD>
+<TITLE>Multicorner Timing Analysis Summary</TITLE>
+
+<link rel="stylesheet" type="text/css" href="css/reset.css">
+<link rel="stylesheet" type="text/css" href="css/base.css">
+<link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="css/jquery.layout-latest.css">
+<link rel="stylesheet" type="text/css" href="css/override.css">
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/jquery.layout-latest.js"></script>
+
+
+</HEAD>
+
+<BODY>
+<TABLE>
+<thead><TR  bgcolor="#BFBFBF">
+<TH>Clock</TH>
+<TH>Setup</TH>
+<TH>Hold</TH>
+<TH>Recovery</TH>
+<TH>Removal</TH>
+<TH>Minimum Pulse Width</TH>
+</TR>
+</thead><tbody><TR >
+<TD  style="color: #FF0000">Worst-case Slack</TD>
+<TD  style="color: #FF0000">-0.929</TD>
+<TD  style="color: #000000">0.060</TD>
+<TD  style="color: #000000">3.742</TD>
+<TD  style="color: #000000">0.490</TD>
+<TD  style="color: #000000">2.000</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >&nbsp;amm_master_inst|altpll_qsys|sd1|pll7|clk[1]</TD>
+<TD >8.924</TD>
+<TD >0.134</TD>
+<TD >14.766</TD>
+<TD >0.933</TD>
+<TD >9.607</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >&nbsp;amm_master_inst|altpll_qsys|sd1|pll7|clk[2]</TD>
+<TD >33.770</TD>
+<TD >0.170</TD>
+<TD >N/A</TD>
+<TD >N/A</TD>
+<TD >19.604</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >&nbsp;amm_master_inst|pcie_ip|altgx_internal|amm_master_qsys_with_pcie_pcie_ip_altgx_internal_alt_c3gxb_6ni8_component|transmit_pcs0|hiptxclkout</TD>
+<TD >N/A</TD>
+<TD >N/A</TD>
+<TD >N/A</TD>
+<TD >N/A</TD>
+<TD >2.000</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >&nbsp;amm_master_inst|pcie_ip|altgx_internal|amm_master_qsys_with_pcie_pcie_ip_altgx_internal_alt_c3gxb_6ni8_component|transmit_pma0|clockout</TD>
+<TD >N/A</TD>
+<TD >N/A</TD>
+<TD >N/A</TD>
+<TD >N/A</TD>
+<TD >2.000</TD>
+</TR>
+</tbody><tbody><TR >
+<TD  style="color: #FF0000">&nbsp;amm_master_inst|pcie_ip|pcie_internal_hip|cyclone_iii.cycloneiv_hssi_pcie_hip|coreclkout</TD>
+<TD  style="color: #FF0000">-0.929</TD>
+<TD  style="color: #000000">0.060</TD>
+<TD  style="color: #000000">3.742</TD>
+<TD  style="color: #000000">0.490</TD>
+<TD  style="color: #000000">3.525</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >&nbsp;amm_master_inst|pcie_ip|pcie_internal_hip|cyclone_iii.cycloneiv_hssi_pcie_hip|pclkch0</TD>
+<TD >N/A</TD>
+<TD >N/A</TD>
+<TD >N/A</TD>
+<TD >N/A</TD>
+<TD >3.971</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >&nbsp;clock_50_1</TD>
+<TD >10.102</TD>
+<TD >0.166</TD>
+<TD >13.879</TD>
+<TD >2.297</TD>
+<TD >9.457</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >&nbsp;n/a</TD>
+<TD >13.796</TD>
+<TD >2.837</TD>
+<TD >N/A</TD>
+<TD >N/A</TD>
+<TD >N/A</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >&nbsp;pcie_ref_clk</TD>
+<TD >N/A</TD>
+<TD >N/A</TD>
+<TD >N/A</TD>
+<TD >N/A</TD>
+<TD >4.975</TD>
+</TR>
+</tbody><tbody><TR >
+<TD  style="color: #FF0000">Design-wide TNS</TD>
+<TD  style="color: #FF0000">-86.38</TD>
+<TD  style="color: #000000">0.0</TD>
+<TD  style="color: #000000">0.0</TD>
+<TD  style="color: #000000">0.0</TD>
+<TD  style="color: #000000">0.0</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >&nbsp;amm_master_inst|altpll_qsys|sd1|pll7|clk[1]</TD>
+<TD >0.000</TD>
+<TD >0.000</TD>
+<TD >0.000</TD>
+<TD >0.000</TD>
+<TD >0.000</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >&nbsp;amm_master_inst|altpll_qsys|sd1|pll7|clk[2]</TD>
+<TD >0.000</TD>
+<TD >0.000</TD>
+<TD >N/A</TD>
+<TD >N/A</TD>
+<TD >0.000</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >&nbsp;amm_master_inst|pcie_ip|altgx_internal|amm_master_qsys_with_pcie_pcie_ip_altgx_internal_alt_c3gxb_6ni8_component|transmit_pcs0|hiptxclkout</TD>
+<TD >N/A</TD>
+<TD >N/A</TD>
+<TD >N/A</TD>
+<TD >N/A</TD>
+<TD >0.000</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >&nbsp;amm_master_inst|pcie_ip|altgx_internal|amm_master_qsys_with_pcie_pcie_ip_altgx_internal_alt_c3gxb_6ni8_component|transmit_pma0|clockout</TD>
+<TD >N/A</TD>
+<TD >N/A</TD>
+<TD >N/A</TD>
+<TD >N/A</TD>
+<TD >0.000</TD>
+</TR>
+</tbody><tbody><TR >
+<TD  style="color: #FF0000">&nbsp;amm_master_inst|pcie_ip|pcie_internal_hip|cyclone_iii.cycloneiv_hssi_pcie_hip|coreclkout</TD>
+<TD  style="color: #FF0000">-86.380</TD>
+<TD  style="color: #000000">0.000</TD>
+<TD  style="color: #000000">0.000</TD>
+<TD  style="color: #000000">0.000</TD>
+<TD  style="color: #000000">0.000</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >&nbsp;amm_master_inst|pcie_ip|pcie_internal_hip|cyclone_iii.cycloneiv_hssi_pcie_hip|pclkch0</TD>
+<TD >N/A</TD>
+<TD >N/A</TD>
+<TD >N/A</TD>
+<TD >N/A</TD>
+<TD >0.000</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >&nbsp;clock_50_1</TD>
+<TD >0.000</TD>
+<TD >0.000</TD>
+<TD >0.000</TD>
+<TD >0.000</TD>
+<TD >0.000</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >&nbsp;n/a</TD>
+<TD >0.000</TD>
+<TD >0.000</TD>
+<TD >N/A</TD>
+<TD >N/A</TD>
+<TD >N/A</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >&nbsp;pcie_ref_clk</TD>
+<TD >N/A</TD>
+<TD >N/A</TD>
+<TD >N/A</TD>
+<TD >N/A</TD>
+<TD >0.000</TD>
+</TR>
+</tbody></TABLE>
+
+<noscript>JavaScript must be enabled to view the report.</noscript>
+</BODY>
+</HTML>

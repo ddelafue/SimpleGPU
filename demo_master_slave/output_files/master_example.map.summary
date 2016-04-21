@@ -1,0 +1,18 @@
+Analysis & Synthesis Status : Successful - Sun Apr 17 21:49:28 2016
+Quartus Prime Version : 15.1.0 Build 185 10/21/2015 SJ Lite Edition
+Revision Name : master_example
+Top-level Entity Name : master_example
+Family : Cyclone IV GX
+Total logic elements : 12,999
+    Total combinational functions : 8,819
+    Dedicated logic registers : 8,336
+Total registers : 8336
+Total pins : 197
+Total virtual pins : 0
+Total memory bits : 163,816
+Embedded Multiplier 9-bit elements : 0
+Total GXB Receiver Channel PCS : 1
+Total GXB Receiver Channel PMA : 1
+Total GXB Transmitter Channel PCS : 1
+Total GXB Transmitter Channel PMA : 1
+Total PLLs : 2

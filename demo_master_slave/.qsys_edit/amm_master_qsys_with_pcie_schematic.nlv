@@ -1,0 +1,53 @@
+# # File gsaved with Nlview version 6.3.8  2013-12-19 bk=1.2992 VDI=34 GEI=35
+# 
+preplace inst amm_master_qsys_with_pcie.sdram -pg 1 -lvl 4 -y 100
+preplace inst amm_master_qsys_with_pcie.custom_module -pg 1 -lvl 2 -y 80
+preplace inst amm_master_qsys_with_pcie.altpll_qsys -pg 1 -lvl 4 -y 220
+preplace inst amm_master_qsys_with_pcie.video_rgb_resampler_0 -pg 1 -lvl 7 -y 540
+preplace inst amm_master_qsys_with_pcie.pcie_ip.refclk_conduit -pg 1
+preplace inst amm_master_qsys_with_pcie.pcie_ip.reset_controller_internal -pg 1
+preplace inst amm_master_qsys_with_pcie.video_dual_clock_buffer_0 -pg 1 -lvl 6 -y 500
+preplace inst amm_master_qsys_with_pcie.pcie_ip.avalon_reset -pg 1
+preplace inst amm_master_qsys_with_pcie.pcie_ip.pcie_rstn_conduit -pg 1
+preplace inst amm_master_qsys_with_pcie.pcie_ip.pipe_interface_internal -pg 1
+preplace inst amm_master_qsys_with_pcie.video_vga_controller_0 -pg 1 -lvl 8 -y 500
+preplace inst amm_master_qsys_with_pcie.pcie_ip.avalon_clk -pg 1
+preplace inst amm_master_qsys_with_pcie.pcie_ip -pg 1 -lvl 3 -y 230
+preplace inst amm_master_qsys_with_pcie -pg 1 -lvl 1 -y 40 -regy -20
+preplace inst amm_master_qsys_with_pcie.sgdma -pg 1 -lvl 2 -y 360
+preplace inst amm_master_qsys_with_pcie.pcie_ip.cal_blk_clk -pg 1
+preplace inst amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip -pg 1
+preplace inst amm_master_qsys_with_pcie.video_pixel_buffer_dma_0 -pg 1 -lvl 5 -y 480
+preplace inst amm_master_qsys_with_pcie.pcie_ip.test_in_conduit -pg 1
+preplace inst amm_master_qsys_with_pcie.pcie_ip.altgx_internal -pg 1
+preplace inst amm_master_qsys_with_pcie.clk_50 -pg 1 -lvl 1 -y 110
+preplace netloc POINT_TO_POINT<net_container>amm_master_qsys_with_pcie</net_container>(MASTER)video_rgb_resampler_0.avalon_rgb_source,(SLAVE)video_dual_clock_buffer_0.avalon_dc_buffer_sink) 1 5 3 2210 490 NJ 490 2840
+preplace netloc EXPORT<net_container>amm_master_qsys_with_pcie</net_container>(SLAVE)amm_master_qsys_with_pcie.pcie_ip_refclk,(SLAVE)pcie_ip.refclk) 1 0 3 NJ 680 NJ 680 NJ
+preplace netloc INTERCONNECT<net_container>amm_master_qsys_with_pcie</net_container>(MASTER)pcie_ip.pcie_core_reset,(SLAVE)video_pixel_buffer_dma_0.reset,(SLAVE)video_rgb_resampler_0.reset,(MASTER)clk_50.clk_reset,(SLAVE)altpll_qsys.inclk_interface_reset,(SLAVE)sdram.reset,(SLAVE)custom_module.reset,(SLAVE)video_dual_clock_buffer_0.reset_stream_in,(SLAVE)video_dual_clock_buffer_0.reset_stream_out,(SLAVE)sgdma.reset,(SLAVE)video_vga_controller_0.reset) 1 1 7 450 190 NJ 150 1450 520 1770 630 2230 630 2620 670 2900
+preplace netloc FAN_OUT<net_container>amm_master_qsys_with_pcie</net_container>(MASTER)pcie_ip.bar2,(SLAVE)pcie_ip.cra,(SLAVE)sgdma.csr) 1 1 3 550 620 940 610 1430
+preplace netloc EXPORT<net_container>amm_master_qsys_with_pcie</net_container>(SLAVE)pcie_ip.powerdown,(SLAVE)amm_master_qsys_with_pcie.pcie_ip_powerdown) 1 0 3 NJ 530 NJ 530 NJ
+preplace netloc POINT_TO_POINT<net_container>amm_master_qsys_with_pcie</net_container>(SLAVE)sgdma.csr_irq,(MASTER)pcie_ip.rxm_irq) 1 1 3 530 720 NJ 720 1390
+preplace netloc EXPORT<net_container>amm_master_qsys_with_pcie</net_container>(SLAVE)pcie_ip.tx_out,(SLAVE)amm_master_qsys_with_pcie.pcie_ip_tx_out) 1 0 3 NJ 740 NJ 740 NJ
+preplace netloc EXPORT<net_container>amm_master_qsys_with_pcie</net_container>(SLAVE)amm_master_qsys_with_pcie.pcie_ip_reconfig_busy,(SLAVE)pcie_ip.reconfig_busy) 1 0 3 NJ 640 NJ 640 NJ
+preplace netloc EXPORT<net_container>amm_master_qsys_with_pcie</net_container>(SLAVE)amm_master_qsys_with_pcie.pcie_ip_pipe_ext,(SLAVE)pcie_ip.pipe_ext) 1 0 3 NJ 600 NJ 600 NJ
+preplace netloc POINT_TO_POINT<net_container>amm_master_qsys_with_pcie</net_container>(SLAVE)custom_module.avalon_slave,(MASTER)pcie_ip.bar1_0) 1 1 3 510 490 NJ 190 1390
+preplace netloc FAN_OUT<net_container>amm_master_qsys_with_pcie</net_container>(SLAVE)pcie_ip.fixedclk,(MASTER)pcie_ip.pcie_core_clk,(SLAVE)pcie_ip.cal_blk_clk,(SLAVE)sgdma.clk,(SLAVE)pcie_ip.reconfig_gxbclk) 1 1 3 490 660 1020 630 1410
+preplace netloc EXPORT<net_container>amm_master_qsys_with_pcie</net_container>(SLAVE)pcie_ip.pcie_rstn,(SLAVE)amm_master_qsys_with_pcie.pcie_ip_pcie_rstn) 1 0 3 NJ 510 NJ 510 NJ
+preplace netloc EXPORT<net_container>amm_master_qsys_with_pcie</net_container>(SLAVE)clk_50.clk_in_reset,(SLAVE)amm_master_qsys_with_pcie.reset) 1 0 1 NJ
+preplace netloc FAN_OUT<net_container>amm_master_qsys_with_pcie</net_container>(SLAVE)custom_module.clock,(SLAVE)altpll_qsys.inclk_interface,(MASTER)clk_50.clk) 1 1 3 490 70 NJ 70 1410
+preplace netloc FAN_OUT<net_container>amm_master_qsys_with_pcie</net_container>(SLAVE)video_rgb_resampler_0.clk,(SLAVE)sdram.clk,(MASTER)altpll_qsys.c1,(SLAVE)video_pixel_buffer_dma_0.clk,(SLAVE)video_dual_clock_buffer_0.clock_stream_in) 1 3 4 1470 90 1810 590 2190 470 2580
+preplace netloc POINT_TO_POINT<net_container>amm_master_qsys_with_pcie</net_container>(MASTER)video_pixel_buffer_dma_0.avalon_pixel_source,(SLAVE)video_rgb_resampler_0.avalon_rgb_sink) 1 5 2 NJ 430 NJ
+preplace netloc EXPORT<net_container>amm_master_qsys_with_pcie</net_container>(SLAVE)amm_master_qsys_with_pcie.pcie_ip_clocks_sim,(SLAVE)pcie_ip.clocks_sim) 1 0 3 NJ 410 NJ 470 NJ
+preplace netloc EXPORT<net_container>amm_master_qsys_with_pcie</net_container>(SLAVE)amm_master_qsys_with_pcie.sdram,(SLAVE)sdram.wire) 1 0 4 NJ 80 NJ 30 NJ 170 NJ
+preplace netloc POINT_TO_POINT<net_container>amm_master_qsys_with_pcie</net_container>(MASTER)video_dual_clock_buffer_0.avalon_dc_buffer_source,(SLAVE)video_vga_controller_0.avalon_vga_sink) 1 6 2 NJ 510 NJ
+preplace netloc EXPORT<net_container>amm_master_qsys_with_pcie</net_container>(SLAVE)amm_master_qsys_with_pcie.pcie_ip_test_in,(SLAVE)pcie_ip.test_in) 1 0 3 NJ 390 NJ 310 NJ
+preplace netloc EXPORT<net_container>amm_master_qsys_with_pcie</net_container>(SLAVE)pcie_ip.rx_in,(SLAVE)amm_master_qsys_with_pcie.pcie_ip_rx_in) 1 0 3 NJ 700 NJ 700 NJ
+preplace netloc EXPORT<net_container>amm_master_qsys_with_pcie</net_container>(SLAVE)pcie_ip.reconfig_togxb,(SLAVE)amm_master_qsys_with_pcie.pcie_ip_reconfig_togxb) 1 0 3 NJ 430 NJ 550 NJ
+preplace netloc EXPORT<net_container>amm_master_qsys_with_pcie</net_container>(SLAVE)amm_master_qsys_with_pcie.clk_50,(SLAVE)clk_50.clk_in) 1 0 1 NJ
+preplace netloc FAN_OUT<net_container>amm_master_qsys_with_pcie</net_container>(MASTER)altpll_qsys.c2,(SLAVE)video_dual_clock_buffer_0.clock_stream_out,(SLAVE)video_vga_controller_0.clk) 1 4 4 1790 610 2210 650 NJ 650 2880
+preplace netloc EXPORT<net_container>amm_master_qsys_with_pcie</net_container>(SLAVE)custom_module.conduit_end,(SLAVE)amm_master_qsys_with_pcie.custom_module_conduit) 1 0 2 NJ 100 NJ
+preplace netloc EXPORT<net_container>amm_master_qsys_with_pcie</net_container>(SLAVE)pcie_ip.reconfig_fromgxb_0,(SLAVE)amm_master_qsys_with_pcie.pcie_ip_reconfig_fromgxb_0) 1 0 3 NJ 350 NJ 350 NJ
+preplace netloc EXPORT<net_container>amm_master_qsys_with_pcie</net_container>(SLAVE)amm_master_qsys_with_pcie.video_vga_controller_0_external_interface,(SLAVE)video_vga_controller_0.external_interface) 1 0 8 NJ 820 NJ 820 NJ 820 NJ 820 NJ 820 NJ 820 NJ 530 NJ
+preplace netloc INTERCONNECT<net_container>amm_master_qsys_with_pcie</net_container>(MASTER)video_pixel_buffer_dma_0.avalon_pixel_dma_master,(MASTER)sgdma.m_write,(SLAVE)pcie_ip.txs,(MASTER)sgdma.descriptor_write,(SLAVE)sdram.s1,(MASTER)custom_module.avalon_master,(MASTER)sgdma.descriptor_read,(MASTER)sgdma.m_read,(SLAVE)altpll_qsys.pll_slave) 1 2 4 860 650 1470 570 NJ 570 2150
+levelinfo -pg 1 0 200 3100
+levelinfo -hier amm_master_qsys_with_pcie 210 240 620 1210 1580 1840 2280 2670 2930 3090

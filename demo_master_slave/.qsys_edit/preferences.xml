@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<preferences>
+ <debug showDebugMenu="0" />
+ <systemtable filter="All Interfaces">
+  <columns>
+   <connections preferredWidth="30" />
+   <irq preferredWidth="34" />
+   <name preferredWidth="338" />
+   <export preferredWidth="438" />
+  </columns>
+ </systemtable>
+ <library
+   expandedCategories="Library/Processors and Peripherals/Co-Processors/Nios II Custom Instructions,Library/Basic Functions/Simulation; Debug and Verification/Simulation,Library,Library/Processors and Peripherals,Project,Library/Basic Functions/Simulation; Debug and Verification,Library/Processors and Peripherals/Co-Processors,Library/Basic Functions" />
+ <window width="1920" height="1042" x="0" y="0" />
+ <generation path="_PROJECT_NAME_" />
+ <hdlexample language="VERILOG" />
+</preferences>

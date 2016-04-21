@@ -1,0 +1,633 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<HTML><HEAD>
+<TITLE>Input Pins</TITLE>
+
+<link rel="stylesheet" type="text/css" href="css/reset.css">
+<link rel="stylesheet" type="text/css" href="css/base.css">
+<link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="css/jquery.layout-latest.css">
+<link rel="stylesheet" type="text/css" href="css/override.css">
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/jquery.layout-latest.js"></script>
+
+
+</HEAD>
+
+<BODY>
+<TABLE>
+<thead><TR  bgcolor="#BFBFBF">
+<TH>Name</TH>
+<TH>Pin #</TH>
+<TH>I/O Bank</TH>
+<TH>X coordinate</TH>
+<TH>Y coordinate</TH>
+<TH>Z coordinate</TH>
+<TH>Combinational Fan-Out</TH>
+<TH>Registered Fan-Out</TH>
+<TH>Global</TH>
+<TH>Input Register</TH>
+<TH>Power Up High</TH>
+<TH>PCI I/O Enabled</TH>
+<TH>Bus Hold</TH>
+<TH>Weak Pull Up</TH>
+<TH>I/O Standard</TH>
+<TH>Termination</TH>
+<TH>Termination Control Block</TH>
+<TH>Location assigned by</TH>
+<TH>Slew Rate</TH>
+</TR>
+</thead><tbody><TR >
+<TD >CLOCK_50</TD>
+<TD >AJ16</TD>
+<TD >4</TD>
+<TD >57</TD>
+<TD >0</TD>
+<TD >7</TD>
+<TD >1619</TD>
+<TD >0</TD>
+<TD >yes</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >yes</TD>
+<TD >no</TD>
+<TD >Off</TD>
+<TD >2.5 V</TD>
+<TD >Off</TD>
+<TD >--</TD>
+<TD >User</TD>
+<TD >no</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >KEY[0]</TD>
+<TD >AA26</TD>
+<TD >5</TD>
+<TD >117</TD>
+<TD >14</TD>
+<TD >0</TD>
+<TD >10</TD>
+<TD >0</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >yes</TD>
+<TD >no</TD>
+<TD >Off</TD>
+<TD >2.5 V</TD>
+<TD >Off</TD>
+<TD >--</TD>
+<TD >User</TD>
+<TD >no</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >KEY[1]</TD>
+<TD >AE25</TD>
+<TD >5</TD>
+<TD >117</TD>
+<TD >10</TD>
+<TD >7</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >yes</TD>
+<TD >no</TD>
+<TD >Off</TD>
+<TD >2.5 V</TD>
+<TD >Off</TD>
+<TD >--</TD>
+<TD >User</TD>
+<TD >no</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >KEY[2]</TD>
+<TD >AF30</TD>
+<TD >5</TD>
+<TD >117</TD>
+<TD >17</TD>
+<TD >7</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >yes</TD>
+<TD >no</TD>
+<TD >Off</TD>
+<TD >2.5 V</TD>
+<TD >Off</TD>
+<TD >--</TD>
+<TD >User</TD>
+<TD >no</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >KEY[3]</TD>
+<TD >AE26</TD>
+<TD >5</TD>
+<TD >117</TD>
+<TD >8</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >yes</TD>
+<TD >no</TD>
+<TD >Off</TD>
+<TD >2.5 V</TD>
+<TD >Off</TD>
+<TD >--</TD>
+<TD >User</TD>
+<TD >no</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >PCIE_PERST_N</TD>
+<TD >A4</TD>
+<TD >8</TD>
+<TD >3</TD>
+<TD >91</TD>
+<TD >21</TD>
+<TD >7</TD>
+<TD >0</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >yes</TD>
+<TD >no</TD>
+<TD >Off</TD>
+<TD >2.5 V</TD>
+<TD >Off</TD>
+<TD >--</TD>
+<TD >User</TD>
+<TD >no</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >PCIE_REFCLK_P</TD>
+<TD >V15</TD>
+<TD >3A</TD>
+<TD >57</TD>
+<TD >0</TD>
+<TD >21</TD>
+<TD >1</TD>
+<TD >0</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >Off</TD>
+<TD >LVDS</TD>
+<TD >Off</TD>
+<TD >--</TD>
+<TD >User</TD>
+<TD >no</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >PCIE_REFCLK_P(n)</TD>
+<TD >W15</TD>
+<TD >3A</TD>
+<TD >57</TD>
+<TD >0</TD>
+<TD >14</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >Off</TD>
+<TD >LVDS</TD>
+<TD >Off</TD>
+<TD >--</TD>
+<TD >Fitter</TD>
+<TD >no</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >PCIE_RX_P</TD>
+<TD >AC2</TD>
+<TD >QL0</TD>
+<TD >0</TD>
+<TD >16</TD>
+<TD >18</TD>
+<TD >1</TD>
+<TD >0</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >Off</TD>
+<TD >1.5-V PCML</TD>
+<TD >OCT 100 Ohms</TD>
+<TD >--</TD>
+<TD >Fitter</TD>
+<TD >no</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >PCIE_RX_P(n)</TD>
+<TD >AC1</TD>
+<TD >QL0</TD>
+<TD >0</TD>
+<TD >16</TD>
+<TD >20</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >Off</TD>
+<TD >1.5-V PCML</TD>
+<TD >OCT 100 Ohms</TD>
+<TD >--</TD>
+<TD >Fitter</TD>
+<TD >no</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >SW[0]</TD>
+<TD >V28</TD>
+<TD >5</TD>
+<TD >117</TD>
+<TD >39</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >yes</TD>
+<TD >no</TD>
+<TD >Off</TD>
+<TD >2.5 V</TD>
+<TD >Off</TD>
+<TD >--</TD>
+<TD >User</TD>
+<TD >no</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >SW[10]</TD>
+<TD >R26</TD>
+<TD >6</TD>
+<TD >117</TD>
+<TD >49</TD>
+<TD >7</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >yes</TD>
+<TD >no</TD>
+<TD >Off</TD>
+<TD >2.5 V</TD>
+<TD >Off</TD>
+<TD >--</TD>
+<TD >User</TD>
+<TD >no</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >SW[11]</TD>
+<TD >N26</TD>
+<TD >6</TD>
+<TD >117</TD>
+<TD >53</TD>
+<TD >7</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >yes</TD>
+<TD >no</TD>
+<TD >Off</TD>
+<TD >2.5 V</TD>
+<TD >Off</TD>
+<TD >--</TD>
+<TD >User</TD>
+<TD >no</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >SW[12]</TD>
+<TD >M26</TD>
+<TD >6</TD>
+<TD >117</TD>
+<TD >56</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >yes</TD>
+<TD >no</TD>
+<TD >Off</TD>
+<TD >2.5 V</TD>
+<TD >Off</TD>
+<TD >--</TD>
+<TD >User</TD>
+<TD >no</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >SW[13]</TD>
+<TD >N25</TD>
+<TD >6</TD>
+<TD >117</TD>
+<TD >57</TD>
+<TD >7</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >yes</TD>
+<TD >no</TD>
+<TD >Off</TD>
+<TD >2.5 V</TD>
+<TD >Off</TD>
+<TD >--</TD>
+<TD >User</TD>
+<TD >no</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >SW[14]</TD>
+<TD >J26</TD>
+<TD >6</TD>
+<TD >117</TD>
+<TD >73</TD>
+<TD >7</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >yes</TD>
+<TD >no</TD>
+<TD >Off</TD>
+<TD >2.5 V</TD>
+<TD >Off</TD>
+<TD >--</TD>
+<TD >User</TD>
+<TD >no</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >SW[15]</TD>
+<TD >K25</TD>
+<TD >6</TD>
+<TD >117</TD>
+<TD >73</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >yes</TD>
+<TD >no</TD>
+<TD >Off</TD>
+<TD >2.5 V</TD>
+<TD >Off</TD>
+<TD >--</TD>
+<TD >User</TD>
+<TD >no</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >SW[16]</TD>
+<TD >C30</TD>
+<TD >6</TD>
+<TD >117</TD>
+<TD >77</TD>
+<TD >7</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >yes</TD>
+<TD >no</TD>
+<TD >Off</TD>
+<TD >2.5 V</TD>
+<TD >Off</TD>
+<TD >--</TD>
+<TD >User</TD>
+<TD >no</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >SW[17]</TD>
+<TD >H25</TD>
+<TD >6</TD>
+<TD >117</TD>
+<TD >79</TD>
+<TD >7</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >yes</TD>
+<TD >no</TD>
+<TD >Off</TD>
+<TD >2.5 V</TD>
+<TD >Off</TD>
+<TD >--</TD>
+<TD >User</TD>
+<TD >no</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >SW[1]</TD>
+<TD >U30</TD>
+<TD >5</TD>
+<TD >117</TD>
+<TD >42</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >yes</TD>
+<TD >no</TD>
+<TD >Off</TD>
+<TD >2.5 V</TD>
+<TD >Off</TD>
+<TD >--</TD>
+<TD >User</TD>
+<TD >no</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >SW[2]</TD>
+<TD >V21</TD>
+<TD >5</TD>
+<TD >117</TD>
+<TD >28</TD>
+<TD >7</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >yes</TD>
+<TD >no</TD>
+<TD >Off</TD>
+<TD >2.5 V</TD>
+<TD >Off</TD>
+<TD >--</TD>
+<TD >User</TD>
+<TD >no</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >SW[3]</TD>
+<TD >C2</TD>
+<TD >8</TD>
+<TD >15</TD>
+<TD >91</TD>
+<TD >14</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >yes</TD>
+<TD >no</TD>
+<TD >Off</TD>
+<TD >2.5 V</TD>
+<TD >Off</TD>
+<TD >--</TD>
+<TD >User</TD>
+<TD >no</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >SW[4]</TD>
+<TD >AB30</TD>
+<TD >5</TD>
+<TD >117</TD>
+<TD >27</TD>
+<TD >7</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >yes</TD>
+<TD >no</TD>
+<TD >Off</TD>
+<TD >2.5 V</TD>
+<TD >Off</TD>
+<TD >--</TD>
+<TD >User</TD>
+<TD >no</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >SW[5]</TD>
+<TD >U21</TD>
+<TD >5</TD>
+<TD >117</TD>
+<TD >33</TD>
+<TD >7</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >yes</TD>
+<TD >no</TD>
+<TD >Off</TD>
+<TD >2.5 V</TD>
+<TD >Off</TD>
+<TD >--</TD>
+<TD >User</TD>
+<TD >no</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >SW[6]</TD>
+<TD >T28</TD>
+<TD >6</TD>
+<TD >117</TD>
+<TD >48</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >yes</TD>
+<TD >no</TD>
+<TD >Off</TD>
+<TD >2.5 V</TD>
+<TD >Off</TD>
+<TD >--</TD>
+<TD >User</TD>
+<TD >no</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >SW[7]</TD>
+<TD >R30</TD>
+<TD >6</TD>
+<TD >117</TD>
+<TD >51</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >yes</TD>
+<TD >no</TD>
+<TD >Off</TD>
+<TD >2.5 V</TD>
+<TD >Off</TD>
+<TD >--</TD>
+<TD >User</TD>
+<TD >no</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >SW[8]</TD>
+<TD >P30</TD>
+<TD >6</TD>
+<TD >117</TD>
+<TD >51</TD>
+<TD >7</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >yes</TD>
+<TD >no</TD>
+<TD >Off</TD>
+<TD >2.5 V</TD>
+<TD >Off</TD>
+<TD >--</TD>
+<TD >User</TD>
+<TD >no</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >SW[9]</TD>
+<TD >R29</TD>
+<TD >6</TD>
+<TD >117</TD>
+<TD >48</TD>
+<TD >7</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >no</TD>
+<TD >yes</TD>
+<TD >no</TD>
+<TD >Off</TD>
+<TD >2.5 V</TD>
+<TD >Off</TD>
+<TD >--</TD>
+<TD >User</TD>
+<TD >no</TD>
+</TR>
+</tbody></TABLE>
+
+<noscript>JavaScript must be enabled to view the report.</noscript>
+</BODY>
+</HTML>
