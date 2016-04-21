@@ -12,6 +12,8 @@ module tb_DrawLine
 ();
 
 	// DUT Signals
+	reg tb_clk;
+	reg tb_reset;
 	reg[15:0] tb_x1;
 	reg[15:0] tb_y1;
 	reg[15:0] tb_x2;
@@ -28,5 +30,25 @@ module tb_DrawLine
 			.get_pixel(tb_get_pixel),
 			.x_o(tb_x_o),
 			.y_o(tb_y_o));
+
+	//Clock Signal
+	always
+	begin
+		#2 tb_clk = !tb_clk;
+	end
+
+	initial
+	begin
+		//Initializations
+		tb_clk = 1'b0;
+		tb_reset = 1'b0;
+		tb_x1 = 16'd100;
+		tb_x2 = 16'd50;
+		tb_y1 = 16'd90;
+		tb_y2 = 16'd100;
+		$display("entered initialization");
+		#4;
+		tb_reset = 1'b1;
+	end
 
 endmodule
