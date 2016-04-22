@@ -23,6 +23,8 @@ module tb_DrawLine
 	wire[15:0] tb_x_o;
 	wire[15:0] tb_y_o;
 
+	int i;
+	
 	//Connections
 	DrawLine U1 (.clk(tb_clk),
 			.reset(tb_reset),
@@ -45,18 +47,24 @@ module tb_DrawLine
 	begin
 		//Initializations
 		tb_clk = 1'b0;
-		tb_reset = 1'b1;
+		tb_reset = 1'b0;
 		tb_x1 = 16'd100;
 		tb_x2 = 16'd50;
 		tb_y1 = 16'd90;
 		tb_y2 = 16'd100;
-		tb_calculate = 1'b1;
 		#4;
 		tb_reset = 1'b1;
+		#4
+		tb_calculate = 1'b1;
+		#4
 		tb_calculate = 1'b0;
-		tb_get_pixel = 1'b1;
-		#4;
-		tb_get_pixel = 1'b0;
+		for (i=1'b0; i <50; i++)
+		begin
+			tb_get_pixel = 1'b1;
+			#4;
+			tb_get_pixel = 1'b0;
+			#4;
+		end
 		tb_reset = 1'b0;
 		tb_x1 = 16'd90;
 		tb_x2 = 16'd100;

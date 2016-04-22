@@ -17,7 +17,8 @@ module DrawLine
 	input wire [15:0] y2,
 	input wire get_pixel,
 	output reg [15:0] x_o,
-	output reg [15:0] y_o
+	output reg [15:0] y_o,
+	output reg line_complete
 );
 //Don't need this many registers just don't feel like doing max math now
 reg[15:0] delta_x;
@@ -30,8 +31,8 @@ reg[15:0] a;
 wire [15:0] c1_out; // Dummy wire NOT USED AT THE MOMENT
 wire clear;
 wire roll;
-reg[15:0] trans_x;
-reg[15:0] trans_y;
+wire roll2;
+wire roll3;
 
 /*
 	module flex_counter
@@ -53,9 +54,25 @@ flex_counter #(16) c1 (.clk(clk),
 			.n_rst(reset),
 			.clear(clear),
 			.count_enable(get_pixel),
-			.rollover_val(min),
+			.rollover_val(max),
 			.count_out(c1_out),
 			.rollover_flag(roll));
+
+flex_counter #(16) c2 (.clk(clk),
+			.n_rst(reset),
+			.clear(clear),
+			.count_enable(get_pixel),
+			.rollover_val(a),
+			.count_out(),
+			.rollover_flag(roll2));
+
+flex_counter #(16) c3 (.clk(clk),
+			.n_rst(reset),
+			.clear(clear),
+			.count_enable(!roll2),
+			.rollover_val(pixels_in_group + 1),
+			.count_out(),
+			.rollover_flag(roll3));
 
 always_ff @ (posedge clk, negedge reset)
 begin
@@ -65,21 +82,65 @@ begin
 	end
 	else
 	begin
+		line_complete <= 1'b0;
 		if (calculate == 1'b1)
 		begin
-			x_o = x1;
-			y_o = y1;
+			x_o <= x1;
+			y_o <= y1;
 		end
-		if (get_pixel == 1'b1)
+		if (get_pixel == 1'b1 && roll == 1'b0)
 		begin
+			if(roll3 == 1'b1)
+			begin
+				if (delta_y > delta_x)
+				begin
+					if (x1 > x2)
+					begin
+						x_o <= x_o - 1;
+					end
+					else
+					begin
+						x_o <= x_o + 1;
+					end
+				end
+				else
+				begin
+					if (y1 > y2)
+					begin
+						y_o <= y_o - 1;
+					end
+					else
+					begin
+						y_o <= y_o + 1;
+					end
+				end
+			end
 			if (delta_y > delta_x)
 			begin
-				y_o <= y_o - 1;
+				if(y1 > y2)
+				begin
+					y_o <= y_o - 1;
+				end
+				else
+				begin
+					y_o <= y_o + 1;
+				end
 			end
 			else
 			begin
-				x_o <= x_o - 1;
+				if(x1 > x2)
+				begin
+					x_o <= x_o - 1;
+				end
+				else
+				begin
+					x_o <= x_o + 1;
+				end
 			end
+		end
+		if (roll == 1'b1)
+		begin
+			line_complete <= 1'b1;
 		end
 	end
 end
@@ -111,8 +172,6 @@ begin
 		pixels_in_group = max / (min + 1);
 		pixels_missing = max - (min) * pixels_in_group;
 		a = max / (pixels_missing + 1);
-		trans_x = x1;
-		trans_y = y1;
 	end
 end	
 
