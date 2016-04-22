@@ -10,9 +10,9 @@ module tb_InputDecoder_fifo_RAM ();
 
 	timeunit 1ns;
 	reg tb_clk = 0, tb_reset, tb_write, tb_read;
-	reg [31:0] tb_r_data;
+	reg [31:0] tb_w_data;
 	wire tb_full, tb_empty;
-	wire [31:0] tb_w_data;
+	wire [31:0] tb_r_data;
 	integer test_case;
 
 	/*
@@ -47,7 +47,7 @@ module tb_InputDecoder_fifo_RAM ();
 	end
 	endtask
 
-	decode DUT (
+	InputDecoder_fifo_RAM DUT (
 				.clk(tb_clk),
 				.reset(tb_reset),
 				.write(tb_write),
@@ -110,13 +110,13 @@ module tb_InputDecoder_fifo_RAM ();
 
 		// TEST 1
 		test_case = test_case + 1;
-		Check_Outputs(32'dx, 1'b1, 1'b0);
+		//Check_Outputs(32'bxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx, 1'b1, 1'b0);
 		
 
 		##1 Set_Inputs(1,0,32'd4294967295); // Drive Test 4
 		// TEST 2
 		test_case = test_case + 1;
-		Check_Outputs(32'dx, 1'b1, 1'b0);
+		//Check_Outputs(32'bxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx, 1'b1, 1'b0);
 		 
 
 		##1 Set_Inputs(1,1,32'd1000); // Drive Test 5
@@ -142,7 +142,27 @@ module tb_InputDecoder_fifo_RAM ();
 		##1
 		// TEST 7
 		test_case = test_case + 1;
-		Check_Outputs(32'dx, 1'b1, 1'b0);
+		//Check_Outputs(32'bxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx, 1'b1, 1'b0);
+		
+		##1
+		test_case = test_case + 1;
+		for (int i = 0; i < 400; i = i + 1)
+		begin
+			Set_Inputs(1,0,32'd666); // Drive Test
+			##1;
+		end
+
+		##1
+
+		Check_Outputs(32'd666, 1'b0, 1'b1);
+		Set_Inputs(0,1,32'd0); // Drive Test
+
+		##1
+		##1
+		
+		test_case = test_case + 1;
+		Check_Outputs(32'd666, 1'b0, 1'b0);
+
 	end
 
 endmodule

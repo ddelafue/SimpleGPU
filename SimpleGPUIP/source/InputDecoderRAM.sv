@@ -17,7 +17,7 @@ module InputDecoderRAM
 	reg [31:0] mem [399:0];
 	always @ (posedge clk) begin
 		if (we)
-			mem[write_address] <= data;
-		q <= mem[read_address]; // q doesn't get d in this clock cycle
+			mem[write_address] = data;
+		q = mem[read_address]; // q does get d in this clock cycle
 	end
 endmodule

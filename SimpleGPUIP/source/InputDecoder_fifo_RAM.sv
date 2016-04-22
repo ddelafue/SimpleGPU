@@ -18,7 +18,7 @@ module InputDecoder_fifo_RAM
 	output reg full
 );
 
-	reg [8:0] fifo_counter, read_ptr, write_ptr;
+	reg [8:0] fifo_counter, read_ptr, write_ptr, next_read_ptr, next_write_ptr;
 
 	/*
 		module InputDecoderRAM
@@ -34,22 +34,32 @@ module InputDecoder_fifo_RAM
 						.q(r_data),
 						.data(w_data),
 						.write_address(write_ptr),
-						.read_address(read_ptr),
+						.read_address(next_read_ptr),
 						.we(write),
 						.clk(clk)
 						);
 
 	always_comb
 	begin
-		if (fifo_counter == 0)
-			empty = 1'b0;
-		else
+		if (fifo_counter == 9'd0)
 			empty = 1'b1;
+		else
+			empty = 1'b0;
 		
 		if (fifo_counter == 9'd400)
 			full = 1'b1;
 		else
 			full = 1'b0;
+			
+		if (!full && write)
+			next_write_ptr = write_ptr + 1;
+		else
+			next_write_ptr = write_ptr;
+		
+		if (!empty && read)
+			next_read_ptr = read_ptr + 1;
+		else
+			next_read_ptr = read_ptr;
 	end
 
 	always_ff @ (negedge reset, posedge clk)
@@ -72,20 +82,13 @@ module InputDecoder_fifo_RAM
 	begin
 		if (reset == 1'b0)
 		begin
-			write_ptr <= 0;
-			read_ptr <= 0;
+			write_ptr <= 9'd0;
+			read_ptr <= 9'd0;
 		end
 		else
 		begin
-			if (!full && write)
-				write_ptr <= write_ptr + 1;
-			else
-				write_ptr <= write_ptr;
-			
-			if (!empty && read)
-				read_ptr <= read_ptr + 1;
-			else
-				read_ptr <= read_ptr;
+			write_ptr <= next_write_ptr;
+			read_ptr <= next_read_ptr;
 		end
 	end
 
