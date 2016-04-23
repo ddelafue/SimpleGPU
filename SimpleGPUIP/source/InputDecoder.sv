@@ -10,8 +10,8 @@ module InputDecoder
 (	
 	input wire clk,
 	input wire reset,
-	input wire write,
-	input wire [31:0] w_data,
+	input wire fifo_write,
+	input wire [31:0] fifo_w_data,
 	input wire next_triangle,
 	output reg opcode_received,
 	output reg frame_ready,
@@ -24,5 +24,24 @@ module InputDecoder
 	output reg [15:0] y3,
 	output reg [7:0] TexNum
 );
+
+	reg fifo_read;
+	reg fifo_r_data
+
+	/*
+		module InputDecoder_fifo_RAM
+		(
+			input wire clk,
+			input wire reset,
+			input wire write,
+			input wire read,
+			input wire [31:0] w_data,
+			output wire [31:0] r_data,
+			output reg empty,
+			output reg full
+		);
+	*/
+
+
 
 endmodule
