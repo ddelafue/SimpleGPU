@@ -70,7 +70,7 @@ flex_counter #(16) c3 (.clk(clk),
 			.n_rst(reset),
 			.clear(roll),
 			.count_enable(!roll2),
-			.rollover_val(pixels_in_group + 1),
+			.rollover_val(pixels_in_group + 1'b1),
 			.count_out(),
 			.rollover_flag(roll3));
 

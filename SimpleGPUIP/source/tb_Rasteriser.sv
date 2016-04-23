@@ -53,6 +53,7 @@ module tb_Rasteriser
 			.load_texture(tb_load_texture),
 			.get_rgba(tb_get_rgba),
 			.get_pixel(tb_get_pixel),
+			.get_line(tb_get_line),
 			.pixel_number(tb_pixel_number),
 			.frame_ready_o(tb_frame_ready_o));
 
@@ -67,6 +68,7 @@ module tb_Rasteriser
 		tb_clk = 1'b0;
 		tb_reset = 1'b0;
 		#4;
+		tb_reset = 1'b1;
 		tb_opcode_received = 1'b1;
 		#4;
 		tb_opcode_received = 1'b0;
