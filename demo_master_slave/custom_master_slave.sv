@@ -52,12 +52,21 @@ logic [NUMREGS-1:0] reg_index, nextRegIndex;
 logic [NUMREGS-1:0][REGWIDTH-1:0] read_data_registers;  //Store SDRAM read data for display
 logic new_data_flag;
 
+logic [31:0] fifo_write_data;
+logic fifo_write;
+
 typedef enum {IDLE, WRITE} state_t;
 state_t state, nextState;
 
 assign display_data = csr_registers[slave_address];
 
+
 // Slave side 
+assign fifo_write_data = slave_writedata;
+assign fifo_write = ((slave_address == '0) && slave_write && slave_chipselect) ? 1'b1 : 1'b0;
+
+// Instantiate InputDecoder here
+
 always_ff @ ( posedge clk ) begin 
   if(!reset_n)
   	begin
@@ -66,7 +75,7 @@ always_ff @ ( posedge clk ) begin
   	end
   else 
   	begin
-  	  if(slave_write && slave_chipselect && (slave_address >= 0) && (slave_address < NUMREGS))
+  	  if(slave_write && slave_chipselect && (slave_address > 0) && (slave_address < NUMREGS))
   	  	begin
   	  	   csr_registers[slave_address] <= slave_writedata;  // Write a value to a CSR register
   	  	end
@@ -78,6 +87,7 @@ always_ff @ ( posedge clk ) begin
   	    	end
   	 end
 end
+
 
 // Master Side
 always_ff @ ( posedge clk ) begin 
