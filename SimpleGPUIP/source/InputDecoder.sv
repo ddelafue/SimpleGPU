@@ -25,8 +25,8 @@ module InputDecoder
 	output reg [7:0] TexNum
 );
 
-	reg fifo_read;
-	reg fifo_r_data
+	wire fifo_read, fifo_empty, fifo_full;
+	wire [31:0] fifo_r_data;
 
 	/*
 		module InputDecoder_fifo_RAM
@@ -42,6 +42,18 @@ module InputDecoder
 		);
 	*/
 
+	InputDecoder_fifo_RAM RAM (
+							.clk(clk),
+							.reset(reset),
+							.write(fifo_write),
+							.read(fifo_read),
+							.w_data(fifo_w_data),
+							.r_data(fifo_r_data),
+							.empty(fifo_empty),
+							.full(fifo_full)
+							);
 
+	
+	
 
 endmodule
