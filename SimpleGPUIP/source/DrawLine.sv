@@ -52,7 +52,7 @@ wire roll3;
 
 flex_counter #(16) c1 (.clk(clk),
 			.n_rst(reset),
-			.clear(clear),
+			.clear(roll),
 			.count_enable(get_pixel),
 			.rollover_val(max),
 			.count_out(c1_out),
@@ -60,7 +60,7 @@ flex_counter #(16) c1 (.clk(clk),
 
 flex_counter #(16) c2 (.clk(clk),
 			.n_rst(reset),
-			.clear(clear),
+			.clear(roll),
 			.count_enable(get_pixel),
 			.rollover_val(a),
 			.count_out(),
@@ -68,7 +68,7 @@ flex_counter #(16) c2 (.clk(clk),
 
 flex_counter #(16) c3 (.clk(clk),
 			.n_rst(reset),
-			.clear(clear),
+			.clear(roll),
 			.count_enable(!roll2),
 			.rollover_val(pixels_in_group + 1),
 			.count_out(),
@@ -78,7 +78,8 @@ always_ff @ (posedge clk, negedge reset)
 begin
 	if (reset == 1'b0)
 	begin
-		
+		x_o <= 'b0;
+		y_o <= 'b0;
 	end
 	else
 	begin
@@ -139,6 +140,10 @@ begin
 			end
 		end
 		if (roll == 1'b1)
+		begin
+			line_complete <= 1'b1;
+		end
+		else if (max == 1'b0)
 		begin
 			line_complete <= 1'b1;
 		end
