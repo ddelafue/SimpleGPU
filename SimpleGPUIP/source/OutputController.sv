@@ -8,7 +8,8 @@
 
 module OutputController
 (
-	input wire n_rst,	
+	input wire n_rst,
+	input wire clk,
 	//From the Alpha Blender
 	input wire [7:0] write_r,
 	input wire [7:0] write_g,
@@ -31,13 +32,12 @@ module OutputController
 	output wire [7:0] read_r,
 	output wire [7:0] read_g,
 	output wire [7:0] read_b,
-
 	//output to the M9. First data written, then control signals
 	output reg  M9_write,
 	//output to SD_RAM
 	output reg  SD_write,
 	output reg [31:0] SD_wdata,
-	output wire [25:0] SD_address,
+	output reg [25:0] SD_address,
 	input wire waitrequest //wait for this in order to increment the address 
 );
 
@@ -47,9 +47,8 @@ stateType nxt_state;
 int current_MADDW = 0;
 int sd_m9_read_pixel = 0;
 reg [25:0] next_SD_address;
-reg [16:0] next_write_address;
-reg [16:0] next_read_address;
-wire [16:0] SD_read_address = 17'b00000000000000000;
+reg [16:0] next_write_address= 17'b00000000000000000;
+reg [16:0] next_read_address = 17'b00000000000000000;
 wire [16:0] backward_m9;
 wire [7:0] nothing = 8'b00000000;
 reg [16:0] pixel_count = 17'b00000000000000000;
@@ -71,6 +70,9 @@ begin
 	if(n_rst == 1'b0)
 	begin
 		state <= M9BLEND;
+		read_address <= 16'b0000000000000000;
+		write_address <= 16'b0000000000000000;
+		SD_address <= 26'b00000000000000000000000000;
 	end
 	else
 	begin
@@ -94,6 +96,7 @@ begin
 		write_address <= next_write_address;
 		pixel_count <= next_pixel_count;
 		sdram_count <= next_sdram_count;
+		SD_address <= next_SD_address;
 	end
 end 
 
