@@ -119,37 +119,49 @@ begin
 		IN_XY:
 		begin
 			next_state = CALC;
+			calc_1 = 1'b1;
 		end
 		CALC:
 		begin
 			next_state = WAIT_C;
-			calc_1 = 1'b1;
+			calc_1 = 1'b0;
 		end
 		WAIT_C:
 		begin
 			calc_1 = 1'b0;
-			if(calc_wait == CALC_WAIT)
-			begin
-				next_state = GET_PIX;
-				calc_wait = 0;
-			end
-			else
-			begin
-				next_state = WAIT_C;
-				calc_wait = calc_wait + 1;
-			end
+			next_state = GET_PIX;
+			calc_2 = 1'b1;
+			get_line_pixel = 1'b0;
 		end
 		GET_PIX:
 		begin
-			next_state = SEND_PIX;
-			get_pixel = 1'b1;
+			if(end_3 == 1'b0)
+			begin
+				calc_2 = 1'b0;
+				next_state = SEND_PIX;
+				get_pixel = 1'b1;
+			end
+			else
+			begin
+				next_state = DONE;
+			end
 		end
 		SEND_PIX:
 		begin
 			get_pixel = 1'b0;
 			next_state = GET_PIX;
 		end
+		DONE:
+		begin
+			get_line_pixel = 1'b1;
+			next_state = WAIT_C;
+		end
 	endcase
+end
+
+always_comb
+begin
+	pixel_number = 640 * y_out_3 + x_out_3;
 end
 
 endmodule
