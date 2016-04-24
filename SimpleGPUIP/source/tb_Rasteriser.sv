@@ -67,6 +67,12 @@ module tb_Rasteriser
 	begin
 		tb_clk = 1'b0;
 		tb_reset = 1'b0;
+		tb_x1 = 16'd20;
+		tb_y1 = 16'd10;
+		tb_x3 = 16'd20;
+		tb_y3 = 16'd20;
+		tb_x2 = 16'd30;
+		tb_y2 = 16'd10;
 		#4;
 		tb_reset = 1'b1;
 		tb_opcode_received = 1'b1;
