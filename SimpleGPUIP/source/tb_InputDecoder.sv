@@ -248,16 +248,131 @@ module tb_InputDecoder ();
 		// Applied 4ns after clock edge
 		##2
 
-		// TEST 1 Reset condition
+		// TEST 1
 		test_case = test_case + 1;
 
 		Load_Values(4'd1, 8'd2, 16'd3, 16'd4, 16'd5, 16'd6, 16'd7, 16'd8);
 		c_input.next_triangle <= 1'b1;
 		##1;
 		c_input.next_triangle <= 1'b0;
-		##7;
+		##9;
 		Check_Outputs(8'd2, 16'd3, 16'd4, 16'd5, 16'd6, 16'd7, 16'd8);
 		Check_Edges(1'b1, 1'b0, 1'b1);
+		Reset_Edges();
+
+		##1;
+
+		// TEST 2
+		test_case = test_case + 1;
+
+		Load_Values(4'd0, 8'd2, 16'd3, 16'd4, 16'd5, 16'd6, 16'd7, 16'd8);
+		c_input.next_triangle <= 1'b1;
+		##1;
+		c_input.next_triangle <= 1'b0;
+		##9;
+		Check_Outputs(8'd2, 16'd3, 16'd4, 16'd5, 16'd6, 16'd7, 16'd8);
+		Check_Edges(1'b0, 1'b0, 1'b1);
+		Reset_Edges();
+
+		##1;
+
+		// TEST 3
+		test_case = test_case + 1;
+
+		Load_Values(4'd0, 8'd5, 16'd5, 16'd5, 16'd5, 16'd5, 16'd5, 16'd5);
+		c_input.next_triangle <= 1'b1;
+		##1;
+		c_input.next_triangle <= 1'b0;
+		##9;
+		Check_Outputs(8'd5, 16'd5, 16'd5, 16'd5, 16'd5, 16'd5, 16'd5);
+		Check_Edges(1'b0, 1'b0, 1'b1);
+		Reset_Edges();
+
+		##1;
+		
+		// TEST 4
+		test_case = test_case + 1;
+
+		c_input.fifo_write <= 1'b1;
+		c_input.fifo_w_data <= {4'd2, 28'd0};
+		##1;
+		c_input.fifo_write <= 1'b0;
+		c_input.next_triangle <= 1'b1;
+		##1;
+		c_input.next_triangle <= 1'b0;
+		##7;
+		Check_Edges(1'b0, 1'b1, 1'b0);
+		Reset_Edges();
+
+		##1;
+		
+		// TEST 5
+		test_case = test_case + 1;
+
+		c_input.fifo_write <= 1'b1;
+		c_input.fifo_w_data <= {4'd1, 28'd0};
+		##1;
+		c_input.fifo_write <= 1'b0;
+		c_input.next_triangle <= 1'b1;
+		##1;
+		c_input.next_triangle <= 1'b0;
+		##6;
+		c_input.fifo_write <= 1'b1;
+		c_input.fifo_w_data <= {16'd20, 16'd21};
+		##1;
+		c_input.fifo_write <= 1'b1;
+		c_input.fifo_w_data <= {16'd22, 16'd23};
+		##1;
+		c_input.fifo_write <= 1'b0;
+		##8;
+		c_input.fifo_write <= 1'b1;
+		c_input.fifo_w_data <= {16'd24, 16'd25};
+		##1;
+		c_input.fifo_write <= 1'b0;
+		##7;
+		Check_Outputs(8'd0, 16'd20, 16'd21, 16'd22, 16'd23, 16'd24, 16'd25);
+		Check_Edges(1'b1, 1'b0, 1'b1);
+		Reset_Edges();
+
+		##1;
+		
+		// TEST 6
+		test_case = test_case + 1;
+
+		c_input.fifo_write <= 1'b1;
+		c_input.fifo_w_data <= {4'd2, 28'd30};
+		##1;
+		c_input.fifo_write <= 1'b0;
+		c_input.next_triangle <= 1'b1;
+		##1;
+		c_input.next_triangle <= 1'b0;
+		##7;
+		Check_Outputs(8'd0, 16'd20, 16'd21, 16'd22, 16'd23, 16'd24, 16'd25);
+		Check_Edges(1'b0, 1'b1, 1'b0);
+		Reset_Edges();
+		
+		// TEST 7
+		test_case = test_case + 1;
+
+		c_input.next_triangle <= 1'b1;
+		##1;
+		c_input.next_triangle <= 1'b0;
+		##6;
+		Load_Values(4'd1, 8'd100, 16'd500, 16'd666, 16'd777, 16'd345, 16'd845, 16'd984);
+		c_input.fifo_write <= 1'b1;
+		c_input.fifo_w_data <= {4'd2, 28'd2433};
+		##1;
+		c_input.fifo_write <= 1'b0;
+		##11;
+		Check_Outputs(8'd100, 16'd500, 16'd666, 16'd777, 16'd345, 16'd845, 16'd984);
+		Check_Edges(1'b1, 1'b0, 1'b1);
+		Reset_Edges();
+		##1;
+		c_input.next_triangle <= 1'b1;
+		##1;
+		c_input.next_triangle <= 1'b0;
+		##1;
+		Check_Edges(1'b0, 1'b1, 1'b0);
 		Reset_Edges();
 
 	end

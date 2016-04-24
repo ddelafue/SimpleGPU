@@ -43,6 +43,10 @@ module InputDecoder
 							Latch2,
 							Latch3,
 							Latch4,
+							Stuff1,
+							Stuff2,
+							Stuff3,
+							Stuff4,
 							Frame
 							} stateType;
 
@@ -126,6 +130,8 @@ module InputDecoder
 				if (!fifo_empty)
 					next_state = Latch1;
 			Latch1:
+				next_state = Stuff1;
+			Stuff1:
 			begin
 				if (fifo_empty)
 					next_state = Wait2;
@@ -136,6 +142,8 @@ module InputDecoder
 				if (!fifo_empty)
 					next_state = Latch2;
 			Latch2:
+				next_state = Stuff2;
+			Stuff2:
 			begin
 				if (fifo_empty)
 					next_state = Wait3;
@@ -146,6 +154,8 @@ module InputDecoder
 				if (!fifo_empty)
 					next_state = Latch3;
 			Latch3:
+				next_state = Stuff3;
+			Stuff3:
 			begin
 				if (fifo_empty)
 					next_state = Wait4;
@@ -172,6 +182,7 @@ module InputDecoder
 		next_x3 = x3;
 		next_y3 = y3;
 		next_TexNum = TexNum;
+		fifo_read = 1'b0;
 
 		case(state)
 			Idle:
