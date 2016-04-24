@@ -44,9 +44,9 @@ module tb_InputDecoder ();
 		#5 tb_clk = 0;
 	end
 
-	always_ff
+	always_ff @ (negedge tb_reset, posedge tb_clk)
 	begin
-		if (tb_reset)
+		if (tb_reset == 1'b0)
 		begin
 			opcode_received_edge <= '0;
 			frame_ready_edge <= '0;
@@ -54,10 +54,16 @@ module tb_InputDecoder ();
 		end
 		if (c_input.opcode_received)
 			opcode_received_edge <= 1'b1;
+		else
+			opcode_received_edge <= opcode_received_edge;
 		if (c_input.frame_ready)
 			frame_ready_edge <= 1'b1;
+		else
+			frame_ready_edge <= frame_ready_edge;
 		if (c_input.data_ready)
-			frame_data_edge <= 1'b1;
+			data_ready_edge <= 1'b1;
+		else
+			data_ready_edge <= data_ready_edge;
 	end
 
 	task Reset_Edges;
@@ -78,18 +84,19 @@ module tb_InputDecoder ();
 		input [15:0] x3;
 		input [15:0] y3;
 	begin
-		c_input.fifo_write <= fifo_write;
+		c_input.fifo_write <= 1'b1;
 		c_input.fifo_w_data <= {opcode, 20'd0, TexNum};
 		##1;
-		c_input.fifo_write <= fifo_write;
+		c_input.fifo_write <= 1'b1;
 		c_input.fifo_w_data <= {x1, y1};
 		##1;
-		c_input.fifo_write <= fifo_write;
+		c_input.fifo_write <= 1'b1;
 		c_input.fifo_w_data <= {x2, y2};
 		##1;
-		c_input.fifo_write <= fifo_write;
+		c_input.fifo_write <= 1'b1;
 		c_input.fifo_w_data <= {x3, y3};
 		##1;
+		c_input.fifo_write <= 1'b0;
 	end
 	endtask
 
@@ -112,14 +119,19 @@ module tb_InputDecoder ();
 				);
 
 	task Check_Outputs;
+		input [7:0] TexNum;
 		input [15:0] x1;
 		input [15:0] y1;
 		input [15:0] x2;
 		input [15:0] y2;
 		input [15:0] x3;
 		input [15:0] y3;
-		input [7:0] TexNum;
 	begin
+		assert (c_input.TexNum == TexNum)
+			$info("Correct TexNum %d", test_case);
+		else
+			$error("Wrong! TexNum %d", test_case);
+		
 		assert (c_input.x1 == x1)
 			$info("Correct x1 %d", test_case);
 		else
@@ -149,11 +161,6 @@ module tb_InputDecoder ();
 			$info("Correct y3 %d", test_case);
 		else
 			$error("Wrong! y3 %d", test_case);
-		
-		assert (c_input.TexNum == TexNum)
-			$info("Correct TexNum %d", test_case);
-		else
-			$error("Wrong! TexNum %d", test_case);
 	end
 	endtask
 
@@ -210,13 +217,13 @@ module tb_InputDecoder ();
 			input [15:0] y3;
 
 		task Check_Outputs;
+			input [7:0] TexNum;
 			input [15:0] x1;
 			input [15:0] y1;
 			input [15:0] x2;
 			input [15:0] y2;
 			input [15:0] x3;
 			input [15:0] y3;
-			input [7:0] TexNum;
 	
 		task Check_Edges;
 			input expected_opcode_received;
@@ -229,11 +236,15 @@ module tb_InputDecoder ();
 	initial
 	begin
 		tb_reset = 0;
-		next_triangle = 0;
+		tb_next_triangle = 0;
+		opcode_received_edge = '0;
+		frame_ready_edge = '0;
+		data_ready_edge = '0;
 		test_case = 0;
 
 		// Applied at the negative edge of the first clock
 		##1 c_input.reset <= 1; // Drive Test 1
+		tb_reset = 1;
 		// Applied 4ns after clock edge
 		##2
 
@@ -245,7 +256,7 @@ module tb_InputDecoder ();
 		##1;
 		c_input.next_triangle <= 1'b0;
 		##7;
-		Check_Outputs(4'd1, 8'd2, 16'd3, 16'd4, 16'd5, 16'd6, 16'd7, 16'd8);
+		Check_Outputs(8'd2, 16'd3, 16'd4, 16'd5, 16'd6, 16'd7, 16'd8);
 		Check_Edges(1'b1, 1'b0, 1'b1);
 		Reset_Edges();
 

@@ -49,7 +49,8 @@ module InputDecoder
 	stateType state;
 	stateType next_state;
 
-	wire fifo_read, fifo_empty, fifo_full;
+	wire fifo_empty, fifo_full;
+	reg fifo_read;
 	wire [31:0] fifo_r_data;
 	wire [3:0] opcode;
 
@@ -81,7 +82,7 @@ module InputDecoder
 	
 	assign opcode = fifo_r_data[31:28];
 
-	always_ff @ (negedge n_rst, posedge clk)
+	always_ff @ (negedge reset, posedge clk)
 	begin
 		if (reset == 1'b0)
 		begin
@@ -173,6 +174,11 @@ module InputDecoder
 		next_TexNum = TexNum;
 
 		case(state)
+			Idle:
+			begin
+				if (opcode == 4'd1 && !fifo_empty)
+					opcode_received = 1;
+			end
 			Latch1:
 			begin
 				next_TexNum = fifo_r_data[7:0];
