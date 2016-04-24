@@ -78,6 +78,25 @@ module tb_Rasteriser
 		tb_opcode_received = 1'b1;
 		#4;
 		tb_opcode_received = 1'b0;
+		#600;
+		tb_reset = 1'b0;
+		tb_x2 = 16'd25;
+		#4;
+		tb_reset = 1'b1;
+		tb_opcode_received = 1'b1;
+		#4;
+		tb_opcode_received = 1'b0;
+		#600;
+		tb_reset = 1'b0;
+		tb_x3 = 16'd17;
+		tb_x2 = 16'd25;
+		tb_y3 = 16'd20;
+		tb_y2 = 16'd11;
+		#4;
+		tb_reset = 1'b1;
+		tb_opcode_received = 1'b1;
+		#4;
+		tb_opcode_received = 1'b0;
 	end
 
 endmodule

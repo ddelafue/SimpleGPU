@@ -159,4 +159,9 @@ begin
 	endcase
 end
 
+always_comb
+begin
+	pixel_number = 640 * y_out_3 + x_out_3;
+end
+
 endmodule
