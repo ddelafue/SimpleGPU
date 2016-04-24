@@ -31,6 +31,8 @@ module tb_OutputController
 	//? im not sure how to initialize the read and write address but this is what I think
 	wire tb_finished;
 	reg [16:0] count;
+	//the sd array
+	reg [7:0] sd_array [1228799:0];
 	//instantiate this thing
 	
 	OutputController ten (.reset(tb_n_rst), .clk(tb_clk), .write_r(tb_write_r), .write_g(tb_write_g), .write_b(tb_write_b), .M9_write(tb_M9_write), .read(tb_read), .frame_ready(tb_frame_ready), .Pixel_Number(tb_Pixel_Number),  .read_r(tb_read_r), .read_g(tb_read_g), .read_b(tb_read_b), .SD_write(tb_SD_write), .SD_wdata(tb_SD_wdata), .SD_address(tb_SD_address), .waitrequest(tb_waitrequest), .finished(tb_finished));
@@ -122,6 +124,18 @@ module tb_OutputController
 		end
 		#4;
 		//Testcase: Load psuedo SDRAM (sdarray here) with the data from the M9, but adding 8 bits of 0 to the front and flipping it. Once it's done, then we want to get a signal that says the SDARRAY is full :)
+		for(int j = 0; j<= 3071988; j++)
+		begin
+			tb_wait_request = 1'b1;
+			#4;
+			sd_array[tb_SD_address] = tb_SD_wdata[0:7];
+			sd_array[tb_SD_address+1] = tb_SD_wdata[8:15];
+			sd_array[tb_SD_address+2] = tb_SD_wdata[16:23];
+			sd_array[tb_SD_address+3] = tb_SD_wdata[24:31];
+			#4;
+			tb_wait_request = 1'b0;
+			#4;
+		end
 		
 
 
