@@ -25,6 +25,14 @@ module InputDecoder
 	output reg [7:0] TexNum
 );
 	
+	reg [15:0] next_x1;
+	reg [15:0] next_y1;
+	reg [15:0] next_x2;
+	reg [15:0] next_y2;
+	reg [15:0] next_x3;
+	reg [15:0] next_y3;
+	reg [7:0] next_TexNum;
+
 	typedef enum bit [3:0] {
 							Idle,
 							Wait1,
@@ -76,9 +84,27 @@ module InputDecoder
 	always_ff @ (negedge n_rst, posedge clk)
 	begin
 		if (reset == 1'b0)
+		begin
 			state <= Idle;
+			x1 <= '0;
+			y1 <= '0;
+			x2 <= '0;
+			y2 <= '0;
+			x3 <= '0;
+			y3 <= '0;
+			TexNum <= '0;
+		end
 		else
+		begin
 			state <= next_state;
+			x1 <= next_x1;
+			y1 <= next_y1;
+			x2 <= next_x2;
+			y2 <= next_y2;
+			x3 <= next_x3;
+			y3 <= next_y3;
+			TexNum <= next_TexNum;
+		end
 	end
 
 	always_comb
@@ -135,36 +161,47 @@ module InputDecoder
 
 	always_comb
 	begin : OUTPUT_LOGIC
-		rcving = 1'b0;
-		w_enable = 1'b0;
-		r_error = 1'b0;
+		opcode_received = 1'b0;
+		frame_ready = 1'b0;
+		data_ready = 1'b0;
+		next_x1 = x1;
+		next_y1 = y1;
+		next_x2 = x2;
+		next_y2 = y2;
+		next_x3 = x3;
+		next_y3 = y3;
+		next_TexNum = TexNum;
 
 		case(state)
-			Start:
-				rcving = 1'b1;
-			First_Bit:
-				rcving = 1'b1;
-			Write:
+			Latch1:
 			begin
-				rcving = 1'b1;
-				w_enable = 1'b1;
+				next_TexNum = fifo_r_data[7:0];
+				fifo_read = 1'b1;
 			end
-			Listen:
-				rcving = 1'b1;
-			EOP_E:
+			Latch2:
 			begin
-				rcving = 1'b1;
-				r_error = 1'b1;
+				next_x1 = fifo_r_data[31:16];
+				next_y1 = fifo_r_data[15:0];
+				fifo_read = 1'b1;
 			end
-			Start_E:
+			Latch3:
 			begin
-				rcving = 1'b1;
-				r_error = 1'b1;
+				next_x2 = fifo_r_data[31:16];
+				next_y2 = fifo_r_data[15:0];
+				fifo_read = 1'b1;
 			end
-			E_Idle:
-				r_error = 1'b1;
-			EOP:
-				rcving = 1'b1;
+			Latch4:
+			begin
+				next_x3 = fifo_r_data[31:16];
+				next_y3 = fifo_r_data[15:0];
+				fifo_read = 1'b1;
+				data_ready = 1'b1;
+			end
+			Frame:
+			begin
+				frame_ready = 1'b1;
+				fifo_read = 1'b1;
+			end
 		endcase
 	end
 
