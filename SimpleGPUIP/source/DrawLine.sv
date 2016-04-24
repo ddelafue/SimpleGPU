@@ -99,18 +99,18 @@ begin
 					begin
 						x_o <= x_o - 1;
 					end
-					else
+					else if (x1 < x2)
 					begin
 						x_o <= x_o + 1;
 					end
 				end
-				else
+				else if (delta_y < delta_x)
 				begin
 					if (y1 > y2)
 					begin
 						y_o <= y_o - 1;
 					end
-					else
+					else if (y1 < y2)
 					begin
 						y_o <= y_o + 1;
 					end
@@ -122,20 +122,43 @@ begin
 				begin
 					y_o <= y_o - 1;
 				end
-				else
+				else if (y1 < y2)
 				begin
 					y_o <= y_o + 1;
 				end
 			end
-			else
+			else if (delta_y < delta_x)
 			begin
 				if(x1 > x2)
 				begin
 					x_o <= x_o - 1;
 				end
-				else
+				else if (x1 < x2)
 				begin
 					x_o <= x_o + 1;
+				end
+			end
+			else if (delta_y == delta_x)
+			begin
+				if (x1 > x2 && y1 > y2)
+				begin
+					x_o <= x_o + 1;
+					y_o <= y_o + 1;
+				end
+				else if (x1 > x2 && y1 < y2)
+				begin
+					x_o <= x_o - 1;
+					y_o <= y_o + 1;
+				end
+				else if (x1 < x2 && y1 > y2)
+				begin
+					x_o <= x_o + 1;
+					y_o <= y_o - 1;
+				end
+				else
+				begin
+					x_o <= x_o - 1;
+					y_o <= y_o - 1;
 				end
 			end
 		end
@@ -175,6 +198,10 @@ begin
 			max = delta_x;
 		end
 		pixels_in_group = max / (min + 1);
+		if (max == min)
+		begin
+			pixels_in_group = 1'b1;
+		end
 		pixels_missing = max - (min) * pixels_in_group;
 		a = max / (pixels_missing + 1);
 	end

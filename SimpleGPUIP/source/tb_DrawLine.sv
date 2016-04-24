@@ -119,6 +119,24 @@ module tb_DrawLine
 			tb_get_pixel = 1'b0;
 			#4;
 		end
+		tb_reset = 1'b0;
+		tb_x1 = 16'd30;
+		tb_y1 = 16'd10;
+		tb_x2 = 16'd20;
+		tb_y2 = 16'd20;
+		#4;
+		tb_reset = 1'b1;
+		#4;
+		tb_calculate = 1'b1;
+		#4;
+		tb_calculate = 1'b0;
+		for (i=1'b0; i < 10; i++)
+		begin
+			tb_get_pixel = 1'b1;
+			#4;
+			tb_get_pixel = 1'b0;
+			#4;
+		end
 	end
 
 endmodule
