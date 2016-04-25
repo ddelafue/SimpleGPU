@@ -33,16 +33,15 @@ module OutputController
 	//output to SD_RAM
 	output reg  SD_write,
 	output reg [31:0] SD_wdata,
-	output reg [25:0] SD_address,
+	output reg [27:0] SD_address,
 	input wire waitrequest, //wait for this in order to increment the address 
 	output reg finished
 );
 
-typedef enum bit [2:0] {M9BLEND,M9SDRAM,END} stateType;
+typedef enum bit [3:0] {M9BLEND,M9PREP,WAIT,M9DATA,M9PREP2,WAIT2,M9DATA2,WAIT3,FINISHED} stateType;
 stateType state;
 stateType nxt_state;
 reg [16:0] read_address;
-reg [16:0] write_address;
 reg complete;
 wire [23:0] M9_wdata;
 reg next_complete;
@@ -50,24 +49,24 @@ reg  nope;
 reg next_nope;
 reg [23:0] M9_rdata;
 reg next_finished;
-reg [25:0] next_SD_address;
-reg [16:0] next_write_address;
+reg [27:0] next_SD_address;
 reg [16:0] next_read_address;
-wire [16:0] backward_m9;
-wire [7:0] nothing; //set in ff to 0
+reg [31:0] next_SD_wdata;
+reg next_SD_write;
+wire [23:0] backward_m9;
 reg [16:0] pixel_count;
-reg [16:0] next_pixel_count;
 reg [18:0] sdram_count;
 reg [18:0] next_sdram_count;
-wire [31:0] all_black_everything;
+
+reg [16:0] M9_address;
+
 assign M9_wdata = {{write_r},{write_g},{write_b}};
-OutputControllerRAM m9write (.q(M9_rdata), .data(M9_wdata), .write_address(write_address), .read_address(read_address), .we(M9_write), .clk(clk));
+OutputControllerRAM m9write (.q(M9_rdata), .data(M9_wdata), .write_address(Pixel_Number), .read_address(M9_address), .we(M9_write), .clk(clk));
 assign read_r = M9_rdata[7:0];
 assign read_g = M9_rdata[15:8];
 assign read_b = M9_rdata[23:16];
-assign backward_m9 ={{M9_rdata[16:23]}, {M9_rdata[8:15]},{M9_rdata[0:7]}} ;
-//assign SD_wdata = {{nothing},{backward_m9}};
-reg firsttime;
+assign backward_m9 ={{M9_rdata[7:0]}, {M9_rdata[15:8]},{M9_rdata[23:16]}};
+//assign SD_wdata = {{8'd0},{backward_m9}};
 
 always_ff @ (negedge reset, posedge clk)
 begin
@@ -75,38 +74,21 @@ begin
 	begin
 		state <= M9BLEND;
 		read_address <= 17'b0000000000000000;
-		write_address <= 17'b0000000000000000;
-		SD_address <= 26'b00000000000000000000000000;
+		SD_address <= 28'b1000000000000000000000000000;
 		sdram_count <= 19'd0;
-		firsttime <= 1'b0;
 		SD_write <= 1'b0;
+		SD_wdata <= 32'd0;
 	end
 	else
 	begin
 		state <= nxt_state;
-		if(state == M9BLEND)
-		begin
-			read_address <= next_read_address;
-		end
-		else if (state == M9SDRAM)
-		begin
-			if(firsttime == 1'b0)
-			begin
-				read_address <= 17'b00000000000000000;
-				firsttime <= 1'b1;
-			end
-			else
-			begin
-				read_address <= next_read_address;
-			end
-		end
-		write_address <= next_write_address;
-		pixel_count <= next_pixel_count;
+		read_address <= next_read_address;
 		sdram_count <= next_sdram_count;
 		SD_address <= next_SD_address;
-		complete <= next_complete;
 		finished <= next_finished;
 		nope <= next_nope;
+		SD_wdata <= next_SD_wdata;
+		SD_write <= next_SD_write;
 	end
 end 
 
@@ -121,16 +103,53 @@ begin
 	begin
 		if(frame_ready == 1'b1)
 		begin
-			nxt_state = M9SDRAM;
+			nxt_state = M9PREP;
 		end
-
 	end
-	M9SDRAM:
+	M9PREP:
 	begin
-		if(sdram_count == 19'b1001011000000000000)
+		nxt_state = WAIT;
+	end
+	WAIT:
+	begin
+		nxt_state = M9DATA;
+	end
+	M9DATA:
+	begin
+		nxt_state = M9PREP2;
+	end
+	M9PREP2:
+	begin
+		if(sdram_count == 19'd307199)
 		begin
-			nxt_state = END;
+			nxt_state = WAIT3;
 		end
+		else
+		begin
+			nxt_state = WAIT2;
+		end
+	end
+	WAIT2:
+	begin
+		nxt_state = M9DATA2;
+	end
+	M9DATA2:
+	begin
+		if(waitrequest == 1'b0)
+		begin
+			nxt_state = M9PREP2;
+		end
+	end
+	WAIT3:
+	begin
+		if(waitrequest == 1'b0)
+		begin
+			nxt_state = FINISHED;
+		end
+	end
+	FINISHED:
+	begin
+		nxt_state = M9BLEND;
 	end	
 	endcase
 end
@@ -138,77 +157,69 @@ end
 
 always_comb
 begin
-	next_write_address = write_address;
-	next_pixel_count = pixel_count;
 	next_SD_address = SD_address;
 	next_read_address = read_address;
 	next_complete = complete;
-	next_finished = finished;
+	next_finished = 1'b0;
 	next_nope = nope;
+	next_SD_write = SD_write;
+	next_sdram_count = sdram_count;
+	next_SD_wdata = SD_wdata;
+	M9_address = read_address;
 	case(state)
 	M9BLEND:
 	begin
-		if (M9_write == 1'b1)
+		M9_address = Pixel_Number;
+	end
+	M9PREP:
+	begin
+		next_SD_address = 28'h8000000; // WTF?!?! THIS MORE THAN 26 BITS
+		next_sdram_count = '0;
+		next_read_address = '0;
+	end
+	M9DATA:
+	begin
+		next_SD_wdata = {{backward_m9},{8'd0}};
+		next_SD_write = 1'b1;
+	end
+	M9PREP2:
+	begin
+		next_read_address = read_address + 1;
+		next_sdram_count = sdram_count + 1;
+	end
+	WAIT2:
+	begin
+		if(waitrequest == 1'b0)
 		begin
-			next_write_address = Pixel_Number;
-			next_pixel_count = pixel_count + 1;
-		end
-		else if (read == 1'b1)
-		begin
-			next_read_address = Pixel_Number;
+			next_SD_write = 1'b0;
 		end
 	end
-	M9SDRAM:
+	M9DATA2:
 	begin
-		if(waitrequest == 1'b1)
+		if(waitrequest == 1'b0)
 		begin
-			if(firsttime == 1'b0)
+			next_SD_address = SD_address + 4;
+			next_SD_write = 1'b1;
+			if(sdram_count < 19'b0011001000000000000)
 			begin
-				SD_write = 1'b1;
-				next_SD_address = SD_address +4;
-
+				next_SD_wdata = {{backward_m9},{8'd0}};
 			end
-			else
+			else if (sdram_count < 19'b1001011000000000000)
 			begin
-				SD_write = 1'b1;
-				next_read_address = read_address + 1;
-				next_SD_address = SD_address +4;
-				if(sdram_count < 19'b0011001000000000000)
-				begin
-					next_sdram_count = sdram_count + 1;
-					SD_wdata = {{nothing},{backward_m9}};
-				end
-				else if (sdram_count < 19'b1001011000000000000)
-					SD_wdata = all_black_everything;
-					next_sdram_count = sdram_count + 1; 
+				next_SD_wdata = 32'd0;
 			end
-		end
-		else if(waitrequest == 1'b0)
-		begin
-			if(firsttime == 0)
-			begin
-				SD_write = 1'b0;
-
-			end
-
-			SD_write = 1'b0;
 		end
 	end
-	END:
+	WAIT3:
 	begin
-		if(complete == 1'b0 && nope == 1'b0)
-		begin
-			next_finished = 1'b1;
-			next_complete = 1'b1;
-			next_nope = 1'b1;
-		end
-		else if(complete == 1'b1)
-		begin
-			next_finished = 1'b0;
-			next_complete = 1'b0;
-		end
-	end	
-
+		next_SD_write = 1'b0;
+		M9_address = Pixel_Number;
+	end
+	FINISHED:
+	begin
+		next_finished = 1'b1;
+		M9_address = Pixel_Number;
+	end
 	endcase
 end
 
