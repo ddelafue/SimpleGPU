@@ -16,23 +16,29 @@ module DrawLine
 	input wire [15:0] x2,
 	input wire [15:0] y2,
 	input wire get_pixel,
-	output reg [15:0] x_o,
-	output reg [15:0] y_o,
+	output wire [15:0] x_o,
+	output wire [15:0] y_o,
 	output reg line_complete
 );
 //Don't need this many registers just don't feel like doing max math now
-reg[15:0] delta_x;
-reg[15:0] delta_y;
-reg[15:0] min;
-reg[15:0] max;
-reg[15:0] pixels_in_group;
-reg[15:0] pixels_missing;
-reg[15:0] a;
+reg [15:0] delta_x;
+reg [15:0] delta_y;
+reg [15:0] min;
+reg [15:0] max;
+reg [15:0] pixels_in_group;
+reg [15:0] pixels_missing;
+reg [15:0] a;
+reg [15:0] x_oo;
+reg [15:0] y_oo;
+
 wire [15:0] c1_out; // Dummy wire NOT USED AT THE MOMENT
 wire clear;
 wire roll;
 wire roll2;
 wire roll3;
+
+assign x_o = x_oo;
+assign y_o = y_oo;
 
 /*
 	module flex_counter
@@ -62,14 +68,14 @@ flex_counter #(16) c2 (.clk(clk),
 			.n_rst(reset),
 			.clear(roll),
 			.count_enable(get_pixel),
-			.rollover_val(a),
+			.rollover_val(a + 1'b1),
 			.count_out(),
 			.rollover_flag(roll2));
 
 flex_counter #(16) c3 (.clk(clk),
 			.n_rst(reset),
 			.clear(roll),
-			.count_enable(!roll2),
+			.count_enable(!roll2 && get_pixel),
 			.rollover_val(pixels_in_group/* + 1'b1*/),
 			.count_out(),
 			.rollover_flag(roll3));
@@ -78,41 +84,42 @@ always_ff @ (posedge clk, negedge reset)
 begin
 	if (reset == 1'b0)
 	begin
-		x_o <= 'b0;
-		y_o <= 'b0;
+		x_oo <= 'b0;
+		y_oo <= 'b0;
+		line_complete <= 1'b0;
 	end
 	else
 	begin
 		line_complete <= 1'b0;
 		if (calculate == 1'b1)
 		begin
-			x_o <= x1;
-			y_o <= y1;
+			x_oo <= x1;
+			y_oo <= y1;
 		end
-		if (get_pixel == 1'b1 && roll == 1'b0)
+		else if (get_pixel == 1'b1 && roll == 1'b0)
 		begin
-			if(roll3 == 1'b1)
+			if(roll3 == 1'b1 && !roll2)
 			begin
 				if (delta_y > delta_x)
 				begin
 					if (x1 > x2)
 					begin
-						x_o <= x_o - 1;
+						x_oo <= x_oo - 1'b1;
 					end
 					else if (x1 < x2)
 					begin
-						x_o <= x_o + 1;
+						x_oo <= x_oo + 1'b1;
 					end
 				end
 				else if (delta_y < delta_x)
 				begin
 					if (y1 > y2)
 					begin
-						y_o <= y_o - 1;
+						y_oo <= y_oo - 1'b1;
 					end
 					else if (y1 < y2)
 					begin
-						y_o <= y_o + 1;
+						y_oo <= y_oo + 1'b1;
 					end
 				end
 			end
@@ -120,45 +127,45 @@ begin
 			begin
 				if(y1 > y2)
 				begin
-					y_o <= y_o - 1;
+					y_oo <= y_oo - 1'b1;
 				end
 				else if (y1 < y2)
 				begin
-					y_o <= y_o + 1;
+					y_oo <= y_oo + 1'b1;
 				end
 			end
 			else if (delta_y < delta_x)
 			begin
 				if(x1 > x2)
 				begin
-					x_o <= x_o - 1;
+					x_oo <= x_oo - 1'b1;
 				end
 				else if (x1 < x2)
 				begin
-					x_o <= x_o + 1;
+					x_oo <= x_oo + 1'b1;
 				end
 			end
 			else if (delta_y == delta_x)
 			begin
 				if (x1 > x2 && y1 > y2)
 				begin
-					x_o <= x_o + 1;
-					y_o <= y_o + 1;
+					x_oo <= x_oo + 1'b1;
+					y_oo <= y_oo + 1'b1;
 				end
 				else if (x1 > x2 && y1 < y2)
 				begin
-					x_o <= x_o - 1;
-					y_o <= y_o + 1;
+					x_oo <= x_oo - 1'b1;
+					y_oo <= y_oo + 1'b1;
 				end
 				else if (x1 < x2 && y1 > y2)
 				begin
-					x_o <= x_o + 1;
-					y_o <= y_o - 1;
+					x_oo <= x_oo + 1'b1;
+					y_oo <= y_oo - 1'b1;
 				end
 				else
 				begin
-					x_o <= x_o - 1;
-					y_o <= y_o - 1;
+					x_oo <= x_oo - 1'b1;
+					y_oo <= y_oo - 1'b1;
 				end
 			end
 		end
@@ -175,36 +182,33 @@ end
 
 always_comb
 begin
-	if (calculate == 1'b1)
+	delta_x = x2 - x1;
+	delta_y = y2 - y1;
+	if (delta_x[15] ==  1'b1)
 	begin
-		delta_x = x2 - x1;
-		delta_y = y2 - y1;
-		if (delta_x[15] ==  1'b1)
-		begin
-			delta_x = delta_x * -1;
-		end
-		if (delta_y[15] == 1'b1)
-		begin
-			delta_y = delta_y * -1;
-		end
-		if (delta_y > delta_x)
-		begin
-			min = delta_x;
-			max = delta_y;
-		end
-		else
-		begin
-			min = delta_y;
-			max = delta_x;
-		end
-		pixels_in_group = max / (min + 1);
-		if (max == min)
-		begin
-			pixels_in_group = 1'b1;
-		end
-		pixels_missing = max - (min) * pixels_in_group;
-		a = max / (pixels_missing + 1);
+		delta_x = delta_x * -1;
 	end
+	if (delta_y[15] == 1'b1)
+	begin
+		delta_y = delta_y * -1;
+	end
+	if (delta_y > delta_x)
+	begin
+		min = delta_x;
+		max = delta_y;
+	end
+	else
+	begin
+		min = delta_y;
+		max = delta_x;
+	end
+	pixels_in_group = max / (min + 1);
+	if (max == min)
+	begin
+		pixels_in_group = 1'b1;
+	end
+	pixels_missing = max - (min) * pixels_in_group;
+	a = max / (pixels_missing + 1);
 end	
 
 endmodule
