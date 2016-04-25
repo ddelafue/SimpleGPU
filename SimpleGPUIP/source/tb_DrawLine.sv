@@ -12,16 +12,17 @@ module tb_DrawLine
 ();
 
 	// DUT Signals
-	reg tb_clk;
-	reg tb_reset;
-	reg tb_calculate;
-	reg[15:0] tb_x1;
-	reg[15:0] tb_y1;
-	reg[15:0] tb_x2;
-	reg[15:0] tb_y2;
-	reg tb_get_pixel;
-	wire[15:0] tb_x_o;
-	wire[15:0] tb_y_o;
+	reg tb_clk = '0;
+	reg tb_reset = 1'b1;
+	reg tb_calculate = '0;
+	reg [15:0] tb_x1 = '0;
+	reg [15:0] tb_y1 = '0;
+	reg [15:0] tb_x2 = '0;
+	reg [15:0] tb_y2 = '0;
+	reg tb_get_pixel = '0;
+	wire [15:0] tb_x_o;
+	wire [15:0] tb_y_o;
+	wire tb_line_complete;
 
 	int i;
 	
@@ -35,7 +36,8 @@ module tb_DrawLine
 			.y2(tb_y2),
 			.get_pixel(tb_get_pixel),
 			.x_o(tb_x_o),
-			.y_o(tb_y_o));
+			.y_o(tb_y_o),
+			.line_complete(tb_line_complete));
 
 	//Clock Signal
 	always
@@ -54,11 +56,12 @@ module tb_DrawLine
 		tb_y2 = 16'd100;
 		#4;
 		tb_reset = 1'b1;
-		#4
+		#4;
 		tb_calculate = 1'b1;
-		#4
+		#16;
 		tb_calculate = 1'b0;
-		for (i=1'b0; i <50; i++)
+		#52;
+		for (i=1'b0; i < 50; i++)
 		begin
 			tb_get_pixel = 1'b1;
 			#4;
@@ -70,7 +73,7 @@ module tb_DrawLine
 		tb_x2 = 16'd100;
 		tb_y1 = 16'd100;
 		tb_y2 = 16'd50;
-		#4
+		#4;
 		tb_reset = 1'b1;
 		#4;
 		tb_calculate = 1'b1;
@@ -115,7 +118,7 @@ module tb_DrawLine
 		for (i=1'b0; i < 2; i++)
 		begin
 			tb_get_pixel = 1'b1;
-			#4;
+			#8;
 			tb_get_pixel = 1'b0;
 			#4;
 		end
