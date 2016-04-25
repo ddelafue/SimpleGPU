@@ -23,6 +23,8 @@ module tb_GPU
 	wire[31:0] tb_SD_wdata;
 	wire [21:0] tb_SD_address;
 
+	int i;
+
 	//Connections
 	GPU U1 (.clk(tb_clk),
 		.reset(tb_reset),
@@ -52,6 +54,17 @@ module tb_GPU
 		tb_fifo_write = 1'b1;
 		#4;
 		tb_fifo_write = 1'b0;
+		#4;
+		tb_fifo_write_data = 32'b00000000000000000000000000000000;
+		for(i=0; i < 10; i++)
+		begin
+			#4;
+			tb_fifo_write = 1'b1;
+			#4;
+			tb_fifo_write = 1'b0;
+			#4;
+			tb_fifo_write_data = tb_fifo_write_data + 32'd140;
+		end
 	end
 
 endmodule
