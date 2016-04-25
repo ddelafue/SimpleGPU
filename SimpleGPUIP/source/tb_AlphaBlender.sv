@@ -35,8 +35,38 @@ module tb_AlphaBlender
 	wire tb_finished_o;
 	reg tb_finished;
 
+	/*
+		module AlphaBlender
+		#(
+			parameter CLKWAIT = 2
+		)
+		(
+			input wire [16:0] pixel_number,
+			input wire pixel_ready,
+			input wire [7:0] r,
+			input wire [7:0] g,
+			input wire [7:0] b,
+			input wire [7:0] a,
+			input wire [7:0] read_r,
+			input wire clk,
+			input wire reset,
+			input wire [7:0] read_g,
+			input wire [7:0] read_b,
+			input wire frame_ready,
+			input wire finished,
+			output wire o_frame_ready,
+			output wire read,
+			output wire write,
+			output reg [7:0] write_r,
+			output reg [7:0] write_g,
+			output reg [7:0] write_b,
+			output wire [16:0] pixel_number_o,
+			output wire finished_o
+		);
+	*/
+
 	//Connections
-	AlphaBlender #(2) U1 (.clk(tb_clk),
+	AlphaBlender U1 (.clk(tb_clk),
 			 .reset(tb_reset),
 			 .finished(tb_finished),
 			 .pixel_number(tb_pixel_number),

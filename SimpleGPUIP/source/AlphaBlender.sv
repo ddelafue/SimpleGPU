@@ -8,7 +8,7 @@
 
 module AlphaBlender
 #(
-	parameter CLKWAIT = 1
+	parameter CLKWAIT = 2
 )
 (
 	input wire [16:0] pixel_number,
