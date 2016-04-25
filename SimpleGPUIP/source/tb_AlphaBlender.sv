@@ -15,7 +15,7 @@ module tb_AlphaBlender
 	// DUT Signals
 	reg tb_clk;
 	reg tb_reset;
-	reg[18:0] tb_pixel_number;
+	reg[16:0] tb_pixel_number;
 	reg tb_pixel_ready;
 	reg[7:0] tb_r;
 	reg[7:0] tb_g;
@@ -31,10 +31,14 @@ module tb_AlphaBlender
 	wire[7:0] tb_write_r;
 	wire[7:0] tb_write_g;
 	wire[7:0] tb_write_b;
+	wire[16:0] tb_pixel_number_o;
+	wire tb_finished_o;
+	reg tb_finished;
 
 	//Connections
 	AlphaBlender #(2) U1 (.clk(tb_clk),
 			 .reset(tb_reset),
+			 .finished(tb_finished),
 			 .pixel_number(tb_pixel_number),
 			 .pixel_ready(tb_pixel_ready),
 			 .r(tb_r),
@@ -50,7 +54,9 @@ module tb_AlphaBlender
 			 .write(tb_write),
 			 .write_r(tb_write_r),
 			 .write_g(tb_write_g),
-			 .write_b(tb_write_b));
+			 .write_b(tb_write_b),
+			 .pixel_number_o(tb_pixel_number_o),
+			 .finished_o(tb_finished_o));
 
 	//Clock signal
 	always
