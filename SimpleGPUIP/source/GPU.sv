@@ -28,15 +28,16 @@ wire[15:0] y2;
 wire[15:0] x3;
 wire[15:0] y3;
 wire nxt_tri;
-
-InputDecoder_fifo_RAM U1 (.clk(clk),
-			.reset(reset),
-			.write(fifo_write),
-			.read(), //NOT GPU
-			.w_data(fifo_write_data),
-			.r_data(), //OUTPUT
-			.empty(), //OUTPUT
-			.full()); //OUTPUT
+wire pix_num;
+wire[7:0] w_r;
+wire[7:0] w_g;
+wire[7:0] w_b;
+wire Alpha_read;
+wire Alpha_write;
+wire A_frame_ready;
+wire[7:0] r_r;
+wire[7:0] r_g;
+wire[7:0] r_b;
 
 InputDecoder U2 (.clk(clk), //NO READ SIGNALS
 		.reset(reset),
@@ -73,10 +74,48 @@ Rasteriser U3 (.clk(clk),
 		.get_rgba(), //OUTPUT
 		.get_pixel(), //OUTPUT
 		.get_line(), //OUTPUT
-		.pixel_number(), //OUTPUT
+		.pixel_number(pix_num),
 		.frame_ready_o());
 
+AlphaBlender U4 (.clk(clk),
+		.reset(reset),
+		.pixel_number(pix_num),
+		.pixel_ready(), //MAYBE RASTERISER
+		.r(), //TEXTURE CONTROLLER
+		.g(), //TEXTURE CONTROLLER
+		.b(), //TEXTURE CONTROLLER
+		.a(), //TEXTURE CONTROLLER
+		.read_r(r_r),
+		.read_g(r_g),
+		.read_b(r_b),
+		.frame_ready(frame_ready), //MAY WANT TO USE frame_ready_o
+		.finished(), //NO IDEA
+		.o_frame_ready(A_frame_ready), //MAY WANT TO USE frame_ready_o
+		.read(Alpha_read),
+		.write(Alpha_write),
+		.write_r(w_r),
+		.write_g(w_g),
+		.write_b(w_b),
+		.pixel_number_o(), //WHY?
+		.finished_o()); //AGAIN WHY
 
+OutputController U5 (.clk(clk),
+			.reset(reset),
+			.write_r(w_r),
+			.write_g(w_g),
+			.write_b(w_b),
+			.M9_write(Alpha_write), //PROLLY WRITE FROM ALPHA
+			.read(Alpha_read), //PROLLY READ FROM ALPHA
+			.frame_ready(A_frame_ready), //NEED FROM ALPHA
+			.Pixel_Number(), //TEXTURE CONTROLLER
+			.read_r(r_r),
+			.read_g(r_g),
+			.read_b(r_b),
+			.SD_write(SD_write),
+			.SD_wdata(SD_wdata),
+			.SD_address(SD_address),
+			.waitrequest(SD_waitrequest),
+			.finished()); //SOMEWHERE
 
 
 endmodule
