@@ -65,7 +65,7 @@ OutputControllerRAM m9write (.q(M9_rdata), .data(M9_wdata), .write_address(write
 assign read_r = M9_rdata[7:0];
 assign read_g = M9_rdata[15:8];
 assign read_b = M9_rdata[23:16];
-assign backward_m9 = M9_rdata[23:0]; //Is this how you get the data backwards?
+assign backward_m9 ={{M9_rdata[16:23]}, {M9_rdata[8:15]},{M9_rdata[0:7]}} ;
 //assign SD_wdata = {{nothing},{backward_m9}};
 reg firsttime;
 
@@ -77,7 +77,9 @@ begin
 		read_address <= 17'b0000000000000000;
 		write_address <= 17'b0000000000000000;
 		SD_address <= 26'b00000000000000000000000000;
+		sdram_count <= 19'd0;
 		firsttime <= 1'b0;
+		SD_write <= 1'b0;
 	end
 	else
 	begin
@@ -160,7 +162,7 @@ begin
 	begin
 		if(waitrequest == 1'b1)
 		begin
-			if(firsttime == 0)
+			if(firsttime == 1'b0)
 			begin
 				SD_write = 1'b1;
 				next_SD_address = SD_address +4;
@@ -178,7 +180,7 @@ begin
 				end
 				else if (sdram_count < 19'b1001011000000000000)
 					SD_wdata = all_black_everything;
-					next_sdram_count = sdram_count + 1;
+					next_sdram_count = sdram_count + 1; 
 			end
 		end
 		else if(waitrequest == 1'b0)
