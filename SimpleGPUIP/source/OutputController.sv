@@ -62,9 +62,9 @@ reg [16:0] M9_address;
 
 assign M9_wdata = {{write_r},{write_g},{write_b}};
 OutputControllerRAM m9write (.q(M9_rdata), .data(M9_wdata), .write_address(Pixel_Number), .read_address(M9_address), .we(M9_write), .clk(clk));
-assign read_r = M9_rdata[7:0];
+assign read_r = M9_rdata[23:16];
 assign read_g = M9_rdata[15:8];
-assign read_b = M9_rdata[23:16];
+assign read_b = M9_rdata[7:0];
 assign backward_m9 ={{M9_rdata[7:0]}, {M9_rdata[15:8]},{M9_rdata[23:16]}};
 //assign SD_wdata = {{8'd0},{backward_m9}};
 
