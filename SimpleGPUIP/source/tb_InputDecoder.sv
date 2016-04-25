@@ -240,6 +240,8 @@ module tb_InputDecoder ();
 		opcode_received_edge = '0;
 		frame_ready_edge = '0;
 		data_ready_edge = '0;
+		tb_fifo_write = '0;
+		tb_fifo_w_data = '0;
 		test_case = 0;
 
 		// Applied at the negative edge of the first clock

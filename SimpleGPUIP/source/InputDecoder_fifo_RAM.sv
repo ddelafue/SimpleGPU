@@ -66,7 +66,7 @@ module InputDecoder_fifo_RAM
 	begin
 		if (reset == 1'b0)
 		begin
-			fifo_counter <= 0;
+			fifo_counter <= '0;
 		end
 		else if ((!full && write) && (!empty && read))
 			fifo_counter <= fifo_counter;

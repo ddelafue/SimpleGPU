@@ -8,7 +8,7 @@
 
 module AlphaBlender
 #(
-	parameter CLKWAIT = 1
+	parameter CLKWAIT = 2
 )
 (
 	input wire [16:0] pixel_number,
@@ -23,13 +23,15 @@ module AlphaBlender
 	input wire [7:0] read_g,
 	input wire [7:0] read_b,
 	input wire frame_ready,
+	input wire finished,
 	output wire o_frame_ready,
 	output wire read,
 	output wire write,
 	output reg [7:0] write_r,
 	output reg [7:0] write_g,
 	output reg [7:0] write_b,
-	output wire [16:0] pixel_number_o
+	output wire [16:0] pixel_number_o,
+	output wire finished_o
 );
 
 wire [7:0] max = 8'b11111111;
@@ -51,6 +53,8 @@ reg [CLKWAIT - 1:0] wtime;
 
 assign write = wtime[CLKWAIT - 1];
 assign pixel_number_o = pixel_number;
+assign finished_o = finished;
+
 always_ff @ (negedge reset, posedge clk)
 begin
 	if(reset == 1'b0)
