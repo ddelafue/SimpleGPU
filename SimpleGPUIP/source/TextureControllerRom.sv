@@ -9,9 +9,13 @@
 
 module TextureControllerRom
 	output reg [31:0] q,
-	input wire [16:0] read_address,
-	input clk
+	input [16:0] read_address, write_address,
+	input clk, we 
+
+
 );
+
+// FIXME NEED TO ADD WRITE SIGNALS AND RENAME TO RAM
 
 /*
 	initial
@@ -23,6 +27,8 @@ module TextureControllerRom
 	reg [31:0] mem [107119:0];
 
 	always @ (posedge clk) begin
+		if(we)
+			mem[write_address] <= data;	
 		q <= mem[read_address];
 	end
 endmodule
