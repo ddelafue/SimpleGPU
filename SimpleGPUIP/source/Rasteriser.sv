@@ -8,35 +8,31 @@
 
 module Rasteriser
 #(
-	parameter CALC_WAIT = 1
+	parameter CALC_WAIT = 8,
+	parameter ALPHA_WAIT = 1,
+	parameter TEXTURE_WAIT = 2,
+	parameter LOG_MAX_WAIT = 3
 )
-
 (
 	input wire clk,
 	input wire reset,
 	input wire opcode_received,
 	input wire frame_ready,
 	input wire data_ready,
-	input wire triangle_done,
 	input wire [15:0] x1,
 	input wire [15:0] y1,
 	input wire [15:0] x2,
 	input wire [15:0] y2,
 	input wire [15:0] x3,
 	input wire [15:0] y3,
-	output reg clear,
-	output reg count_up,
 	output reg next_triangle,
 	output reg load_texture,
 	output reg get_rgba,
 	output reg get_pixel,
-	output reg get_line,
 	output reg [18:0] pixel_number,
 	output wire frame_ready_o
 );
 
-
-int calc_wait = 0;
 reg calc_1 = 1'b0;
 reg calc_2 = 1'b0;
 reg [15:0] x_out_1;
@@ -49,6 +45,8 @@ reg get_line_pixel = 1'b0;
 reg end_1;
 reg end_2;
 reg end_3;
+reg [LOG_MAX_WAIT - 1:0] wait;
+reg [LOG_MAX_WAIT - 1:0] next_wait;
 
 
 DrawLine d1 (.clk(clk),
@@ -87,7 +85,23 @@ DrawLine d3 (.clk(clk),
 		.y_o(y_out_3),
 		.line_complete(end_3));
 
-typedef enum bit [2:0] {IDLE,IN_XY,CALC,WAIT_C,GET_PIX,SEND_PIX,DONE} states;
+typedef enum bit [3:0] {
+						IDLE,
+						GET,
+						WAIT,
+						IN_XY,
+						CALC,
+						WAIT_C,
+						READY,
+						ALPHA,
+						GET_PIX,
+						TEXTURE,
+						DONE,
+						READY2,
+						ALPHA2,
+						FRAME,
+						SD
+						} states;
 states state = IDLE;
 states next_state = IDLE;
 
@@ -96,11 +110,86 @@ begin
 	if (reset == 1'b0)
 	begin
 		state <= IDLE;
+		wait <= '0;
 	end
 	else
 	begin
+		wait <= next_wait;
 		state <= next_state;
 	end
+end
+
+always_comb
+begin
+	next_state = state;
+	next_wait = '0;
+	case(state)
+		IDLE:
+			if (opcode_received)
+				next_state = GET;
+		GET:
+			next_state = WAIT;
+		WAIT:
+		begin
+			if (frame_ready)
+				next_state = FRAME;
+			else if (data_ready)
+				next_state = IN_XY;
+		end
+		IN_XY:
+			next_state = CALC;
+		CALC:
+			next_state = WAIT_C;
+		WAIT_C:
+		begin
+			if (end_1 || end_2)
+				next_state = READY2;
+			else if (wait == CALC_WAIT - 1)
+				next_state = READY;
+			else
+				next_wait = wait + 1;
+		end
+		READY:
+			next_state = ALPHA;
+		ALPHA:
+		begin
+			if (wait == ALPHA_WAIT - 1)
+				next_state = GET_PIX;
+			else
+				next_wait = wait + 1;
+		end
+		GET_PIX:
+			next_state = TEXTURE;
+		TEXTURE:
+		begin
+			if (end_3)
+				next_state = DONE;
+			else if (wait == TEXTURE_WAIT - 1)
+				next_state = READY;
+			else
+				next_wait = wait + 1;
+		end
+		DONE:
+			next_state = WAIT_C;
+		READY2:
+			next_state = ALPHA2;
+		ALPHA2:
+		begin
+			if (wait == ALPHA_WAIT - 1)
+				next_state = GET;
+			else
+				next_wait = wait + 1;
+		end
+		FRAME:
+			next_state = SD;
+		SD:
+		begin
+			if (finished)
+				next_state = IDLE;
+		end
+		default:
+			next_state = IDLE;
+	endcase
 end
 
 always_comb
@@ -114,7 +203,6 @@ begin
 			begin
 				next_state = IN_XY;
 			end
-			calc_wait = 0;
 		end
 		IN_XY:
 		begin
