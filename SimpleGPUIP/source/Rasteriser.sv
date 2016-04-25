@@ -30,21 +30,22 @@ module Rasteriser
 	output reg get_rgba,
 	output reg get_pixel,
 	output reg [18:0] pixel_number,
-	output wire frame_ready_o
+	output reg pixel_ready,
+	output reg frame_ready_o
 );
 
-reg calc_1 = 1'b0;
-reg calc_2 = 1'b0;
-reg [15:0] x_out_1;
-reg [15:0] y_out_1;
-reg [15:0] x_out_2;
-reg [15:0] y_out_2;
-reg [15:0] x_out_3;
-reg [15:0] y_out_3;
-reg get_line_pixel = 1'b0;
-reg end_1;
-reg end_2;
-reg end_3;
+reg calc_1;
+reg calc_2;
+wire [15:0] x_out_1;
+wire [15:0] y_out_1;
+wire [15:0] x_out_2;
+wire [15:0] y_out_2;
+wire [15:0] x_out_3;
+wire [15:0] y_out_3;
+reg get_line_pixel;
+wire end_1;
+wire end_2;
+wire end_3;
 reg [LOG_MAX_WAIT - 1:0] wait;
 reg [LOG_MAX_WAIT - 1:0] next_wait;
 
@@ -85,7 +86,7 @@ DrawLine d3 (.clk(clk),
 		.y_o(y_out_3),
 		.line_complete(end_3));
 
-typedef enum bit [3:0] {
+typedef enum bit [4:0] {
 						IDLE,
 						GET,
 						WAIT,
@@ -100,7 +101,9 @@ typedef enum bit [3:0] {
 						READY2,
 						ALPHA2,
 						FRAME,
-						SD
+						SD,
+						READY3,
+						ALPHA3
 						} states;
 states state = IDLE;
 states next_state = IDLE;
@@ -120,7 +123,7 @@ begin
 end
 
 always_comb
-begin
+begin : NEXT_STATE_LOGIC
 	next_state = state;
 	next_wait = '0;
 	case(state)
@@ -163,9 +166,18 @@ begin
 		TEXTURE:
 		begin
 			if (end_3)
-				next_state = DONE;
+				next_state = READY3;
 			else if (wait == TEXTURE_WAIT - 1)
 				next_state = READY;
+			else
+				next_wait = wait + 1;
+		end
+		READY3:
+			next_state = ALPHA3;
+		ALPHA3:
+		begin
+			if (wait == ALPHA_WAIT - 1)
+				next_state = DONE;
 			else
 				next_wait = wait + 1;
 		end
@@ -193,57 +205,37 @@ begin
 end
 
 always_comb
-begin
+begin : OUTPUT_LOGIC
+	next_triangle = 1'b0;
+	load_texture = 1'b0;
+	get_rgba = 1'b0;
 	get_pixel = 1'b0;
-	next_state = IDLE;
+	frame_ready_o = 1'b0;
+	calc_1 = 1'b0;
+	calc_2 = 1'b0;
+	get_line_pixel = 1'b0;
 	case(state)
-		IDLE:
-		begin
-			if(opcode_received == 1'b1)
-			begin
-				next_state = IN_XY;
-			end
-		end
+		GET:
+			next_triangle = 1'b1;
 		IN_XY:
-		begin
-			next_state = CALC;
 			calc_1 = 1'b1;
-		end
-		CALC:
-		begin
-			next_state = WAIT_C;
-			calc_1 = 1'b0;
-		end
 		WAIT_C:
-		begin
-			calc_1 = 1'b0;
-			next_state = GET_PIX;
 			calc_2 = 1'b1;
-			get_line_pixel = 1'b0;
-		end
+		READY:
+			pixel_ready = 1'b1;
 		GET_PIX:
 		begin
-			if(end_3 == 1'b0)
-			begin
-				calc_2 = 1'b0;
-				next_state = SEND_PIX;
-				get_pixel = 1'b1;
-			end
-			else
-			begin
-				next_state = DONE;
-			end
+			get_rgba = 1'b1;
+			get_pixel = 1'b1;
 		end
-		SEND_PIX:
-		begin
-			get_pixel = 1'b0;
-			next_state = GET_PIX;
-		end
+		READY3:
+			pixel_ready = 1'b1;
 		DONE:
-		begin
 			get_line_pixel = 1'b1;
-			next_state = WAIT_C;
-		end
+		READY2:
+			pixel_ready = 1'b1;
+		FRAME:
+			frame_ready_o = 1'b1;
 	endcase
 end
 
