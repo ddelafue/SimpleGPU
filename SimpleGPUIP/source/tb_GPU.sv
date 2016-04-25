@@ -65,6 +65,43 @@ module tb_GPU
 			#4;
 			tb_fifo_write_data = tb_fifo_write_data + 32'd140;
 		end
+		#4;
+		tb_fifo_write_data = 32'b00100000000000000000000000000000;
+		#4;
+		tb_fifo_write = 1'b1;
+		#4;
+		tb_fifo_write = 1'b0;
+		#4;
+		tb_fifo_write_data = 32'b00010000000000000000000000000000;
+		#4;
+		tb_fifo_write = 1'b1;
+		#4;
+		tb_fifo_write = 1'b0;
+		#4;
+		tb_fifo_write_data = 32'b00000000000101000000000000001010;
+		#4;
+		tb_fifo_write = 1'b1;
+		#4;
+		tb_fifo_write = 1'b0;
+		#4;
+		tb_fifo_write_data = 32'b00000000000111100000000000001010;
+		#4;
+		tb_fifo_write = 1'b1;
+		#4;
+		tb_fifo_write = 1'b0;
+		#4;
+		tb_fifo_write_data = 32'b00000000000101000000000000010100;
+		#4;
+		tb_fifo_write = 1'b1;
+		#4;
+		tb_fifo_write = 1'b0;
+		#4;
+		tb_fifo_write_data = 32'b00100000000000000000000000000000;
+		#4;
+		tb_fifo_write = 1'b1;
+		#4;
+		tb_fifo_write = 1'b0;
+		
 	end
 
 endmodule
