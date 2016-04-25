@@ -56,7 +56,7 @@ module tb_GPU
 		tb_fifo_write = 1'b0;
 		#4;
 		tb_fifo_write_data = 32'b00000000000000000000000000000000;
-		for(i=0; i < 10; i++)
+		for(i=0; i < 2; i++)
 		begin
 			#4;
 			tb_fifo_write = 1'b1;
