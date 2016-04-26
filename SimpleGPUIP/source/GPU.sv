@@ -15,7 +15,11 @@ module GPU
 	input wire SD_waitrequest,
 	output wire SD_write,
 	output wire [31:0] SD_wdata,
-	output wire [27:0] SD_address
+	output wire [27:0] SD_address,
+	//DEBUG SIGNALS
+	output wire[16:0] write_address,
+	output wire write,
+	output wire[31:0] write_data
 );
 
 wire op_rec;
