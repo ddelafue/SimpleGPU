@@ -10,9 +10,9 @@
 module TextureController
 #(
 	parameter TEX_1_START = 17'd0,
-	parameter TEX_2_START = 17'd50,
-	parameter TEX_3_START = 17'd80,
-	parameter TEX_4_START = 17'd120,
+	parameter TEX_2_START = 17'd10000,
+	parameter TEX_3_START = 17'd20000,
+	parameter TEX_4_START = 17'd30000,
 	parameter TEX_5_START = 17'd170,
 	parameter TEX_6_START = 17'd220,
 	parameter TEX_7_START = 17'd260,
