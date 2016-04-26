@@ -41,6 +41,34 @@ module tb_GPU
 		#2 tb_clk = !tb_clk;
 	end
 
+	task Load_Values;
+		input [3:0] opcode;
+		input [7:0] TexNum;
+		input [15:0] x1;
+		input [15:0] y1;
+		input [15:0] x2;
+		input [15:0] y2;
+		input [15:0] x3;
+		input [15:0] y3;
+	begin
+		fifo_write = 1'b0;
+		#4;
+		fifo_w_data = {x1, y1};
+		#4;
+		fifo_write = 1'b0;
+		#4;
+		fifo_write = 1'b1;
+		fifo_w_data = {x2, y2};
+		#4;
+		fifo_write = 1'b1;
+		fifo_w_data = {x3, y3};
+		#4;
+		fifo_write = 1'b1;
+		#4;
+		fifo_write = 1'b0;
+	end
+	endtask
+
 	initial
 	begin
 		f = $fopen("test_1.txt","w");
@@ -97,6 +125,8 @@ module tb_GPU
 		tb_fifo_write = 1'b1;
 		#4;
 		tb_fifo_write = 1'b0;
+		#4;
+		Load_Values(4'd0, 8'd2, 16'd130, 16'd0, 16'd290, 16'd0, 16'd130, 16'd160);
 		
 	end
 
