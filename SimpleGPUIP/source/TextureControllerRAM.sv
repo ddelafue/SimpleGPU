@@ -14,7 +14,7 @@ module TextureControllerRAM
 		input [16:0] write_address, read_address,
 		input we, clk
 );
-	reg [31:0] mem [107119:0];
+	reg [31:0] mem [107119:0]; //the value in the right when testing with the other thing is 107119 but 140 on small scale dawg 
 	always @ (posedge clk) begin
 		if (we)
 			mem[write_address] <= data;
