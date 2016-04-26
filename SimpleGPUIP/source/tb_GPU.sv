@@ -24,6 +24,7 @@ module tb_GPU
 	wire [21:0] tb_SD_address;
 
 	int i;
+	int f;
 
 	//Connections
 	GPU U1 (.clk(tb_clk),
@@ -51,21 +52,21 @@ module tb_GPU
 		input [15:0] x3;
 		input [15:0] y3;
 	begin
-		fifo_write = 1'b0;
+		tb_fifo_write = 1'b0;
 		#4;
-		fifo_w_data = {x1, y1};
+		tb_fifo_write_data = {x1, y1};
 		#4;
-		fifo_write = 1'b0;
+		tb_fifo_write = 1'b0;
 		#4;
-		fifo_write = 1'b1;
-		fifo_w_data = {x2, y2};
+		tb_fifo_write = 1'b1;
+		tb_fifo_write_data = {x2, y2};
 		#4;
-		fifo_write = 1'b1;
-		fifo_w_data = {x3, y3};
+		tb_fifo_write = 1'b1;
+		tb_fifo_write_data = {x3, y3};
 		#4;
-		fifo_write = 1'b1;
+		tb_fifo_write = 1'b1;
 		#4;
-		fifo_write = 1'b0;
+		tb_fifo_write = 1'b0;
 	end
 	endtask
 
@@ -132,7 +133,7 @@ module tb_GPU
 
 always_ff @ (posedge tb_SD_write)
 begin
-	
+	$fwrite(f,"%b\n",tb_SD_wdata);
 end
 
 endmodule
