@@ -175,7 +175,7 @@ begin
 	end
 	M9DATA:
 	begin
-		next_SD_wdata = {{backward_m9},{8'd0}};
+		next_SD_wdata = {{8'd0},{backward_m9}};
 		next_SD_write = 1'b1;
 	end
 	M9PREP2:
@@ -194,11 +194,11 @@ begin
 	begin
 		if(waitrequest == 1'b0)
 		begin
-			next_SD_address = SD_address + 4;
+			next_SD_address = SD_address + 28'd4;
 			next_SD_write = 1'b1;
 			if(sdram_count < 19'b0011001000000000000)
 			begin
-				next_SD_wdata = {{backward_m9},{8'd0}};
+				next_SD_wdata = {{8'd0},{backward_m9}};
 			end
 			else if (sdram_count < 19'b1001011000000000000)
 			begin

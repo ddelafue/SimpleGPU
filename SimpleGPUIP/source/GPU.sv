@@ -17,9 +17,15 @@ module GPU
 	output wire [31:0] SD_wdata,
 	output wire [27:0] SD_address,
 	//DEBUG SIGNALS
-	output wire[16:0] write_address,
-	output wire write,
-	output wire[31:0] write_data
+	input wire[16:0] write_address,
+	input wire write,
+	input wire[31:0] write_data,
+
+	input wire mwrite,
+	input wire [7:0] mr,
+	input wire [7:0] mg,
+	input wire [7:0] mb,
+	input wire [16:0] maddress
 );
 
 wire op_rec;
@@ -33,7 +39,7 @@ wire[15:0] x3;
 wire[15:0] y3;
 wire nxt_tri;
 wire[7:0] TexNum;
-wire pix_num;
+wire [18:0] pix_num;
 wire [16:0] pixel_number_o;
 wire finished;
 wire finished2;
@@ -49,12 +55,25 @@ wire[7:0] a;
 wire[7:0] w_r;
 wire[7:0] w_g;
 wire[7:0] w_b;
+
+wire[7:0] w_r2;
+wire[7:0] w_g2;
+wire[7:0] w_b2;
+wire Alpha_write2;
+wire [16:0] pixel_number_o2;
+
 wire Alpha_read;
 wire Alpha_write;
 wire A_frame_ready;
 wire[7:0] r_r;
 wire[7:0] r_g;
 wire[7:0] r_b;
+
+assign Alpha_write2 = mwrite ? 1'b1 : Alpha_write;
+assign w_r2 = mwrite ? mr : w_r;
+assign w_g2 = mwrite ? mg : w_g;
+assign w_b2 = mwrite ? mb : w_b;
+assign pixel_number_o2 = mwrite ? maddress : pixel_number_o;
 
 	/*
 		module InputDecoder
@@ -130,7 +149,7 @@ Rasteriser U2 (.clk(clk),
 		.opcode_received(op_rec),
 		.frame_ready(frame_ready),
 		.data_ready(data_ready),
-		.finished(finished) // FIXME
+		.finished(finished), // FIXME
 		.x1(x1),
 		.y1(y1),
 		.x2(x2),
@@ -217,7 +236,7 @@ TextureController U3 (
 AlphaBlender #(.CLKWAIT(1)) U4 (
 		.clk(clk),
 		.reset(reset),
-		.pixel_number(pix_num),
+		.pixel_number(pix_num[16:0]),
 		.pixel_ready(pixel_ready), //MAYBE RASTERISER
 		.r(r), //TEXTURE CONTROLLER
 		.g(g), //TEXTURE CONTROLLER
@@ -227,7 +246,7 @@ AlphaBlender #(.CLKWAIT(1)) U4 (
 		.read_g(r_g),
 		.read_b(r_b),
 		.frame_ready(frame_ready), //MAY WANT TO USE frame_ready_o
-		.finished(finished), //NO IDEA
+		.finished(finished2), //NO IDEA
 		.o_frame_ready(A_frame_ready), //MAY WANT TO USE frame_ready_o
 		.read(Alpha_read),
 		.write(Alpha_write),
@@ -235,7 +254,7 @@ AlphaBlender #(.CLKWAIT(1)) U4 (
 		.write_g(w_g),
 		.write_b(w_b),
 		.pixel_number_o(pixel_number_o), //WHY?
-		.finished_o(finished2)); //AGAIN WHY
+		.finished_o(finished)); //AGAIN WHY
 
 	/*
 		module OutputController
@@ -271,13 +290,13 @@ AlphaBlender #(.CLKWAIT(1)) U4 (
 OutputController U5 (
 			.clk(clk),
 			.reset(reset),
-			.write_r(w_r),
-			.write_g(w_g),
-			.write_b(w_b),
+			.write_r(w_r2),
+			.write_g(w_g2),
+			.write_b(w_b2),
 			.read(),
-			.M9_write(Alpha_write), //PROLLY WRITE FROM ALPHA
+			.M9_write(Alpha_write2), //PROLLY WRITE FROM ALPHA
 			.frame_ready(A_frame_ready), //NEED FROM ALPHA
-			.Pixel_Number(pixel_number_o), //TEXTURE CONTROLLER
+			.Pixel_Number(pixel_number_o2), //TEXTURE CONTROLLER
 			.read_r(r_r),
 			.read_g(r_g),
 			.read_b(r_b),
