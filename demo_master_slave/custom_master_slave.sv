@@ -55,8 +55,8 @@ logic new_data_flag;
 logic [31:0] fifo_write_data;
 logic fifo_write;
 
-typedef enum {IDLE, WRITE} state_t;
-state_t state, nextState;
+//typedef enum {IDLE, WRITE} state_t;
+//state_t state, nextState;
 
 assign display_data = csr_registers[slave_address];
 
@@ -88,7 +88,50 @@ always_ff @ ( posedge clk ) begin
   	 end
 end
 
+	/*
+		module GPU
+		(
+			input wire clk,
+			input wire reset,
+			input wire [31:0] fifo_write_data,
+			input wire fifo_write,
+			input wire SD_waitrequest,
+			output wire SD_write,
+			output wire [31:0] SD_wdata,
+			output wire [27:0] SD_address,
+			//DEBUG SIGNALS
+			input wire[16:0] write_address,
+			input wire write,
+			input wire[31:0] write_data,
 
+			input wire mwrite,
+			input wire [7:0] mr,
+			input wire [7:0] mg,
+			input wire [7:0] mb,
+			input wire [16:0] maddress
+		);
+	*/
+
+GPU U1 (
+		.clk(clk),
+		.reset(reset),
+		.fifo_write_data(fifo_write_data),
+		.fifo_write(fifo_write),
+		.SD_waitrequest(master_waitrequest),
+		.SD_write(master_write),
+		.SD_wdata(master_writedata),
+		.SD_address(master_address),
+		.write_address('0),
+		.write(1'b0),
+		.write_data('0),
+		.mwrite('0),
+		.mr('0),
+		.mg('0),
+		.mb('0),
+		.maddress('0)
+);
+
+/*
 // Master Side
 always_ff @ ( posedge clk ) begin 
 	if (!reset_n) begin 
@@ -132,6 +175,7 @@ always_comb begin
 		
 	endcase
 end
+*/
 
 endmodule
 
