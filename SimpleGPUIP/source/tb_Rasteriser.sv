@@ -35,12 +35,12 @@ module tb_Rasteriser
 	int test_case;
 
 	// Edges
-	reg tb_next_triangle_e;
-	reg tb_load_texture_e;
-	reg tb_get_rgba_e;
-	reg tb_get_pixel_e;
-	reg tb_pixel_ready_e;
-	reg tb_frame_ready_o_e;
+	reg [18:0] tb_next_triangle_e;
+	reg [18:0] tb_load_texture_e;
+	reg [18:0] tb_get_rgba_e;
+	reg [18:0] tb_get_pixel_e;
+	reg [18:0] tb_pixel_ready_e;
+	reg [18:0] tb_frame_ready_o_e;
 
 	/*
 		module Rasteriser
@@ -106,32 +106,32 @@ module tb_Rasteriser
 			tb_frame_ready_o_e <= '0;
 		end
 		if (tb_next_triangle)
-			tb_next_triangle_e <= 1'b1;
+			tb_next_triangle_e <= tb_next_triangle_e + 1;
 		else
 			tb_next_triangle_e <= tb_next_triangle_e;
 
 		if (tb_load_texture)
-			tb_load_texture_e <= 1'b1;
+			tb_load_texture_e <= tb_load_texture_e + 1;
 		else
 			tb_load_texture_e <= tb_load_texture_e;
 
 		if (tb_get_rgba)
-			tb_get_rgba_e <= 1'b1;
+			tb_get_rgba_e <= tb_get_rgba_e + 1;
 		else
 			tb_get_rgba_e <= tb_get_rgba_e;
 
 		if (tb_get_pixel)
-			tb_get_pixel_e <= 1'b1;
+			tb_get_pixel_e <= tb_get_pixel_e + 1;
 		else
 			tb_get_pixel_e <= tb_get_pixel_e;
 		
 		if (tb_pixel_ready)
-			tb_pixel_ready_e <= 1'b1;
+			tb_pixel_ready_e <= tb_pixel_ready_e + 1;
 		else
 			tb_pixel_ready_e <= tb_pixel_ready_e;
 		
 		if (tb_frame_ready_o)
-			tb_frame_ready_o_e <= 1'b1;
+			tb_frame_ready_o_e <= tb_frame_ready_o_e + 1;
 		else
 			tb_frame_ready_o_e <= tb_frame_ready_o_e;
 	end
@@ -154,12 +154,12 @@ module tb_Rasteriser
 	end
 
 	task Check_Edges;
-		input expected_next_triangle;
-		input expected_load_texture;
-		input expected_get_rgba;
-		input expected_get_pixel;
-		input expected_pixel_ready;
-		input expected_frame_ready;
+		input [18:0] expected_next_triangle;
+		input [18:0] expected_load_texture;
+		input [18:0] expected_get_rgba;
+		input [18:0] expected_get_pixel;
+		input [18:0] expected_pixel_ready;
+		input [18:0] expected_frame_ready;
 	begin
 		assert (tb_next_triangle_e == expected_next_triangle)
 			$info("Correct next_triangle %d", test_case);
@@ -195,12 +195,12 @@ module tb_Rasteriser
 
 	/*
 		task Check_Edges;
-			input expected_next_triangle;
-			input expected_load_texture;
-			input expected_get_rgba;
-			input expected_get_pixel;
-			input expected_pixel_ready;
-			input expected_frame_ready;
+			input [18:0] expected_next_triangle;
+			input [18:0] expected_load_texture;
+			input [18:0] expected_get_rgba;
+			input [18:0] expected_get_pixel;
+			input [18:0] expected_pixel_ready;
+			input [18:0] expected_frame_ready;
 	*/
 
 	initial
@@ -234,18 +234,20 @@ module tb_Rasteriser
 		#4;
 		tb_data_ready = 1'b0;
 		#6000;
-		Check_Edges(1'b1, 1'b1, 1'b1, 1'b1, 1'b1, 1'b0);
+		Check_Edges('d2, 'd1, 'd55, 'd55, 'd66, 'b0);
+		#4;
 		Reset_Edges();
 
 		// TEST CASE 2: An irregular right triangle
 		test_case = test_case + 1;
 		
 		tb_data_ready = 1'b1;
-		tb_x2 = 16'd25;
+		tb_x2 = 16'd24;
 		#4;
 		tb_data_ready = 1'b0;
 		#6000;
-		Check_Edges(1'b1, 1'b1, 1'b1, 1'b1, 1'b1, 1'b0);
+		Check_Edges('b1, 'b1, 'd27, 'd27, 'd38, 'b0);
+		#4;
 		Reset_Edges();
 
 		// TEST CASE 3: Sending the finished signal
@@ -260,6 +262,7 @@ module tb_Rasteriser
 		tb_finished = 1'b0;
 
 		Check_Edges(1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b1);
+		#4;
 		Reset_Edges();
 		#4;
 		
@@ -278,7 +281,8 @@ module tb_Rasteriser
 		#4;
 		tb_data_ready = 1'b0;
 		#6000;
-		Check_Edges(1'b1, 1'b1, 1'b1, 1'b1, 1'b1, 1'b0);
+		Check_Edges('d2, 'b1, 'd47, 'd47, 'd57, 'b0);
+		#4;
 		Reset_Edges();
 	end
 

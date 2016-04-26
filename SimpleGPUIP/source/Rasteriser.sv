@@ -8,10 +8,10 @@
 
 module Rasteriser
 #(
-	parameter CALC_WAIT = 8,
+	parameter CALC_WAIT = 14,
 	parameter ALPHA_WAIT = 1,
 	parameter TEXTURE_WAIT = 2,
-	parameter LOG_MAX_WAIT = 3
+	parameter LOG_MAX_WAIT = 4
 )
 (
 	input wire clk,
@@ -37,12 +37,16 @@ module Rasteriser
 
 reg calc_1;
 reg calc_2;
+reg next_calc_1;
+reg next_calc_2;
 wire [15:0] x_out_1;
 wire [15:0] y_out_1;
 wire [15:0] x_out_2;
 wire [15:0] y_out_2;
 wire [15:0] x_out_3;
 wire [15:0] y_out_3;
+reg [15:0] x_bullshit1;
+reg [15:0] y_bullshit1;
 reg get_line_pixel;
 wire end_1;
 wire end_2;
@@ -50,6 +54,22 @@ wire end_3;
 reg [LOG_MAX_WAIT - 1:0] wait1;
 reg [LOG_MAX_WAIT - 1:0] next_wait;
 
+	/*
+		module DrawLine
+		(
+			input wire clk,
+			input wire reset,
+			input wire calculate,
+			input wire [15:0] x1,
+			input wire [15:0] y1,
+			input wire [15:0] x2,
+			input wire [15:0] y2,
+			input wire get_pixel,
+			output reg [15:0] x_o,
+			output reg [15:0] y_o,
+			output reg line_complete
+		);
+	*/
 
 DrawLine d1 (.clk(clk),
 		.reset(reset),
@@ -113,11 +133,15 @@ always_ff @ (posedge clk, negedge reset)
 begin
 	if (reset == 1'b0)
 	begin
+		calc_1 <= '0;
+		calc_2 <= '0;
 		state <= IDLE;
 		wait1 <= '0;
 	end
 	else
 	begin
+		calc_1 <= next_calc_1;
+		calc_2 <= next_calc_2;
 		wait1 <= next_wait;
 		state <= next_state;
 	end
@@ -212,8 +236,8 @@ begin : OUTPUT_LOGIC
 	get_rgba = 1'b0;
 	get_pixel = 1'b0;
 	frame_ready_o = 1'b0;
-	calc_1 = 1'b0;
-	calc_2 = 1'b0;
+	next_calc_1 = 1'b0;
+	next_calc_2 = 1'b0;
 	get_line_pixel = 1'b0;
 	pixel_ready = 1'b0;
 	case(state)
@@ -222,10 +246,10 @@ begin : OUTPUT_LOGIC
 		IN_XY:
 		begin
 			load_texture = 1'b1;
-			calc_1 = 1'b1;
+			next_calc_1 = 1'b1;
 		end
 		WAIT_C:
-			calc_2 = 1'b1;
+			next_calc_2 = 1'b1;
 		READY:
 			pixel_ready = 1'b1;
 		GET_PIX:
@@ -246,7 +270,9 @@ end
 
 always_comb
 begin
-	pixel_number = 640 * y_out_3 + x_out_3;
+	x_bullshit1 = x_out_3;
+	y_bullshit1 = y_out_3;
+	pixel_number = 18'd640 * y_bullshit1 + x_bullshit1;
 end
 
 endmodule
