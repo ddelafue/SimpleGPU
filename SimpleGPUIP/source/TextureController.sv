@@ -9,58 +9,56 @@
 //
 module TextureController
 #(
-	parameter TEX_1_START = 17'd0;
-	parameter TEX_2_START = 17'd50;
-	parameter TEX_3_START = 17'd80;
-	parameter TEX_4_START = 17'd120;
-	parameter TEX_5_START = 17'd170;
-	parameter TEX_6_START = 17'd220;
-	parameter TEX_7_START = 17'd260;
-	parameter TEX_8_START = 17'd300;
-	parameter TEX_9_START = 17'd400;
-	parameter TEX_10_START = 17'd440;
-	parameter TEX_11_START = 17'd490;
-	parameter TEX_12_START = 17'd510;
-	parameter TEX_13_START = 17'd580;
-	parameter TEX_14_START = 17'd630;
-	parameter TEX_15_START = 17'd670;
-	parameter TEX_16_START = 17'd700;
-	parameter TEX_17_START = 17'd730;
-	parameter TEX_18_START = 17'd790;
-	parameter TEX_19_START = 17'd820;
-	parameter TEX_20_START = 17'd870;
-	parameter TEX_21_START = 17'd900;
-	parameter TEX_22_START = 17'd950;
-	parameter TEX_23_START = 17'd1000;
-	parameter TEX_24_START = 17'd1050;
-	parameter TEX_25_START = 17'd1110;
-	parameter TEX_26_START = 17'd1180;
-	parameter TEX_27_START = 17'd1230;
-	parameter TEX_28_START = 17'd1290;
-	parameter TEX_29_START = 17'd1350;
-	parameter TEX_30_START = 17'd1400;
-	parameter TEX_31_START = 17'd1470;
-	parameter TEX_32_START = 17'd1520;
-	parameter TEX_33_START = 17'd1580;
-	parameter TEX_34_START = 17'd1620;
-	parameter TEX_35_START = 17'd1680;
-	parameter TEX_36_START = 17'd1730;
-	parameter TEX_37_START = 17'd1800;
-	parameter TEX_38_START = 17'd1830;
-	parameter TEX_39_START = 17'd1890;
-	parameter TEX_40_START = 17'd1940;
-	parameter TEX_41_START = 17'd2000;
-	parameter TEX_42_START = 17'd2040;
-	parameter TEX_43_START = 17'd2140;
-	parameter TEX_44_START = 17'd2180;
-	parameter TEX_45_START = 17'd2230;
-	parameter TEX_46_START = 17'd2290;
-	parameter TEX_47_START = 17'd2330;
-	parameter TEX_48_START = 17'd2380;
-	parameter TEX_49_START = 17'd2420;
-	parameter TEX_50_START = 17'd2500;
-
-
+	parameter TEX_1_START = 17'd0,
+	parameter TEX_2_START = 17'd50,
+	parameter TEX_3_START = 17'd80,
+	parameter TEX_4_START = 17'd120,
+	parameter TEX_5_START = 17'd170,
+	parameter TEX_6_START = 17'd220,
+	parameter TEX_7_START = 17'd260,
+	parameter TEX_8_START = 17'd300,
+	parameter TEX_9_START = 17'd400,
+	parameter TEX_10_START = 17'd440,
+	parameter TEX_11_START = 17'd490,
+	parameter TEX_12_START = 17'd510,
+	parameter TEX_13_START = 17'd580,
+	parameter TEX_14_START = 17'd630,
+	parameter TEX_15_START = 17'd670,
+	parameter TEX_16_START = 17'd700,
+	parameter TEX_17_START = 17'd730,
+	parameter TEX_18_START = 17'd790,
+	parameter TEX_19_START = 17'd820,
+	parameter TEX_20_START = 17'd870,
+	parameter TEX_21_START = 17'd900,
+	parameter TEX_22_START = 17'd950,
+	parameter TEX_23_START = 17'd1000,
+	parameter TEX_24_START = 17'd1050,
+	parameter TEX_25_START = 17'd1110,
+	parameter TEX_26_START = 17'd1180,
+	parameter TEX_27_START = 17'd1230,
+	parameter TEX_28_START = 17'd1290,
+	parameter TEX_29_START = 17'd1350,
+	parameter TEX_30_START = 17'd1400,
+	parameter TEX_31_START = 17'd1470,
+	parameter TEX_32_START = 17'd1520,
+	parameter TEX_33_START = 17'd1580,
+	parameter TEX_34_START = 17'd1620,
+	parameter TEX_35_START = 17'd1680,
+	parameter TEX_36_START = 17'd1730,
+	parameter TEX_37_START = 17'd1800,
+	parameter TEX_38_START = 17'd1830,
+	parameter TEX_39_START = 17'd1890,
+	parameter TEX_40_START = 17'd1940,
+	parameter TEX_41_START = 17'd2000,
+	parameter TEX_42_START = 17'd2040,
+	parameter TEX_43_START = 17'd2140,
+	parameter TEX_44_START = 17'd2180,
+	parameter TEX_45_START = 17'd2230,
+	parameter TEX_46_START = 17'd2290,
+	parameter TEX_47_START = 17'd2330,
+	parameter TEX_48_START = 17'd2380,
+	parameter TEX_49_START = 17'd2420,
+	parameter TEX_50_START = 17'd2500
 )
 (
 	//from the Input Controller
@@ -68,9 +66,8 @@ module TextureController
 	input wire clk,
 	input wire reset,
 	//from the Rasteriser module 
-	input wire [18:0] PixNum,
-	input wire load_texture;
-	input wire get_rgba;
+	input wire load_texture,
+	input wire get_rgba,
 	//output to the Alpha Blender
 	output wire [7:0] red,
 	output wire [7:0] green,
@@ -92,15 +89,16 @@ wire [31:0] read_data;
 reg [31:0] nxt_read_data; //rgba it all
 reg [16:0] nxt_read_address;
 reg [16:0] read_address;
-TextureControllerRAM U1 (.q(read_data), .read_address(read_address),.write_address(write_address), .clk(clk), .we(write)); // FIXME ADD WRITE SIGNALS!
-assign red = read_data[7:0];
-assign green = read_data[15:8];
-assign blue = read_data[23:16];
-assign alpha = read_data[31:23];
+TextureControllerRAM U1 (.q(read_data), .read_address(read_address),.write_address(write_address), .clk(clk), .we(write), .data(write_data)); // FIXME ADD WRITE SIGNALS!
+assign alpha = read_data[7:0];
+assign blue = read_data[15:8];
+assign green = read_data[23:16];
+assign red = read_data[31:24];
 
-always_ff @ (posedge clk, negedge restart)
+always_ff @ (posedge clk, negedge reset)
 begin
-	if(restart == 1'b0)
+	
+	if(reset == 1'b0)
 	begin
 		read_address <= 17'd0;
 	end
@@ -112,10 +110,9 @@ begin
 end
 
 always_comb
-begin : NEXT_STATE_LOGIC
+begin 
 	nxt_state = state;
 	case(state)
-	begin
 	IDLE:
 	begin
 		if(load_texture == 1'b1)
@@ -124,7 +121,7 @@ begin : NEXT_STATE_LOGIC
 		end
 		else if(get_rgba == 1'b1)
 		begin
-			nxt_state = PIXEL
+			nxt_state = PIXEL;
 		end
 	end
 	LOAD:
@@ -142,7 +139,6 @@ always_comb
 begin : OUTPUT_LOGIC
 	nxt_read_address = read_address;
 	case(state)
-	begin
 	LOAD:
 	begin
 		if(TexNum == 8'd1)
