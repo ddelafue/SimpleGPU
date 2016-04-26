@@ -133,7 +133,7 @@ module tb_OutputController
 		begin
 			$error("Error: White Failed or mapped wrong");
 		end
-		for(int i = 0; i < 102396; i ++)
+		for(int i = 0; i < 102396; i ++) //actual value is 102396
 		begin
 			tb_Pixel_Number = i + 4;
 			tb_M9_write = 1'b1;
@@ -235,7 +235,6 @@ module tb_OutputController
 			$display("let's deal with this later");
 		end
 		#4;
-
 
 				
 

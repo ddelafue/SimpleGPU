@@ -19,6 +19,7 @@ module Rasteriser
 	input wire opcode_received,
 	input wire frame_ready,
 	input wire data_ready,
+	input wire finished,
 	input wire [15:0] x1,
 	input wire [15:0] y1,
 	input wire [15:0] x2,
@@ -46,7 +47,7 @@ reg get_line_pixel;
 wire end_1;
 wire end_2;
 wire end_3;
-reg [LOG_MAX_WAIT - 1:0] wait;
+reg [LOG_MAX_WAIT - 1:0] wait1;
 reg [LOG_MAX_WAIT - 1:0] next_wait;
 
 
@@ -113,11 +114,11 @@ begin
 	if (reset == 1'b0)
 	begin
 		state <= IDLE;
-		wait <= '0;
+		wait1 <= '0;
 	end
 	else
 	begin
-		wait <= next_wait;
+		wait1 <= next_wait;
 		state <= next_state;
 	end
 end
@@ -147,19 +148,19 @@ begin : NEXT_STATE_LOGIC
 		begin
 			if (end_1 || end_2)
 				next_state = READY2;
-			else if (wait == CALC_WAIT - 1)
+			else if (wait1 == CALC_WAIT - 1)
 				next_state = READY;
 			else
-				next_wait = wait + 1;
+				next_wait = wait1 + 1;
 		end
 		READY:
 			next_state = ALPHA;
 		ALPHA:
 		begin
-			if (wait == ALPHA_WAIT - 1)
+			if (wait1 == ALPHA_WAIT - 1)
 				next_state = GET_PIX;
 			else
-				next_wait = wait + 1;
+				next_wait = wait1 + 1;
 		end
 		GET_PIX:
 			next_state = TEXTURE;
@@ -167,19 +168,19 @@ begin : NEXT_STATE_LOGIC
 		begin
 			if (end_3)
 				next_state = READY3;
-			else if (wait == TEXTURE_WAIT - 1)
+			else if (wait1 == TEXTURE_WAIT - 1)
 				next_state = READY;
 			else
-				next_wait = wait + 1;
+				next_wait = wait1 + 1;
 		end
 		READY3:
 			next_state = ALPHA3;
 		ALPHA3:
 		begin
-			if (wait == ALPHA_WAIT - 1)
+			if (wait1 == ALPHA_WAIT - 1)
 				next_state = DONE;
 			else
-				next_wait = wait + 1;
+				next_wait = wait1 + 1;
 		end
 		DONE:
 			next_state = WAIT_C;
@@ -187,10 +188,10 @@ begin : NEXT_STATE_LOGIC
 			next_state = ALPHA2;
 		ALPHA2:
 		begin
-			if (wait == ALPHA_WAIT - 1)
+			if (wait1 == ALPHA_WAIT - 1)
 				next_state = GET;
 			else
-				next_wait = wait + 1;
+				next_wait = wait1 + 1;
 		end
 		FRAME:
 			next_state = SD;
@@ -214,11 +215,15 @@ begin : OUTPUT_LOGIC
 	calc_1 = 1'b0;
 	calc_2 = 1'b0;
 	get_line_pixel = 1'b0;
+	pixel_ready = 1'b0;
 	case(state)
 		GET:
 			next_triangle = 1'b1;
 		IN_XY:
+		begin
+			load_texture = 1'b1;
 			calc_1 = 1'b1;
+		end
 		WAIT_C:
 			calc_2 = 1'b1;
 		READY:

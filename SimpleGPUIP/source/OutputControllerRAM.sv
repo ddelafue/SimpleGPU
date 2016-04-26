@@ -14,7 +14,7 @@ module OutputControllerRAM
 		input [16:0] write_address, read_address,
 		input we, clk
 );
-	reg [23:0] mem [102399:0];
+	reg [23:0] mem [102399:0]; //changed back to 102399
 	always @ (posedge clk) begin
 		if (we)
 			mem[write_address] <= data;

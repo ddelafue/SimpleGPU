@@ -82,7 +82,7 @@ module TextureController
 );
 
 
-typedef enum bit [2:0] {IDLE,LOAD,PIXEL} stateType;
+typedef enum bit [1:0] {IDLE,LOAD,PIXEL} stateType;
 stateType state;
 stateType nxt_state;
 wire [31:0] read_data;
@@ -101,6 +101,8 @@ begin
 	if(reset == 1'b0)
 	begin
 		read_address <= 17'd0;
+		state <= IDLE;
+
 	end
 	else
 	begin
