@@ -43,6 +43,7 @@ module tb_GPU
 
 	initial
 	begin
+		f = $fopen("test_1.txt","w");
 		tb_clk = 1'b0;
 		tb_reset = 1'b0;
 		tb_fifo_write = 1'b0;
@@ -55,24 +56,19 @@ module tb_GPU
 		#4;
 		tb_fifo_write = 1'b0;
 		#4;
-		tb_fifo_write_data = 32'b00000000000000000000000000000000;
-		for(i=0; i < 2; i++)
-		begin
-			#4;
-			tb_fifo_write = 1'b1;
-			#4;
-			tb_fifo_write = 1'b0;
-			#4;
-			tb_fifo_write_data = tb_fifo_write_data + 32'd140;
-		end
-		#4;
-		tb_fifo_write_data = 32'b00100000000000000000000000000000;
+		tb_fifo_write_data = 32'b00000000000111100000000001100100;
 		#4;
 		tb_fifo_write = 1'b1;
 		#4;
 		tb_fifo_write = 1'b0;
 		#4;
-		tb_fifo_write_data = 32'b00010000000000000000000000000000;
+		tb_fifo_write_data = 32'b00000000100000100000000001100100;
+		#4;
+		tb_fifo_write = 1'b1;
+		#4;
+		tb_fifo_write = 1'b0;
+		#4;
+		tb_fifo_write_data = 32'b00000000000111100000000000000000;
 		#4;
 		tb_fifo_write = 1'b1;
 		#4;
@@ -103,5 +99,10 @@ module tb_GPU
 		tb_fifo_write = 1'b0;
 		
 	end
+
+always_ff @ (posedge tb_SD_write)
+begin
+	
+end
 
 endmodule
