@@ -21,10 +21,6 @@ module OutputController
 	//From the Texture Controller
 	input wire [16:0] Pixel_Number,
 
-	
-
-
-
 	//output back to Alpha Blender
 	output wire [7:0] read_r,
 	output wire [7:0] read_g,

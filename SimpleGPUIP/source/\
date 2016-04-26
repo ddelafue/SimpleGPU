@@ -77,7 +77,7 @@ wire[7:0] r_b;
 		);
 	*/
 
-InputDecoder U1 (
+InputDecoder U2 (
 		.clk(clk), //NO READ SIGNALS
 		.reset(reset),
 		.fifo_write(fifo_write),
@@ -125,7 +125,7 @@ InputDecoder U1 (
 		);
 	*/
 
-Rasteriser U2 (.clk(clk),
+Rasteriser U3 (.clk(clk),
 		.reset(reset),
 		.opcode_received(op_rec),
 		.frame_ready(frame_ready),
@@ -169,7 +169,7 @@ Rasteriser U2 (.clk(clk),
 		);
 	*/
 	
-TextureController U3 (
+TextureController U4 (
 					.TexNum(TexNum),
 					.clk(clk),
 					.reset(reset),
@@ -214,7 +214,7 @@ TextureController U3 (
 		);
 	*/
 
-AlphaBlender #(.CLKWAIT(1)) U4 (
+AlphaBlender #(.CLKWAIT(1)) U5 (
 		.clk(clk),
 		.reset(reset),
 		.pixel_number(pix_num),
@@ -268,7 +268,7 @@ AlphaBlender #(.CLKWAIT(1)) U4 (
 	*/
 
 
-OutputController U5 (
+OutputController U6 (
 			.clk(clk),
 			.reset(reset),
 			.write_r(w_r),
@@ -285,7 +285,7 @@ OutputController U5 (
 			.SD_wdata(SD_wdata),
 			.SD_address(SD_address),
 			.waitrequest(SD_waitrequest),
-			.finished(finished2)); //SOMEWHERE
+			.finished()); //SOMEWHERE
 
 
 endmodule
