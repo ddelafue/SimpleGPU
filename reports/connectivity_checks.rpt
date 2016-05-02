@@ -1,0 +1,104 @@
+Connectivity Checks report for master_example
+Mon May  2 00:48:36 2016
+Quartus II 64-Bit Version 14.0.0 Build 200 06/17/2014 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Port Connectivity Checks: "OutputController:U5"
+  3. Port Connectivity Checks: "AlphaBlender:U4"
+  4. Port Connectivity Checks: "Rasteriser:U2|DrawLine:d1|flex_counter:c3"
+  5. Port Connectivity Checks: "Rasteriser:U2|DrawLine:d1|flex_counter:c2"
+  6. Port Connectivity Checks: "Rasteriser:U2|DrawLine:d1|flex_counter:c1"
+  7. Port Connectivity Checks: "Rasteriser:U2"
+  8. Port Connectivity Checks: "InputDecoder:U1|InputDecoder_fifo_RAM:RAM"
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2014 Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus II License Agreement,
+the Altera MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Altera and sold by Altera or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++--------------------------------------------------+
+; Port Connectivity Checks: "OutputController:U5"  ;
++------+-------+----------+------------------------+
+; Port ; Type  ; Severity ; Details                ;
++------+-------+----------+------------------------+
+; read ; Input ; Info     ; Explicitly unconnected ;
++------+-------+----------+------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "AlphaBlender:U4"                                                                    ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; read ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------+
+; Port Connectivity Checks: "Rasteriser:U2|DrawLine:d1|flex_counter:c3" ;
++-----------+--------+----------+---------------------------------------+
+; Port      ; Type   ; Severity ; Details                               ;
++-----------+--------+----------+---------------------------------------+
+; count_out ; Output ; Info     ; Explicitly unconnected                ;
++-----------+--------+----------+---------------------------------------+
+
+
++-----------------------------------------------------------------------+
+; Port Connectivity Checks: "Rasteriser:U2|DrawLine:d1|flex_counter:c2" ;
++-----------+--------+----------+---------------------------------------+
+; Port      ; Type   ; Severity ; Details                               ;
++-----------+--------+----------+---------------------------------------+
+; count_out ; Output ; Info     ; Explicitly unconnected                ;
++-----------+--------+----------+---------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Rasteriser:U2|DrawLine:d1|flex_counter:c1"                                               ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; count_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Rasteriser:U2"                                                                                      ;
++----------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port                 ; Type   ; Severity ; Details                                                                             ;
++----------------------+--------+----------+-------------------------------------------------------------------------------------+
+; get_pixel            ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; pixel_number[18..17] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; frame_ready_o        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "InputDecoder:U1|InputDecoder_fifo_RAM:RAM"                                          ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; full ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+

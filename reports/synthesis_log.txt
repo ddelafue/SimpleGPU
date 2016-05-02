@@ -1,0 +1,256 @@
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+	Info: Version 14.0.0 Build 200 06/17/2014 SJ Full Version
+	Info: Processing started: Mon May  2 00:25:39 2016
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off master_example -c master_example
+Info (11104): Parallel Compilation has detected 48 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 16 of the 24 physical processors detected instead.
+Info (12021): Found 1 design units, including 1 entities, in source file /home/ecegrid/a/mg54/SimpleGPU/SimpleGPUIP/source/tb_GPU.sv
+	Info (12023): Found entity 1: tb_GPU
+Info (12021): Found 1 design units, including 1 entities, in source file /home/ecegrid/a/mg54/SimpleGPU/SimpleGPUIP/source/TextureControllerRAM.sv
+	Info (12023): Found entity 1: TextureControllerRAM
+Info (12021): Found 1 design units, including 1 entities, in source file /home/ecegrid/a/mg54/SimpleGPU/SimpleGPUIP/source/TextureController.sv
+	Info (12023): Found entity 1: TextureController
+Info (12021): Found 1 design units, including 1 entities, in source file /home/ecegrid/a/mg54/SimpleGPU/SimpleGPUIP/source/Rasteriser.sv
+	Info (12023): Found entity 1: Rasteriser
+Info (12021): Found 1 design units, including 1 entities, in source file /home/ecegrid/a/mg54/SimpleGPU/SimpleGPUIP/source/OutputControllerRAM.sv
+	Info (12023): Found entity 1: OutputControllerRAM
+Info (12021): Found 1 design units, including 1 entities, in source file /home/ecegrid/a/mg54/SimpleGPU/SimpleGPUIP/source/OutputController.sv
+	Info (12023): Found entity 1: OutputController
+Info (12021): Found 1 design units, including 1 entities, in source file /home/ecegrid/a/mg54/SimpleGPU/SimpleGPUIP/source/InputDecoderRAM.sv
+	Info (12023): Found entity 1: InputDecoderRAM
+Info (12021): Found 1 design units, including 1 entities, in source file /home/ecegrid/a/mg54/SimpleGPU/SimpleGPUIP/source/InputDecoder_fifo_RAM.sv
+	Info (12023): Found entity 1: InputDecoder_fifo_RAM
+Info (12021): Found 1 design units, including 1 entities, in source file /home/ecegrid/a/mg54/SimpleGPU/SimpleGPUIP/source/InputDecoder.sv
+	Info (12023): Found entity 1: InputDecoder
+Info (12021): Found 1 design units, including 1 entities, in source file /home/ecegrid/a/mg54/SimpleGPU/SimpleGPUIP/source/GPU.sv
+	Info (12023): Found entity 1: GPU
+Info (12021): Found 1 design units, including 1 entities, in source file /home/ecegrid/a/mg54/SimpleGPU/SimpleGPUIP/source/flex_counter.sv
+	Info (12023): Found entity 1: flex_counter
+Info (12021): Found 1 design units, including 1 entities, in source file /home/ecegrid/a/mg54/SimpleGPU/SimpleGPUIP/source/DrawLine.sv
+	Info (12023): Found entity 1: DrawLine
+Info (12021): Found 1 design units, including 1 entities, in source file /home/ecegrid/a/mg54/SimpleGPU/SimpleGPUIP/source/AlphaBlender.sv
+	Info (12023): Found entity 1: AlphaBlender
+Info (12127): Elaborating entity "GPU" for the top level hierarchy
+Info (12128): Elaborating entity "InputDecoder" for hierarchy "InputDecoder:U1"
+Info (10264): Verilog HDL Case Statement information at InputDecoder.sv(119): all case item expressions in this case statement are onehot
+Warning (10270): Verilog HDL Case Statement warning at InputDecoder.sv(187): incomplete case statement has no default case item
+Info (10264): Verilog HDL Case Statement information at InputDecoder.sv(187): all case item expressions in this case statement are onehot
+Info (12128): Elaborating entity "InputDecoder_fifo_RAM" for hierarchy "InputDecoder:U1|InputDecoder_fifo_RAM:RAM"
+Warning (10230): Verilog HDL assignment warning at InputDecoder_fifo_RAM.sv(55): truncated value with size 32 to match size of target (9)
+Warning (10230): Verilog HDL assignment warning at InputDecoder_fifo_RAM.sv(60): truncated value with size 32 to match size of target (9)
+Warning (10230): Verilog HDL assignment warning at InputDecoder_fifo_RAM.sv(74): truncated value with size 32 to match size of target (9)
+Warning (10230): Verilog HDL assignment warning at InputDecoder_fifo_RAM.sv(76): truncated value with size 32 to match size of target (9)
+Info (12128): Elaborating entity "InputDecoderRAM" for hierarchy "InputDecoder:U1|InputDecoder_fifo_RAM:RAM|InputDecoderRAM:ID"
+Info (12128): Elaborating entity "Rasteriser" for hierarchy "Rasteriser:U2"
+Warning (10230): Verilog HDL assignment warning at Rasteriser.sv(178): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at Rasteriser.sv(187): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at Rasteriser.sv(198): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at Rasteriser.sv(207): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at Rasteriser.sv(218): truncated value with size 32 to match size of target (4)
+Warning (10270): Verilog HDL Case Statement warning at Rasteriser.sv(243): incomplete case statement has no default case item
+Info (10264): Verilog HDL Case Statement information at Rasteriser.sv(243): all case item expressions in this case statement are onehot
+Info (12128): Elaborating entity "DrawLine" for hierarchy "Rasteriser:U2|DrawLine:d1"
+Warning (10230): Verilog HDL assignment warning at DrawLine.sv(184): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at DrawLine.sv(188): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at DrawLine.sv(200): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at DrawLine.sv(206): truncated value with size 32 to match size of target (16)
+Info (12128): Elaborating entity "flex_counter" for hierarchy "Rasteriser:U2|DrawLine:d1|flex_counter:c1"
+Warning (10230): Verilog HDL assignment warning at flex_counter.sv(50): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at flex_counter.sv(55): truncated value with size 32 to match size of target (16)
+Info (12128): Elaborating entity "TextureController" for hierarchy "TextureController:U3"
+Warning (10230): Verilog HDL assignment warning at TextureController.sv(349): truncated value with size 32 to match size of target (17)
+Warning (10270): Verilog HDL Case Statement warning at TextureController.sv(143): incomplete case statement has no default case item
+Info (10264): Verilog HDL Case Statement information at TextureController.sv(143): all case item expressions in this case statement are onehot
+Info (12128): Elaborating entity "TextureControllerRAM" for hierarchy "TextureController:U3|TextureControllerRAM:U1"
+Info (12128): Elaborating entity "AlphaBlender" for hierarchy "AlphaBlender:U4"
+Warning (10230): Verilog HDL assignment warning at AlphaBlender.sv(88): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at AlphaBlender.sv(90): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at AlphaBlender.sv(92): truncated value with size 16 to match size of target (8)
+Info (12128): Elaborating entity "OutputController" for hierarchy "OutputController:U5"
+Warning (10858): Verilog HDL warning at OutputController.sv(41): object complete used but never assigned
+Warning (10036): Verilog HDL or VHDL warning at OutputController.sv(43): object "next_complete" assigned a value but never read
+Warning (10230): Verilog HDL assignment warning at OutputController.sv(183): truncated value with size 32 to match size of target (17)
+Warning (10230): Verilog HDL assignment warning at OutputController.sv(184): truncated value with size 32 to match size of target (19)
+Warning (10270): Verilog HDL Case Statement warning at OutputController.sv(165): incomplete case statement has no default case item
+Info (10264): Verilog HDL Case Statement information at OutputController.sv(165): all case item expressions in this case statement are onehot
+Info (12128): Elaborating entity "OutputControllerRAM" for hierarchy "OutputController:U5|OutputControllerRAM:m9write"
+Info (19000): Inferred 2 megafunctions from design logic
+	Info (276029): Inferred altsyncram megafunction from the following design logic: "OutputController:U5|OutputControllerRAM:m9write|mem_rtl_0" 
+		Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
+		Info (286033): Parameter WIDTH_A set to 24
+		Info (286033): Parameter WIDTHAD_A set to 17
+		Info (286033): Parameter NUMWORDS_A set to 102400
+		Info (286033): Parameter WIDTH_B set to 24
+		Info (286033): Parameter WIDTHAD_B set to 17
+		Info (286033): Parameter NUMWORDS_B set to 102400
+		Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+		Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
+		Info (286033): Parameter ADDRESS_ACLR_B set to NONE
+		Info (286033): Parameter OUTDATA_ACLR_B set to NONE
+		Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
+		Info (286033): Parameter INDATA_ACLR_A set to NONE
+		Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+		Info (286033): Parameter READ_DURING_WRITE_MODE_MIXED_PORTS set to OLD_DATA
+	Info (276029): Inferred altsyncram megafunction from the following design logic: "TextureController:U3|TextureControllerRAM:U1|mem_rtl_0" 
+		Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
+		Info (286033): Parameter WIDTH_A set to 32
+		Info (286033): Parameter WIDTHAD_A set to 17
+		Info (286033): Parameter NUMWORDS_A set to 107120
+		Info (286033): Parameter WIDTH_B set to 32
+		Info (286033): Parameter WIDTHAD_B set to 17
+		Info (286033): Parameter NUMWORDS_B set to 107120
+		Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+		Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
+		Info (286033): Parameter ADDRESS_ACLR_B set to NONE
+		Info (286033): Parameter OUTDATA_ACLR_B set to NONE
+		Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
+		Info (286033): Parameter INDATA_ACLR_A set to NONE
+		Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+		Info (286033): Parameter READ_DURING_WRITE_MODE_MIXED_PORTS set to OLD_DATA
+Info (278001): Inferred 18 megafunctions from design logic
+	Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "AlphaBlender:U4|Div2"
+	Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "AlphaBlender:U4|Div1"
+	Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "AlphaBlender:U4|Div0"
+	Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "AlphaBlender:U4|Mult4"
+	Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "AlphaBlender:U4|Mult5"
+	Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "AlphaBlender:U4|Mult2"
+	Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "AlphaBlender:U4|Mult3"
+	Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "AlphaBlender:U4|Mult0"
+	Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "AlphaBlender:U4|Mult1"
+	Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Rasteriser:U2|DrawLine:d3|Div0"
+	Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Rasteriser:U2|DrawLine:d1|Div0"
+	Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Rasteriser:U2|DrawLine:d3|Div1"
+	Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Rasteriser:U2|DrawLine:d1|Div1"
+	Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Rasteriser:U2|DrawLine:d2|Div0"
+	Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Rasteriser:U2|DrawLine:d2|Div1"
+	Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "Rasteriser:U2|DrawLine:d3|Mult0"
+	Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "Rasteriser:U2|DrawLine:d1|Mult0"
+	Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "Rasteriser:U2|DrawLine:d2|Mult0"
+Info (12130): Elaborated megafunction instantiation "OutputController:U5|OutputControllerRAM:m9write|altsyncram:mem_rtl_0"
+Info (12133): Instantiated megafunction "OutputController:U5|OutputControllerRAM:m9write|altsyncram:mem_rtl_0" with the following parameter:
+	Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
+	Info (12134): Parameter "WIDTH_A" = "24"
+	Info (12134): Parameter "WIDTHAD_A" = "17"
+	Info (12134): Parameter "NUMWORDS_A" = "102400"
+	Info (12134): Parameter "WIDTH_B" = "24"
+	Info (12134): Parameter "WIDTHAD_B" = "17"
+	Info (12134): Parameter "NUMWORDS_B" = "102400"
+	Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+	Info (12134): Parameter "OUTDATA_REG_B" = "UNREGISTERED"
+	Info (12134): Parameter "ADDRESS_ACLR_B" = "NONE"
+	Info (12134): Parameter "OUTDATA_ACLR_B" = "NONE"
+	Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK0"
+	Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+	Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+	Info (12134): Parameter "READ_DURING_WRITE_MODE_MIXED_PORTS" = "OLD_DATA"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_kfh1.tdf
+	Info (12023): Found entity 1: altsyncram_kfh1
+Info (12021): Found 1 design units, including 1 entities, in source file db/decode_22b.tdf
+	Info (12023): Found entity 1: decode_22b
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_0ub.tdf
+	Info (12023): Found entity 1: mux_0ub
+Info (12130): Elaborated megafunction instantiation "TextureController:U3|TextureControllerRAM:U1|altsyncram:mem_rtl_0"
+Info (12133): Instantiated megafunction "TextureController:U3|TextureControllerRAM:U1|altsyncram:mem_rtl_0" with the following parameter:
+	Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
+	Info (12134): Parameter "WIDTH_A" = "32"
+	Info (12134): Parameter "WIDTHAD_A" = "17"
+	Info (12134): Parameter "NUMWORDS_A" = "107120"
+	Info (12134): Parameter "WIDTH_B" = "32"
+	Info (12134): Parameter "WIDTHAD_B" = "17"
+	Info (12134): Parameter "NUMWORDS_B" = "107120"
+	Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+	Info (12134): Parameter "OUTDATA_REG_B" = "UNREGISTERED"
+	Info (12134): Parameter "ADDRESS_ACLR_B" = "NONE"
+	Info (12134): Parameter "OUTDATA_ACLR_B" = "NONE"
+	Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK0"
+	Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+	Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+	Info (12134): Parameter "READ_DURING_WRITE_MODE_MIXED_PORTS" = "OLD_DATA"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_qfh1.tdf
+	Info (12023): Found entity 1: altsyncram_qfh1
+Info (12021): Found 1 design units, including 1 entities, in source file db/decode_32b.tdf
+	Info (12023): Found entity 1: decode_32b
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_1ub.tdf
+	Info (12023): Found entity 1: mux_1ub
+Info (12130): Elaborated megafunction instantiation "AlphaBlender:U4|lpm_divide:Div2"
+Info (12133): Instantiated megafunction "AlphaBlender:U4|lpm_divide:Div2" with the following parameter:
+	Info (12134): Parameter "LPM_WIDTHN" = "16"
+	Info (12134): Parameter "LPM_WIDTHD" = "8"
+	Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+	Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_0nm.tdf
+	Info (12023): Found entity 1: lpm_divide_0nm
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_ulh.tdf
+	Info (12023): Found entity 1: sign_div_unsign_ulh
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_abf.tdf
+	Info (12023): Found entity 1: alt_u_div_abf
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_1tc.tdf
+	Info (12023): Found entity 1: add_sub_1tc
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_2tc.tdf
+	Info (12023): Found entity 1: add_sub_2tc
+Info (12130): Elaborated megafunction instantiation "AlphaBlender:U4|lpm_mult:Mult4"
+Info (12133): Instantiated megafunction "AlphaBlender:U4|lpm_mult:Mult4" with the following parameter:
+	Info (12134): Parameter "LPM_WIDTHA" = "8"
+	Info (12134): Parameter "LPM_WIDTHB" = "8"
+	Info (12134): Parameter "LPM_WIDTHP" = "16"
+	Info (12134): Parameter "LPM_WIDTHR" = "16"
+	Info (12134): Parameter "LPM_WIDTHS" = "1"
+	Info (12134): Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+	Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+	Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
+	Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_4et.tdf
+	Info (12023): Found entity 1: mult_4et
+Info (12130): Elaborated megafunction instantiation "Rasteriser:U2|DrawLine:d3|lpm_divide:Div0"
+Info (12133): Instantiated megafunction "Rasteriser:U2|DrawLine:d3|lpm_divide:Div0" with the following parameter:
+	Info (12134): Parameter "LPM_WIDTHN" = "16"
+	Info (12134): Parameter "LPM_WIDTHD" = "17"
+	Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+	Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_gom.tdf
+	Info (12023): Found entity 1: lpm_divide_gom
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_fnh.tdf
+	Info (12023): Found entity 1: sign_div_unsign_fnh
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_cef.tdf
+	Info (12023): Found entity 1: alt_u_div_cef
+Info (12130): Elaborated megafunction instantiation "Rasteriser:U2|DrawLine:d3|lpm_mult:Mult0"
+Info (12133): Instantiated megafunction "Rasteriser:U2|DrawLine:d3|lpm_mult:Mult0" with the following parameter:
+	Info (12134): Parameter "LPM_WIDTHA" = "16"
+	Info (12134): Parameter "LPM_WIDTHB" = "16"
+	Info (12134): Parameter "LPM_WIDTHP" = "32"
+	Info (12134): Parameter "LPM_WIDTHR" = "32"
+	Info (12134): Parameter "LPM_WIDTHS" = "1"
+	Info (12134): Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+	Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+	Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
+	Info (12134): Parameter "MAXIMIZE_SPEED" = "6"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_1ht.tdf
+	Info (12023): Found entity 1: mult_1ht
+Info (13000): Registers with preset signals will power-up high
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning (13024): Output pins are stuck at VCC or GND
+	Warning (13410): Pin "SD_wdata[24]" is stuck at GND
+	Warning (13410): Pin "SD_wdata[25]" is stuck at GND
+	Warning (13410): Pin "SD_wdata[26]" is stuck at GND
+	Warning (13410): Pin "SD_wdata[27]" is stuck at GND
+	Warning (13410): Pin "SD_wdata[28]" is stuck at GND
+	Warning (13410): Pin "SD_wdata[29]" is stuck at GND
+	Warning (13410): Pin "SD_wdata[30]" is stuck at GND
+	Warning (13410): Pin "SD_wdata[31]" is stuck at GND
+	Warning (13410): Pin "SD_address[0]" is stuck at GND
+	Warning (13410): Pin "SD_address[1]" is stuck at GND
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 17 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+	Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 41152 device resources after synthesis - the final resource count might be different
+	Info (21058): Implemented 128 input pins
+	Info (21059): Implemented 61 output pins
+	Info (21061): Implemented 40191 logic cells
+	Info (21064): Implemented 760 RAM segments
+	Info (21062): Implemented 12 DSP elements
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 38 warnings
+	Info: Peak virtual memory: 1292 megabytes
+	Info: Processing ended: Mon May  2 00:27:10 2016
+	Info: Elapsed time: 00:01:31
+	Info: Total CPU time (on all processors): 00:01:29
