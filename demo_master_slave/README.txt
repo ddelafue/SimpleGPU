@@ -19,5 +19,3 @@ design.
 4. master_example.qpf 	- This is the main Quartus Project File. 
 5. master_example.sdc 	- Design Contraints file for timing analysis in Quartus.
 6. master_example.sv  	- Top level netlist (FPGA wrapper)
-
-In case of any questions/bugs please feel free to contact de2i150.purdue@gmail.com
