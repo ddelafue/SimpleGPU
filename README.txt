@@ -36,8 +36,8 @@ The SimpleGPUIP folder has the following relevant files:
 
 The demo_images folder has the following relevant files:
 	demo_image1.png			- Demonstrates Design Specific Criteria #3
-	demo_inage6.png			- Demonstrates Design Specific Criteria #2
-	demo_inage9.png			- Demonstrates Design Specific Criteria #1
+	demo_image6.png			- Demonstrates Design Specific Criteria #2
+	demo_image9.png			- Demonstrates Design Specific Criteria #1
 
 The reports folder has the following relevant files:
 	connectivity_checks.rpt				- A log file showing the successful completion of Quartus connectivity checks
